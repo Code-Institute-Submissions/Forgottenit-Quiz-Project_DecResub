@@ -1,0 +1,56 @@
+:root{
+    background:  linear-gradient(75deg, rgb(244, 44, 180,0.25), rgb(252, 252, 9,0.25));
+    font-size: 62.5%;
+}
+
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+
+#title{
+    border:2rem solid red;
+    text-align: center;
+    color: blue;
+}
+
+.flex-box{
+    display:flex;
+    height: 70vh;
+    width:70vw;
+    /* padding: 2rem;
+    margin: 3rem; */
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: rgb(250, 122, 250, 0.25);
+    margin: 3rem auto;
+    font-size: 3rem;
+}
+
+.link{
+    padding:2rem;
+    margin:1rem;
+    border: 1rem solid rgb(245, 239, 66);
+    background-color: aliceblue;
+    width:75%;
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    color: black;
+}
+.progressDisplay{
+    justify-content:space-around;
+    display: flex;
+    padding:1rem;
+    border:1rem solid black;
+    width: 100vw;
+    margin-top: 5rem;
+    align-items:center;
+    font-size: 2rem;
+}
+.btn{
+    font-size: 3rem;
+    margin-top: 2rem;
+}
