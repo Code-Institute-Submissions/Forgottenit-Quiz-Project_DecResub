@@ -1,0 +1,22 @@
+[{
+        "question": "What is the capital of France?",
+        "answer1": "Monaco",
+        "answer2": "Berlin",
+        "answer3": "London",
+        "answer4": "Paris",
+        "correctAnswer": 4
+    }, {
+        "question": "What is the capital of England?",
+        "answer1": "Monaco",
+        "answer2": "Berlin",
+        "answer3": "Paris",
+        "answer4": "London",
+        "correctAnswer": 4
+    }, {
+        "question": "What is the capital of Germany?",
+        "answer1": "Monaco",
+        "answer2": "Paris",
+        "answer3": "London",
+        "answer4": "Berlin",
+        "correctAnswer": 4
+    }]
