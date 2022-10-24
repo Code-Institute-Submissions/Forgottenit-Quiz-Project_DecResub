@@ -6,6 +6,8 @@ const answer3Ref = document.querySelector("#answer3");
 const answer4Ref = document.querySelector("#answer4");
 
 let score=0;
+let totalScore = document.querySelector(".score");
+
 
 const availableQuestions = [{
     question:"What is the capital of France?",answer1:"Monaco",answer2:"Berlin",answer3:"London",answer4:"Paris",correctAnswer:4
@@ -19,7 +21,7 @@ console.log(availableQuestions.correctAnswer);
 // Set up a fuction to call a question from array and set it to the innerHTML of question
 let questionIndex = 0;
 function startQuiz(){
-    
+    totalScore.innerHTML=`Score: ${score}`;
     questionRef.innerHTML=availableQuestions[questionIndex].question;
     answer1Ref.innerHTML=availableQuestions[questionIndex].answer1;
     answer2Ref.innerHTML=availableQuestions[questionIndex].answer2;
@@ -36,6 +38,7 @@ function nextQuestion(){
     startQuiz();
     }
     else{
+        totalScore.innerHTML=`Final Score: ${score}`;
         console.log("Game over")
     }
 }
