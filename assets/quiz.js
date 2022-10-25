@@ -10,13 +10,30 @@ let score = 0;
 let totalScore = document.querySelector(".score");
 let questionNumber = document.querySelector("#qNumber");
 
+let selectedQuiz = Array.from(document.querySelectorAll(".link"));
+console.log(selectedQuiz);
+
+//record which choice was selected using the data set, then compare this to the answer number
+// for (i = 0; i < 4; i++) {
+//     selectedQuiz[i].addEventListener("click", e => {
+//         console.log(e.target.dataset.id)
+//     })
+// }
+// let movies=document.querySelector(".movieLink")
+// movies.addEventListener("click", e=>{
+//     genUrl="https://opentdb.com/api.php?amount=10&category=9&type=multiple";
+//     console.log(genUrl);
+//     return genUrl;
+//     getURL();
+// })
 
 
 
 //general knowledge questions url
 const genUrl = "https://opentdb.com/api.php?amount=10&category=9&type=multiple";
 getURL();
-function getURL(){
+
+function getURL() {
     fetch(genUrl)
         .then(res => res.json())
         .then(data => {
@@ -32,7 +49,7 @@ function getURL(){
             getQuestions();
         })
 
-    }
+}
 
 // console.log(availableQuestions)
 
@@ -48,7 +65,28 @@ function getQuestions(questions) {
 
 function getNewQuestion() {
     totalScore.innerHTML = `Score: ${score}`;
-    questionNumber.innerHTML = ("Question Number: " + (questionIndex + 1) + "/" + (availableQuestions.length -1))
+    questionNumber.innerHTML = ("Question Number: " + (questionIndex + 1) + "/" + (availableQuestions.length - 1))
+
+    //fisher-yates shuffle to randomise answer postition from https://bost.ocks.org/mike/shuffle/
+    function shuffle(array) {
+        var m = array.length,
+            t, i;
+
+        // While there remain elements to shuffle…
+        while (m) {
+
+            // Pick a remaining element…
+            i = Math.floor(Math.random() * m--);
+
+            // And swap it with the current element.
+            t = array[m];
+            array[m] = array[i];
+            array[i] = t;
+        }
+
+        return array;
+    }
+    shuffle(availableQuestions[questionIndex].answers);
     questionRef.innerHTML = availableQuestions[questionIndex].question;
     answer1Ref.innerHTML = availableQuestions[questionIndex].answers[0];
     answer2Ref.innerHTML = availableQuestions[questionIndex].answers[1];
@@ -113,22 +151,22 @@ for (i = 0; i < 4; i++) {
     selectedAnswer[i].addEventListener("click", e => {
         console.log(e.target.dataset.id)
 
-        if (e.target.innerHTML== availableQuestions[questionIndex].correctAnswer) {
+        if (e.target.innerHTML == availableQuestions[questionIndex].correctAnswer) {
             console.log("correct");
             score += 100;
             console.log(score);
-            e.target.style.color = "green";
+            e.target.style.background = "green";
             setTimeout(() => {
-                e.target.style.color = "black";
+                e.target.style.background = "antiquewhite";
                 nextQuestion();
             }, "1000")
 
 
         } else {
             console.log("incorrect");
-            e.target.style.color = "red";
+            e.target.style.background = "red";
             setTimeout(() => {
-                e.target.style.color = "black";
+                e.target.style.background = "antiquewhite";
                 nextQuestion();
             }, "1000")
 
