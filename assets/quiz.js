@@ -4,51 +4,58 @@ const answer1Ref = document.querySelector("#answer1");
 const answer2Ref = document.querySelector("#answer2");
 const answer3Ref = document.querySelector("#answer3");
 const answer4Ref = document.querySelector("#answer4");
-let questions;
+const availableQuestions = [];
+
 let score = 0;
 let totalScore = document.querySelector(".score");
 let questionNumber = document.querySelector("#qNumber");
 
-let availableQuestions = [];
+
+
 
 //general knowledge questions url
 const genUrl = "https://opentdb.com/api.php?amount=10&category=9&type=multiple";
+getURL();
+function getURL(){
+    fetch(genUrl)
+        .then(res => res.json())
+        .then(data => {
+            const questions = (data.results.map(q => {
+                return {
+                    question: q.question,
+                    correctAnswer: q.correct_answer,
+                    answers: [...q.incorrect_answers, q.correct_answer]
+                };
+            }))
+            console.log(questions);
+            availableQuestions.push(...questions);
+            getQuestions();
+        })
 
-fetch("../questions.json")
-    .then(res => {
-        return res.json();
-    })
-    .then(data => {
-        for(i=0;i<data.length;i++){console.log(data[i].answer4);}
-        
-    
-        const questions = (data.map(q => {
-            return `<p>Question : ${q.question}</p>`; q.question;
-        }))
-        console.log(questions);
-        availableQuestions.push(questions);
-    })
+    }
 
+// console.log(availableQuestions)
 
-    console.log(questions);
-    console.log(availableQuestions);
+// console.log("questions outside of fetch log: "+questions);
+let questionIndex = 0;
 
+function getQuestions(questions) {
+    availableQuestions.push(questions);
+    console.log(availableQuestions[0].question);
+    getNewQuestion();
 
+}
 
-//    function getQuestions(questions){
+function getNewQuestion() {
+    totalScore.innerHTML = `Score: ${score}`;
+    questionNumber.innerHTML = ("Question Number: " + (questionIndex + 1) + "/" + availableQuestions.length)
+    questionRef.innerHTML = availableQuestions[questionIndex].question;
+    answer1Ref.innerHTML = availableQuestions[questionIndex].answers[0];
+    answer2Ref.innerHTML = availableQuestions[questionIndex].answers[1];
+    answer3Ref.innerHTML = availableQuestions[questionIndex].answers[2];
+    answer4Ref.innerHTML = availableQuestions[questionIndex].answers[3];
+}
 
-//     questions.forEach((question) => {
-//         availableQuestions.push(questions);
-
-//     })
-
-
-
-console.log(availableQuestions);
-let newArray = [];
-newArray.push(...availableQuestions);
-console.log(newArray)
-console.log(availableQuestions[0].answer1)
 
 
 // {
@@ -73,28 +80,17 @@ console.log(availableQuestions[0].answer1)
 //     answer4: "Berlin",
 //     correctAnswer: 4
 // }];
-console.log("available questions length:" + availableQuestions.question);
-console.log(availableQuestions.correctAnswer);
+// console.log("available questions length:" + availableQuestions.length);
+// console.log(availableQuestions.correctAnswer);
 // Set up a function to call a question from array and set it to the innerHTML of question
-let questionIndex = 0;
 
-function startQuiz() {
-    totalScore.innerHTML = `Score: ${score}`;
-    questionNumber.innerHTML = ("Question Number: " + (questionIndex + 1) + "/" + availableQuestions[0].length)
-    questionRef.innerHTML = availableQuestions[questionIndex].question;
-    answer1Ref.innerHTML = availableQuestions[questionIndex].answer1;
-    answer2Ref.innerHTML = availableQuestions[questionIndex].answer2;
-    answer3Ref.innerHTML = availableQuestions[questionIndex].answer3;
-    answer4Ref.innerHTML = availableQuestions[questionIndex].answer4;
-    console.log(availableQuestions[questionIndex].correctAnswer);
-}
 
 function nextQuestion() {
 
     if (questionIndex < (availableQuestions.length - 1)) {
 
         questionIndex++;
-        startQuiz();
+        getNewQuestion();
         console.log("Question Index:" + questionIndex)
     } else {
 
@@ -139,4 +135,4 @@ for (i = 0; i < 4; i++) {
         }
     })
 }
-// //general knowledge questions url
+// // //general knowledge questions url
