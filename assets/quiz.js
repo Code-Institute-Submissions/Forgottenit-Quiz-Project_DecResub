@@ -48,12 +48,13 @@ function getQuestions(questions) {
 
 function getNewQuestion() {
     totalScore.innerHTML = `Score: ${score}`;
-    questionNumber.innerHTML = ("Question Number: " + (questionIndex + 1) + "/" + availableQuestions.length)
+    questionNumber.innerHTML = ("Question Number: " + (questionIndex + 1) + "/" + (availableQuestions.length -1))
     questionRef.innerHTML = availableQuestions[questionIndex].question;
     answer1Ref.innerHTML = availableQuestions[questionIndex].answers[0];
     answer2Ref.innerHTML = availableQuestions[questionIndex].answers[1];
     answer3Ref.innerHTML = availableQuestions[questionIndex].answers[2];
     answer4Ref.innerHTML = availableQuestions[questionIndex].answers[3];
+    console.log("Correct Answer= " + availableQuestions[questionIndex].correctAnswer)
 }
 
 
@@ -87,7 +88,7 @@ function getNewQuestion() {
 
 function nextQuestion() {
 
-    if (questionIndex < (availableQuestions.length - 1)) {
+    if (questionIndex < (availableQuestions.length - 2)) {
 
         questionIndex++;
         getNewQuestion();
@@ -112,7 +113,7 @@ for (i = 0; i < 4; i++) {
     selectedAnswer[i].addEventListener("click", e => {
         console.log(e.target.dataset.id)
 
-        if (e.target.dataset.id == availableQuestions[questionIndex].correctAnswer) {
+        if (e.target.innerHTML== availableQuestions[questionIndex].correctAnswer) {
             console.log("correct");
             score += 100;
             console.log(score);
