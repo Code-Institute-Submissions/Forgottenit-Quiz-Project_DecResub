@@ -5,7 +5,8 @@ const answer2Ref = document.querySelector("#answer2");
 const answer3Ref = document.querySelector("#answer3");
 const answer4Ref = document.querySelector("#answer4");
 const availableQuestions = [];
-
+const gameChoices = [];
+let categoryChoice = document.querySelector(".movieLink");
 let score = 0;
 let totalScore = document.querySelector(".score");
 let questionNumber = document.querySelector("#qNumber");
@@ -13,21 +14,27 @@ let questionNumber = document.querySelector("#qNumber");
 let selectedQuiz = Array.from(document.querySelectorAll(".link"));
 console.log(selectedQuiz);
 
-//record which choice was selected using the data set, then compare this to the answer number
-// for (i = 0; i < 4; i++) {
-//     selectedQuiz[i].addEventListener("click", e => {
-//         console.log(e.target.dataset.id)
-//     })
-// }
-// let movies=document.querySelector(".movieLink")
-// movies.addEventListener("click", e=>{
-//     genUrl="https://opentdb.com/api.php?amount=10&category=9&type=multiple";
-//     console.log(genUrl);
-//     return genUrl;
-//     getURL();
-// })
+fetch("https://opentdb.com/api_category.php")
+    .then(res => res.json())
+    .then(categories => {
+        gameChoices.push(...categories.trivia_categories);
+        displayCategories();
+    })
 
+function displayCategories() {
+    console.log(gameChoices[0].name)
+    for (i = 0; i < gameChoices.length; i++) {
+        //learn how to fill div with categories
+        (x = document.createElement('option')).innerHTML =(`${gameChoices[i].name}<br>`)
+        categoryChoice.appendChild(x);
+        
+        console.log(gameChoices[i].name);
+        console.log(gameChoices[i].id);
+        
+        console.log(gameChoices.length);
 
+    }
+};
 
 //general knowledge questions url
 const genUrl = "https://opentdb.com/api.php?amount=10&category=9&type=multiple";

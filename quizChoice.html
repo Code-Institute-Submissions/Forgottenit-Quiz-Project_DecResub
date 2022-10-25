@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,15 +8,19 @@
     <link rel="stylesheet" href="assets/style.css">
     <title>Document</title>
 </head>
+
 <body>
     <header></header>
     <main class="flex-box">
         <h2>Choose your Questions</h2>
-        <div class="link movieLink" data-id="A">Movies<a class = "movieLink" href="quiz.html">quiz</a></div>
-        <div class="link sportsLink" data-id="B"onclick="getURL()">Sports<a href="quiz.html">quiz</a></div>
-        <div class="link musicLink" data-id="C"onclick="getURL()">Music<a href="quiz.html">quiz</a></div>
-        <div class="link genLink" data-id="D"onclick="getURL()">General Knowledge<a href="quiz.html">quiz</a></div>
+        <select class = "select movieLink">
+            <option data-id="A"></option>
+        </select>
+        <button class="btn">Submit</button>
+
+
     </main>
     <script src="assets/quiz.js"></script>
 </body>
+
 </html>
