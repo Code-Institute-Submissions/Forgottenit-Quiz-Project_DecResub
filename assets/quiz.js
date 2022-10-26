@@ -6,14 +6,14 @@ const answer3Ref = document.querySelector("#answer3");
 const answer4Ref = document.querySelector("#answer4");
 const availableQuestions = [];
 const gameChoices = [];
-let categoryChoice = document.querySelector(".movieLink");
+let categoryChoice = document.querySelector(".select");
 let score = 0;
 let totalScore = document.querySelector(".score");
 let questionNumber = document.querySelector("#qNumber");
 
 let selectedQuiz = Array.from(document.querySelectorAll(".link"));
 console.log(selectedQuiz);
-
+categoryChoice.addEventListener("onclick", e => console.log(e.target.dataset.id))
 fetch("https://opentdb.com/api_category.php")
     .then(res => res.json())
     .then(categories => {
@@ -23,19 +23,26 @@ fetch("https://opentdb.com/api_category.php")
 
 function displayCategories() {
     console.log(gameChoices[0].name)
-    for (i = 0; i < gameChoices.length; i++) {
-        //learn how to fill div with categories
-        (x = document.createElement('option')).innerHTML =(`${gameChoices[i].name}<br>`)
+    for (i = 0; i < 15; i++) {
+        //fill div with categories
+        (x = document.createElement('option')).innerHTML = (`<p class="chosenCategory"data-id="${gameChoices[i].id}">${gameChoices[i].name}` + `${gameChoices[i].id}</p>`)
         categoryChoice.appendChild(x);
+        
         
         console.log(gameChoices[i].name);
         console.log(gameChoices[i].id);
-        
-        console.log(gameChoices.length);
 
+        console.log(gameChoices.length);
+        checkGameChoice();
     }
 };
+//check what game was selected then put that value into the Url postition for category
+    function checkGameChoice(){
+        let chosen = document.getElementsByClassName(".chosenCategory");
+        console.log(categoryChoice)
+    }
 
+// `"https://opentdb.com/api.php?amount=10&category=`${gameChoices[i].id}`&type=multiple"`
 //general knowledge questions url
 const genUrl = "https://opentdb.com/api.php?amount=10&category=9&type=multiple";
 getURL();
