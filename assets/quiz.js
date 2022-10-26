@@ -6,14 +6,17 @@ const answer3Ref = document.querySelector("#answer3");
 const answer4Ref = document.querySelector("#answer4");
 const availableQuestions = [];
 const gameChoices = [];
-let categoryChoice = document.querySelector(".select");
+// let quizNumber;
+let genUrl;
 let score = 0;
 let totalScore = document.querySelector(".score");
 let questionNumber = document.querySelector("#qNumber");
-
+let chosenQuestions = document.getElementsByTagName("option");
 let selectedQuiz = Array.from(document.querySelectorAll(".link"));
+
+
 console.log(selectedQuiz);
-categoryChoice.addEventListener("onclick", e => console.log(e.target.dataset.id))
+
 fetch("https://opentdb.com/api_category.php")
     .then(res => res.json())
     .then(categories => {
@@ -22,32 +25,59 @@ fetch("https://opentdb.com/api_category.php")
     })
 
 function displayCategories() {
-    console.log(gameChoices[0].name)
+
     for (i = 0; i < 15; i++) {
-        //fill div with categories
-        (x = document.createElement('option')).innerHTML = (`<p class="chosenCategory"data-id="${gameChoices[i].id}">${gameChoices[i].name}` + `${gameChoices[i].id}</p>`)
-        categoryChoice.appendChild(x);
-        
-        
-        console.log(gameChoices[i].name);
-        console.log(gameChoices[i].id);
-
-        console.log(gameChoices.length);
-        checkGameChoice();
+        //fill div with 15 categories
+        let categoryChoice = document.querySelector(".select");
+        let categories = document.createElement("option");
+        categories.innerHTML = (`${gameChoices[i].id} ${gameChoices[i].name}`)
+        categoryChoice.appendChild(categories);
     }
+    checkGameChoice();
 };
-//check what game was selected then put that value into the Url postition for category
-    function checkGameChoice(){
-        let chosen = document.getElementsByClassName(".chosenCategory");
-        console.log(categoryChoice)
+// check what game was selected then put that value into the Url postition for category
+function checkGameChoice() {
+    //add value to options to select game choice (values start at 9 from url)
+
+    for (i = 0; i < 15; i++) {
+        chosenQuestions[i].value = i + 9;
+        console.log(chosenQuestions[i].value)
     }
 
-// `"https://opentdb.com/api.php?amount=10&category=`${gameChoices[i].id}`&type=multiple"`
-//general knowledge questions url
-const genUrl = "https://opentdb.com/api.php?amount=10&category=9&type=multiple";
-getURL();
+    console.log(Array.from(gameChoices))
+    console.log(gameChoices.length)
+    console.log(gameChoices[14].id)
+    changeURL();
+}
 
-function getURL() {
+
+// Find out value of clicked choice then change URL
+function changeURL() {
+    let quizContent = document.getElementsByTagName("select");
+    for (i = 0; i < 15; i++) {
+        quizContent[i].addEventListener("click", e => {
+            console.log(e.target.value);
+            let quizNumber = e.target.value;
+            console.log("Quiz Number =" + quizNumber);
+            genUrl=(`"https://opentdb.com/api.php?amount=10&category=${quizNumber}&type=multiple"`);
+            console.log("Url: " + genUrl);
+            return testUrl(genUrl);
+
+        })
+        
+    }
+    
+}
+
+function testUrl(genUrl){
+    console.log("test"+genUrl);
+    return getURL(genUrl);
+}
+
+getURL();
+//general knowledge questions url = "https://opentdb.com/api.php?amount=10&category=15&type=multiple";
+function getURL(genUrl) {
+    console.log("getURL"+genUrl)
     fetch(genUrl)
         .then(res => res.json())
         .then(data => {
@@ -78,7 +108,7 @@ function getQuestions(questions) {
 }
 
 function getNewQuestion() {
-    totalScore.innerHTML = `Score: ${score}`;
+    totalScore.innerHTML = `Score : ${score}`;
     questionNumber.innerHTML = ("Question Number: " + (questionIndex + 1) + "/" + (availableQuestions.length - 1))
 
     //fisher-yates shuffle to randomise answer postition from https://bost.ocks.org/mike/shuffle/
