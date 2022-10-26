@@ -55,7 +55,7 @@ function checkGameChoice() {
 
 
 // Find out value of clicked choice then change URL
-async function changeURL() {
+function changeURL() {
     let quizContent = document.getElementsByTagName("select");
     for (i = 0; i < 15; i++) {
         quizContent[i].addEventListener("click", e => {
@@ -64,6 +64,7 @@ async function changeURL() {
             console.log("Quiz Number =" + quizNumber);
             genUrl = (`https://opentdb.com/api.php?amount=10&category=${quizNumber}&type=multiple`);
             console.log("Url: " + genUrl);
+            getURL(genUrl);
             return testUrl(genUrl);
 
         })
@@ -76,11 +77,11 @@ function testUrl(genUrl) {
     console.log("test" + genUrl);
     return getURL(genUrl);
 }
-getURL();
+
 //general knowledge questions url = "https://opentdb.com/api.php?amount=10&category=15&type=multiple";
-async function getURL(genUrl) {
+function getURL(genUrl) {
     console.log("getURL" + genUrl)
-    fetch("https://opentdb.com/api.php?amount=10&category=15&type=multiple")
+    fetch(genUrl)
         .then(res => res.json())
         .then(data => {
             const questions = (data.results.map(q => {
@@ -144,30 +145,7 @@ function getNewQuestion() {
 
 
 
-// {
-//     question: "What is the capital of France?",
-//     answer1: "Monaco",
-//     answer2: "Berlin",
-//     answer3: "London",
-//     answer4: "Paris",
-//     correctAnswer: 4
-// }, {
-//     question: "What is the capital of England?",
-//     answer1: "Monaco",
-//     answer2: "Berlin",
-//     answer3: "Paris",
-//     answer4: "London",
-//     correctAnswer: 4
-// }, {
-//     question: "What is the capital of Germany?",
-//     answer1: "Monaco",
-//     answer2: "Paris",
-//     answer3: "London",
-//     answer4: "Berlin",
-//     correctAnswer: 4
-// }];
-// console.log("available questions length:" + availableQuestions.length);
-// console.log(availableQuestions.correctAnswer);
+
 // Set up a function to call a question from array and set it to the innerHTML of question
 
 
