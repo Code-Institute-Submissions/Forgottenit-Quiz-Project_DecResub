@@ -84,7 +84,7 @@ function getURL(genUrl) {
     fetch(genUrl)
         .then(res => res.json())
         .then(data => {
-            const questions = (data.results.map(q => {
+            let questions = (data.results.map(q => {
                 return {
                     question: q.question,
                     correctAnswer: q.correct_answer,
@@ -93,8 +93,8 @@ function getURL(genUrl) {
             }))
 
             console.log(questions);
-            availableQuestions.push(...questions);
-            getQuestions();
+            availableQuestions.splice(0,9,...questions);
+            getNewQuestion();
         })
         .catch(error => console.log(error))
 }
@@ -104,12 +104,13 @@ function getURL(genUrl) {
 // console.log("questions outside of fetch log: "+questions);
 let questionIndex = 0;
 
-function getQuestions(questions) {
-    availableQuestions.push(questions);
-    console.log(availableQuestions[0].question);
-    getNewQuestion();
+// function getQuestions(questions) {
+    
+//     // availableQuestions.push(questions);
+//     console.log(availableQuestions[0].question);
+//     getNewQuestion();
 
-}
+// }
 
 function getNewQuestion() {
     totalScore.innerHTML = `Score : ${score}`;
