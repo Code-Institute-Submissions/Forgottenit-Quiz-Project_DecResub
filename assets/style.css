@@ -51,7 +51,7 @@
     align-items:center;
     font-size: 2rem;
 }
-.btn{
+.submit-btn,.btn{
     font-size: 3rem;
     margin-top: 2rem;
     border-radius: 5px;

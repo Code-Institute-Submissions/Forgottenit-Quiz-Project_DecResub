@@ -15,14 +15,17 @@ let chosenQuestions = document.getElementsByTagName("option");
 let selectedQuiz = Array.from(document.querySelectorAll(".link"));
 
 
+
+
 console.log(selectedQuiz);
 
-fetch("https://opentdb.com/api_category.php")
+fetch(`https://opentdb.com/api_category.php`)
     .then(res => res.json())
     .then(categories => {
         gameChoices.push(...categories.trivia_categories);
         displayCategories();
     })
+    .catch(error => console.log(error))
 
 function displayCategories() {
 
@@ -52,33 +55,32 @@ function checkGameChoice() {
 
 
 // Find out value of clicked choice then change URL
-function changeURL() {
+async function changeURL() {
     let quizContent = document.getElementsByTagName("select");
     for (i = 0; i < 15; i++) {
         quizContent[i].addEventListener("click", e => {
             console.log(e.target.value);
             let quizNumber = e.target.value;
             console.log("Quiz Number =" + quizNumber);
-            genUrl=(`"https://opentdb.com/api.php?amount=10&category=${quizNumber}&type=multiple"`);
+            genUrl = (`https://opentdb.com/api.php?amount=10&category=${quizNumber}&type=multiple`);
             console.log("Url: " + genUrl);
             return testUrl(genUrl);
 
         })
-        
+
     }
-    
+
 }
 
-function testUrl(genUrl){
-    console.log("test"+genUrl);
+function testUrl(genUrl) {
+    console.log("test" + genUrl);
     return getURL(genUrl);
 }
-
 getURL();
 //general knowledge questions url = "https://opentdb.com/api.php?amount=10&category=15&type=multiple";
-function getURL(genUrl) {
-    console.log("getURL"+genUrl)
-    fetch(genUrl)
+async function getURL(genUrl) {
+    console.log("getURL" + genUrl)
+    fetch("https://opentdb.com/api.php?amount=10&category=15&type=multiple")
         .then(res => res.json())
         .then(data => {
             const questions = (data.results.map(q => {
@@ -88,11 +90,12 @@ function getURL(genUrl) {
                     answers: [...q.incorrect_answers, q.correct_answer]
                 };
             }))
+
             console.log(questions);
             availableQuestions.push(...questions);
             getQuestions();
         })
-
+        .catch(error => console.log(error))
 }
 
 // console.log(availableQuestions)
