@@ -11,13 +11,13 @@ let genUrl;
 let score = 0;
 let totalScore = document.querySelector(".score");
 let questionNumber = document.querySelector("#qNumber");
-let chosenQuestions = document.getElementsByTagName("option");
-let selectedQuiz = Array.from(document.querySelectorAll(".link"));
+let chosenQuestions = document.getElementsByClassName(".selection");
 
 
 
 
-console.log(selectedQuiz);
+
+
 
 fetch(`https://opentdb.com/api_category.php`)
     .then(res => res.json())
@@ -31,32 +31,22 @@ function displayCategories() {
 
     for (i = 0; i < 15; i++) {
         //fill div with 15 categories
-        let categoryChoice = document.querySelector(".select");
-        let categories = document.createElement("option");
+        let categoryChoice = document.querySelector(".selection");
+        let categories = document.createElement("button");
+        categories.classList="select";
+        categories.value=[i+9]
+        //will have to add href on click
         categories.innerHTML = (`${gameChoices[i].id} ${gameChoices[i].name}`)
         categoryChoice.appendChild(categories);
+        console.log(categories.innerHTML)
+        console.log(categories.value)
     }
-    checkGameChoice();
-};
-// check what game was selected then put that value into the Url postition for category
-function checkGameChoice() {
-    //add value to options to select game choice (values start at 9 from url)
-
-    for (i = 0; i < 15; i++) {
-        chosenQuestions[i].value = i + 9;
-        console.log(chosenQuestions[i].value)
-    }
-
-    console.log(Array.from(gameChoices))
-    console.log(gameChoices.length)
-    console.log(gameChoices[14].id)
     changeURL();
-}
-
+};
 
 // Find out value of clicked choice then change URL
 function changeURL() {
-    let quizContent = document.getElementsByTagName("select");
+    let quizContent = document.getElementsByClassName("select");
     for (i = 0; i < 15; i++) {
         quizContent[i].addEventListener("click", e => {
             console.log(e.target.value);
@@ -93,7 +83,7 @@ function getURL(genUrl) {
             }))
 
             console.log(questions);
-            availableQuestions.splice(0,9,...questions);
+            availableQuestions.splice(0, 9, ...questions);
             getNewQuestion();
         })
         .catch(error => console.log(error))
@@ -105,7 +95,7 @@ function getURL(genUrl) {
 let questionIndex = 0;
 
 // function getQuestions(questions) {
-    
+
 //     // availableQuestions.push(questions);
 //     console.log(availableQuestions[0].question);
 //     getNewQuestion();
