@@ -52,26 +52,21 @@ function changeURL() {
             console.log(e.target.value);
             let quizNumber = e.target.value;
             console.log("Quiz Number =" + quizNumber);
-            genUrl = (`https://opentdb.com/api.php?amount=10&category=${quizNumber}&type=multiple`);
-            console.log("Url: " + genUrl);
-            getURL(genUrl);
-            return testUrl(genUrl);
-
-        })
+            localStorage.setItem("genUrl", `https://opentdb.com/api.php?amount=10&category=${quizNumber}&type=multiple`);
+            console.log("Url: " + localStorage.getItem("genUrl"));
+            getURL();
+            })
 
     }
 
 }
 
-function testUrl(genUrl) {
-    console.log("test" + genUrl);
-    return getURL(genUrl);
-}
 
+getURL();
 //general knowledge questions url = "https://opentdb.com/api.php?amount=10&category=15&type=multiple";
-function getURL(genUrl) {
-    console.log("getURL" + genUrl)
-    fetch(genUrl)
+function getURL() {
+    console.log("getURL" + localStorage.getItem("genUrl"))
+    fetch(localStorage.getItem("genUrl"))
         .then(res => res.json())
         .then(data => {
             let questions = (data.results.map(q => {
