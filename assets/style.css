@@ -1,86 +1,107 @@
-:root{
-    background:  linear-gradient(75deg, rgb(244, 44, 180,0.25), rgb(252, 252, 9,0.25));
+:root {
+    background: linear-gradient(75deg, rgb(244, 44, 180, 0.25), rgb(252, 252, 9, 0.25));
     font-size: 62.5%;
 }
 
-*{
-    padding:0;
-    margin:0;
+* {
+    padding: 0;
+    margin: 0;
     box-sizing: border-box;
 }
 
-#title{
-    border:2rem solid red;
+#title {
+    border: 2rem solid red;
     text-align: center;
     color: blue;
 }
 
-.flex-box{
-    display: flex;
+.flex-box {
+    display: grid;
+    flex-basis: 50%;
     width: 100vw;
-    flex-wrap: wrap;
-    height: 100vh;
+    grid-template-columns: repeat(3, minmax(2vw, 1fr));
+    height: 70vh;
     background-color: rgb(250, 122, 250, 0.25);
     margin: 2rem auto;
     padding: 5px;
-    gap: 1.5rem;
-    justify-content: space-around;
+    gap: 1rem;
+    justify-content: center;
     align-content: center;
     align-items: center;
 }
-    
 
 
-.link{
-    padding:2rem;
-    margin:1rem;
+
+.link {
+    padding: 2rem;
+    margin: 1rem;
     border: 1rem solid rgb(245, 239, 66);
     background-color: aliceblue;
-    width:75%;
+    width: 75%;
     display: flex;
     justify-content: center;
     text-decoration: none;
     color: black;
 }
-.progressDisplay{
-    justify-content:space-around;
+
+.progressDisplay {
+    justify-content: space-around;
     display: flex;
-    padding:1rem;
-    border:1rem solid black;
+    padding: 1rem;
+    border: 1rem solid black;
     width: 100vw;
     margin-top: 5rem;
-    align-items:center;
+    align-items: center;
     font-size: 2rem;
 }
-.submit-btn,.btn{
+
+.submit-btn,
+.btn {
     font-size: 3rem;
     margin-top: 2rem;
     border-radius: 5px;
     padding: 5px;
 }
 
-#question,.choice{
-    padding:1rem;
-    margin:1rem;
+#question,
+.choice {
+    padding: 1rem;
+    margin: 1rem;
 }
 
-.choice{
-    border:0.5rem solid black;
+.choice {
+    border: 0.5rem solid black;
     text-align: center;
     background-color: antiquewhite;
-    
+
 }
-.select{
+
+.select {
     background-color: black;
     color: aliceblue;
 }
 
-.flex{
+.flex {
     display: flex;
     align-items: center;
     align-content: center;
     justify-content: center;
     height: 10vh;
-    width: 20vh;
+    
     padding: 2rem 5rem;
+    border-radius: 10px;
+    margin: 0 2px;
+}
+
+.flex:hover {
+    background-color: rgb(73, 71, 71);
+    color: white;
+    box-shadow: 0 2rem 2rem 0 rgba(0, 0, 0, 0.8), 0 2rem 8rem 0 rgba(0, 0, 0, 0.4);
+}
+
+.flex:focus {
+    background-color: white;
+    color: black;
+    box-shadow: 0 5px #666;
+
 }
