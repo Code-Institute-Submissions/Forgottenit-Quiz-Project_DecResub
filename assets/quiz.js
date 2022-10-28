@@ -33,7 +33,7 @@ function displayCategories() {
         //fill div with 15 categories
         let categoryChoice = document.querySelector(".selection");
         let categories = document.createElement("button");
-        categories.classList="select";
+        categories.classList="select flex";
         categories.value=[i+9]
         //will have to add href on click
         categories.innerHTML = (`${gameChoices[i].id} ${gameChoices[i].name}`)

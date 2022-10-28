@@ -16,18 +16,20 @@
 }
 
 .flex-box{
-    display:flex;
-    height: 70vh;
-    width:70vw;
-    /* padding: 2rem;
-    margin: 3rem; */
-    align-items: center;
-    flex-direction: column;
-    justify-content: space-around;
+    display: flex;
+    width: 100vw;
+    flex-wrap: wrap;
+    height: 100vh;
     background-color: rgb(250, 122, 250, 0.25);
-    margin: 3rem auto;
-    font-size: 2rem;
+    margin: 2rem auto;
+    padding: 5px;
+    gap: 1.5rem;
+    justify-content: space-around;
+    align-content: center;
+    align-items: center;
 }
+    
+
 
 .link{
     padding:2rem;
@@ -35,7 +37,6 @@
     border: 1rem solid rgb(245, 239, 66);
     background-color: aliceblue;
     width:75%;
-    
     display: flex;
     justify-content: center;
     text-decoration: none;
@@ -70,11 +71,16 @@
     
 }
 .select{
-    height:3rem;
-    width:90%;
-    padding-top: 0;
     background-color: black;
     color: aliceblue;
+}
 
-
+.flex{
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    height: 10vh;
+    width: 20vh;
+    padding: 2rem 5rem;
 }
