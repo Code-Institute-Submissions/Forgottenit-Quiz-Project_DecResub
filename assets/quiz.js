@@ -20,7 +20,13 @@ let chosenQuestions = document.getElementsByClassName(".selection");
 
 
 fetch(`https://opentdb.com/api_category.php`)
-    .then(res => res.json())
+
+    .then(res => {
+        if (res.ok) {
+            return res.json();
+        }
+        return Promise.reject(res);
+    })
     .then(categories => {
         gameChoices.push(...categories.trivia_categories);
         displayCategories();
@@ -67,7 +73,12 @@ getURL();
 function getURL() {
     console.log("getURL" + localStorage.getItem("genUrl"))
     fetch(localStorage.getItem("genUrl"))
-        .then(res => res.json())
+        .then(res => {
+            if (res.ok) {
+                return res.json();
+            }
+            return Promise.reject(res);
+        })
         .then(data => {
             let questions = (data.results.map(q => {
                 return {
@@ -85,16 +96,25 @@ function getURL() {
 }
 
 let questionIndex = 0;
-//set progress bar?
+
+document.getElementById("progressBar").value = 0;
 
 
-//set timer
+
+
+
 
 
 
 function getNewQuestion() {
+
+
     totalScore.innerHTML = `Score: ${score}`;
     questionNumber.innerHTML = ("Question: " + (questionIndex + 1) + "/" + (availableQuestions.length))
+
+
+
+
 
     //fisher-yates shuffle to randomise answer postition from https://bost.ocks.org/mike/shuffle/
     function shuffle(array) {
@@ -133,19 +153,19 @@ function getNewQuestion() {
 function nextQuestion() {
 
     if (questionIndex < (availableQuestions.length - 1)) {
-        
+
         questionIndex++;
-        document.getElementById("progressBar").value = 1+questionIndex;
+        document.getElementById("progressBar").value = 1 + questionIndex;
         getNewQuestion();
         console.log("Question Index:" + questionIndex)
     } else {
-
         console.log("Question Index:" + questionIndex)
         window.location.href = "/topScore.html"
         totalScore.innerHTML = `Final Score: ${score}`;
         console.log("Game over")
         window.location.href = "/topScore.html"
     }
+
 }
 
 
@@ -161,12 +181,13 @@ for (i = 0; i < 4; i++) {
         if (e.target.innerHTML == availableQuestions[questionIndex].correctAnswer) {
             console.log("correct");
             score += 100;
+
             console.log(score);
             e.target.style.background = "green";
             setTimeout(() => {
                 e.target.style.background = "antiquewhite";
                 nextQuestion();
-            }, "1000")
+            }, 1000)
 
 
         } else {
@@ -174,8 +195,9 @@ for (i = 0; i < 4; i++) {
             e.target.style.background = "red";
             setTimeout(() => {
                 e.target.style.background = "antiquewhite";
+
                 nextQuestion();
-            }, "1000")
+            }, 1000)
 
 
         }
