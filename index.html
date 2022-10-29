@@ -10,10 +10,16 @@
 <body>
     
     <main>
+        <h1>Welcome to Quiz</h1>
         <div class="flex-box">
-            <h1>Welcome to Quiz</h1>
-        <a class="link" href="quizChoice.html" onclick="">Play Game</a>
-        <a class="link" href="topScore.html">Top Scores</a>
+            
+            
+            <form class = "flex-box" action="quizChoice.html">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" value="******" required>
+                <input type="submit" id = "play"value="Play Game">
+                <a id="top-score" href="topScore.html">Top Scores</a>
+              </form>
     </div>
     </main>
     <script src="assets/quiz.js"></script>

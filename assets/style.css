@@ -15,7 +15,7 @@
     color: blue;
 }
 
-.flex-box {
+.flex-grid {
     display: grid;
     flex-basis: 50%;
     width: 100vw;
@@ -30,11 +30,14 @@
     align-items: center;
 }
 
+#username{
+    padding:2rem;
+}
 
-
-.link {
-    padding: 2rem;
-    margin: 1rem;
+#play, #top-score{
+    padding: 3rem;
+    margin: 2rem;
+    
     border: 1rem solid rgb(245, 239, 66);
     background-color: aliceblue;
     width: 75%;
@@ -43,6 +46,18 @@
     text-decoration: none;
     color: black;
 }
+
+.flex-box{
+    margin-top: 10rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    font-size: 3rem;
+}
+
+
 
 .progressDisplay {
     justify-content: space-around;

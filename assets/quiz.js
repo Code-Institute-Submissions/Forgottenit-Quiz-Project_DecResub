@@ -33,8 +33,8 @@ function displayCategories() {
         //fill div with 15 categories
         let categoryChoice = document.querySelector(".selection");
         let categories = document.createElement("button");
-        categories.classList="select flex";
-        categories.value=[i+9]
+        categories.classList = "select flex";
+        categories.value = [i + 9]
         //will have to add href on click
         categories.innerHTML = (`${gameChoices[i].id} ${gameChoices[i].name}`)
         categoryChoice.appendChild(categories);
@@ -55,7 +55,7 @@ function changeURL() {
             localStorage.setItem("genUrl", `https://opentdb.com/api.php?amount=10&category=${quizNumber}&type=multiple`);
             console.log("Url: " + localStorage.getItem("genUrl"));
             getURL();
-            })
+        })
 
     }
 
@@ -78,28 +78,23 @@ function getURL() {
             }))
 
             console.log(questions);
-            availableQuestions.splice(0, 9, ...questions);
+            availableQuestions.push(...questions);
             getNewQuestion();
         })
         .catch(error => console.log(error))
 }
 
-// console.log(availableQuestions)
-
-// console.log("questions outside of fetch log: "+questions);
 let questionIndex = 0;
+//set progress bar?
 
-// function getQuestions(questions) {
 
-//     // availableQuestions.push(questions);
-//     console.log(availableQuestions[0].question);
-//     getNewQuestion();
+//set timer
 
-// }
+
 
 function getNewQuestion() {
-    totalScore.innerHTML = `Score : ${score}`;
-    questionNumber.innerHTML = ("Question Number: " + (questionIndex + 1) + "/" + (availableQuestions.length - 1))
+    totalScore.innerHTML = `Score: ${score}`;
+    questionNumber.innerHTML = ("Question: " + (questionIndex + 1) + "/" + (availableQuestions.length))
 
     //fisher-yates shuffle to randomise answer postition from https://bost.ocks.org/mike/shuffle/
     function shuffle(array) {
@@ -137,9 +132,10 @@ function getNewQuestion() {
 
 function nextQuestion() {
 
-    if (questionIndex < (availableQuestions.length - 2)) {
-
+    if (questionIndex < (availableQuestions.length - 1)) {
+        
         questionIndex++;
+        document.getElementById("progressBar").value = 1+questionIndex;
         getNewQuestion();
         console.log("Question Index:" + questionIndex)
     } else {
