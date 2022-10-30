@@ -74,7 +74,7 @@ function changeURL() {
             let quizNumber = e.target.value;
             console.log("Quiz Number =" + quizNumber);
 
-
+            //open Trivia database limits to 50 questions, so there's a limit of 5 x 10 options
             if (!quizContent.checked && fetchArray.length < 5) {
 
                 fetchArray.push(["https://opentdb.com/api.php?amount=10&category=" + quizNumber + "&type=multiple"])
