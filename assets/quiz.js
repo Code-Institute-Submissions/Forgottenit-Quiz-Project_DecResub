@@ -50,7 +50,7 @@ function displayCategories() {
         categories.id = [i + 9];
         categoriesLabel.htmlFor = `${i+9}`;
         categoriesLabel.classList = "select flex"
-        categoriesLabel.innerHTML = (`${gameChoices[i].id} ${gameChoices[i].name}`);
+        categoriesLabel.innerHTML = (`${gameChoices[i].name}`);
         categoriesLabel.appendChild(categories)
         console.log(categories);
         console.log(categoriesLabel);
@@ -87,6 +87,8 @@ function changeURL() {
                 console.log("fetchArray" + [j] + "= " + fetchArray[j])
                 localStorage.setItem(`genUrl${[j]}`, fetchArray[j]);
                 console.log("get Item Url " + [j] + "= " + localStorage.getItem(`genUrl${[j]}`));
+                console.log("fetchArray length = " + fetchArray.length)
+                localStorage.setItem("fetchArrayLength", fetchArray.length);
             }
 
            
@@ -107,6 +109,7 @@ function changeURL() {
 
 
             getURL();
+            
         })
 
     }
@@ -117,7 +120,8 @@ function changeURL() {
 getURL();
 //general knowledge questions url = "https://opentdb.com/api.php?amount=10&category=15&type=multiple";
 function getURL() {
-    for (i = 0; i < 5; i++) {
+    for (i = 0; i < localStorage.getItem("fetchArrayLength"); i++) {
+        console.log("fetchArray.length = "+localStorage.getItem("fetchArrayLength"))
         console.log("getURL" + localStorage.getItem("genUrl" + [i]))
         fetch(localStorage.getItem("genUrl" + [i]))
             .then(res => {
