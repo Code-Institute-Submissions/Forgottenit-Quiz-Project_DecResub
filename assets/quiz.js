@@ -6,7 +6,24 @@ const answer3Ref = document.querySelector("#answer3");
 const answer4Ref = document.querySelector("#answer4");
 const availableQuestions = [];
 const gameChoices = [];
-// let quizNumber;
+
+function getUserName() {
+    
+    let playButton = document.querySelector("#play");
+    playButton.addEventListener("click", e => {
+        if (10 > document.querySelector("#username").value.length && document.querySelector("#username").value.length > 2) {
+            localStorage.setItem("username", document.querySelector("#username").value);
+            window.location.href = "/quizChoice.html";
+            
+        } else {
+            alert("Not a Valid Username")
+        }
+
+    })
+}
+
+
+
 let genUrl;
 let score = 0;
 let totalScore = document.querySelector(".score");
@@ -16,26 +33,28 @@ const allUrl = [];
 let fetchArray = [];
 const newAllUrl = [];
 
+let checkFetch = (res) => {
+    if (!res.ok) {
+        throw Error(response.statusText + " " + response.url),
+            console.log("Error");
+    }
+    return res;
+}
+getCategories()
+function getCategories() {
+    
+    fetch(`https://opentdb.com/api_category.php`)
+        .then(checkFetch)
+        .then(res => res.json())
+        .then(categories => {
+            gameChoices.push(...categories.trivia_categories);
+            displayCategories();
+        })
+        .catch(error => console.log(error))
+}
 
 
 
-fetch(`https://opentdb.com/api_category.php`)
-
-    .then(res => {
-        if (res.ok) {
-            return res.json();
-        }
-        window.prompt("sometext", "defaultText")
-        return Promise.reject(res);
-    })
-    .then(categories => {
-        gameChoices.push(...categories.trivia_categories);
-        displayCategories();
-    })
-    .catch(error => console.log(error),
-        // alert("Catch","Failed to fetch questions"),
-        // window.location.href = "/topScore.html"
-    )
 
 function displayCategories() {
 
@@ -67,6 +86,7 @@ function displayCategories() {
 
 // Find out value of clicked choice then change URL
 function changeURL() {
+    console.log(localStorage.getItem("username"));
     let quizContent = document.getElementsByClassName("checkbox");
     for (i = 0; i < 15; i++) {
         quizContent[i].addEventListener("change", e => {
@@ -92,10 +112,10 @@ function changeURL() {
                 localStorage.setItem("fetchArrayLength", fetchArray.length);
             }
 
-           
+
             let newFetchArray = fetchArray;
             console.log("newFetchArray" + [i] + newFetchArray[i])
-            
+
             console.log("get Item Url " + [i] + "= " + localStorage.getItem(`genUrl${[i]}`));
             console.log("fetchArray " + [i] + "= " + fetchArray[i])
             console.log("fetchArray = " + fetchArray)
@@ -110,7 +130,7 @@ function changeURL() {
 
 
             getURL();
-            
+
         })
 
     }
@@ -122,17 +142,12 @@ getURL();
 //general knowledge questions url = "https://opentdb.com/api.php?amount=10&category=15&type=multiple";
 function getURL() {
     for (i = 0; i < localStorage.getItem("fetchArrayLength"); i++) {
-        console.log("fetchArray.length = "+localStorage.getItem("fetchArrayLength"))
+        console.log("fetchArray.length = " + localStorage.getItem("fetchArrayLength"))
         console.log("getURL" + localStorage.getItem("genUrl" + [i]))
-        fetch(localStorage.getItem("genUrl" + [i]))
-            .then(res => {
-                if (res.ok) {
-                    return res.json();
-                }
-                window.prompt("sometext", "defaultText")
-                return Promise.reject(res);
 
-            })
+        fetch(localStorage.getItem("genUrl" + [i]))
+            .then(checkFetch)
+            .then(res => res.json())
             .then(data => {
                 let questions = (data.results.map(q => {
                     return {
@@ -147,10 +162,7 @@ function getURL() {
                 availableQuestions.push(...questions);
                 getNewQuestion();
             })
-            .catch(error => console.log(error),
-                //         alert("Catch","Failed to fetch questions"),
-                //         window.location.href = "/topScore.html"
-            )
+            .catch(error => console.log(error))
     }
     let questionIndex = 0;
 
