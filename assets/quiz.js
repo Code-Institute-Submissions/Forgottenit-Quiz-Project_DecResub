@@ -85,28 +85,23 @@ function changeURL() {
             newAllUrl.push(...fetchArray);
             for (j = 0; j < fetchArray.length; j++) {
                 console.log("fetchArray" + [j] + "= " + fetchArray[j])
+                localStorage.setItem(`genUrl${[j]}`, fetchArray[j]);
+                console.log("get Item Url " + [j] + "= " + localStorage.getItem(`genUrl${[j]}`));
             }
 
-            const obj4 = {};
-
-            fetchArray.forEach((element, index) => {
-                obj4['key' + index] = element;
-            });
-            console.log(obj4);
-
-
+           
             let newFetchArray = fetchArray;
             console.log("newFetchArray" + [i] + newFetchArray[i])
-            localStorage.setItem(`genUrl${[i]}`, fetchArray[i]);
-            console.log("get Item Url: " + [i] + localStorage.getItem(`genUrl${[i]}`));
+            
+            console.log("get Item Url " + [i] + "= " + localStorage.getItem(`genUrl${[i]}`));
             console.log("fetchArray " + [i] + "= " + fetchArray[i])
             console.log("fetchArray = " + fetchArray)
             console.log("fetchArray length = " + fetchArray.length)
             //alert if too many selected
-            if (allUrl.length < 6) {
+            if (fetchArray.length !== 5) {
                 console.log("Ok")
             } else {
-                alert("Too many")
+                alert("last pick!")
             }
 
 
@@ -122,34 +117,35 @@ function changeURL() {
 getURL();
 //general knowledge questions url = "https://opentdb.com/api.php?amount=10&category=15&type=multiple";
 function getURL() {
-    console.log("getURL" + localStorage.getItem("genUrl"))
-    fetch(localStorage.getItem("genUrl"))
-        .then(res => {
-            if (res.ok) {
-                return res.json();
-            }
-            window.prompt("sometext", "defaultText")
-            return Promise.reject(res);
+    for (i = 0; i < 5; i++) {
+        console.log("getURL" + localStorage.getItem("genUrl" + [i]))
+        fetch(localStorage.getItem("genUrl" + [i]))
+            .then(res => {
+                if (res.ok) {
+                    return res.json();
+                }
+                window.prompt("sometext", "defaultText")
+                return Promise.reject(res);
 
-        })
-        .then(data => {
-            let questions = (data.results.map(q => {
-                return {
-                    question: q.question,
-                    correctAnswer: q.correct_answer,
-                    answers: [...q.incorrect_answers, q.correct_answer]
-                };
-            }))
+            })
+            .then(data => {
+                let questions = (data.results.map(q => {
+                    return {
+                        question: q.question,
+                        correctAnswer: q.correct_answer,
+                        answers: [...q.incorrect_answers, q.correct_answer]
+                    };
+                }))
 
-            console.log(questions);
-            availableQuestions.push(...questions);
-            getNewQuestion();
-        })
-        .catch(error => console.log(error),
-            //         alert("Catch","Failed to fetch questions"),
-            //         window.location.href = "/topScore.html"
-        )
-
+                console.log(questions);
+                availableQuestions.push(...questions);
+                getNewQuestion();
+            })
+            .catch(error => console.log(error),
+                //         alert("Catch","Failed to fetch questions"),
+                //         window.location.href = "/topScore.html"
+            )
+    }
     let questionIndex = 0;
 
     document.getElementById("progressBar").value = 0;
