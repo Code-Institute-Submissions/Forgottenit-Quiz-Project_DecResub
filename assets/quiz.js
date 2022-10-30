@@ -73,6 +73,8 @@ function getCategories() {
 
 function displayCategories() {
 
+    document.querySelector("#quiz-choice").innerHTML = `Hello ${localStorage.getItem("username")}, please choose your categories (you can pick a maximum of 5)`
+
     for (i = 0; i < 15; i++) {
         //fill div with 15 categories
         let categoryChoice = document.querySelector(".selection");
@@ -111,8 +113,8 @@ function changeURL() {
             console.log("Quiz Number =" + quizNumber);
 
             //open Trivia database limits to 50 questions, so there's a limit of 5 x 10 options
-            if (!quizContent.checked && fetchArray.length < 5) {
-
+            if (e.target.checked == true && fetchArray.length < 5) {
+                console.log("Checkbox is checked")
                 fetchArray.push(["https://opentdb.com/api.php?amount=10&category=" + quizNumber + "&type=multiple"])
 
                 console.log("NewAllUrl" + [i] + "= " + newAllUrl[i])
@@ -183,8 +185,8 @@ function getURL() {
         totalScore.innerHTML = `Score: ${score}`;
         questionNumber.innerHTML = ("Question: " + (questionIndex + 1) + "/" + (availableQuestions.length))
 
-        
-        
+
+
         shuffle(availableQuestions[questionIndex].answers);
         questionRef.innerHTML = availableQuestions[questionIndex].question;
         answer1Ref.innerHTML = availableQuestions[questionIndex].answers[0];
