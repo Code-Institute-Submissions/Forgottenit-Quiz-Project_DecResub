@@ -8,21 +8,19 @@ const availableQuestions = [];
 const gameChoices = [];
 
 function getUserName() {
-    
+
     let playButton = document.querySelector("#play");
     playButton.addEventListener("click", e => {
         if (10 > document.querySelector("#username").value.length && document.querySelector("#username").value.length > 2) {
             localStorage.setItem("username", document.querySelector("#username").value);
             window.location.href = "/quizChoice.html";
-            
+
         } else {
-            alert("Not a Valid Username")
+            alert("Not a Valid Username, please enter a name between 3 and 9 characters")
         }
 
     })
 }
-
-
 
 let genUrl;
 let score = 0;
@@ -40,9 +38,29 @@ let checkFetch = (res) => {
     }
     return res;
 }
-getCategories()
+
+//fisher-yates shuffle to randomise answer postition from https://bost.ocks.org/mike/shuffle/
+function shuffle(array) {
+    var m = array.length,
+        t, i;
+
+    // While there remain elements to shuffle…
+    while (m) {
+
+        // Pick a remaining element…
+        i = Math.floor(Math.random() * m--);
+
+        // And swap it with the current element.
+        t = array[m];
+        array[m] = array[i];
+        array[i] = t;
+    }
+
+    return array;
+}
+
 function getCategories() {
-    
+
     fetch(`https://opentdb.com/api_category.php`)
         .then(checkFetch)
         .then(res => res.json())
@@ -52,9 +70,6 @@ function getCategories() {
         })
         .catch(error => console.log(error))
 }
-
-
-
 
 function displayCategories() {
 
@@ -86,7 +101,7 @@ function displayCategories() {
 
 // Find out value of clicked choice then change URL
 function changeURL() {
-    console.log(localStorage.getItem("username"));
+
     let quizContent = document.getElementsByClassName("checkbox");
     for (i = 0; i < 15; i++) {
         quizContent[i].addEventListener("change", e => {
@@ -126,19 +141,12 @@ function changeURL() {
             } else {
                 alert("last pick!")
             }
-
-
-
-            getURL();
-
         })
 
     }
 
 }
 
-
-getURL();
 //general knowledge questions url = "https://opentdb.com/api.php?amount=10&category=15&type=multiple";
 function getURL() {
     for (i = 0; i < localStorage.getItem("fetchArrayLength"); i++) {
@@ -160,6 +168,9 @@ function getURL() {
 
                 console.log(questions);
                 availableQuestions.push(...questions);
+                console.log(availableQuestions);
+                shuffle(availableQuestions);
+                console.log(availableQuestions);
                 getNewQuestion();
             })
             .catch(error => console.log(error))
@@ -168,42 +179,12 @@ function getURL() {
 
     document.getElementById("progressBar").value = 0;
 
-
-
-
-
-
-
-
     function getNewQuestion() {
-
-
         totalScore.innerHTML = `Score: ${score}`;
         questionNumber.innerHTML = ("Question: " + (questionIndex + 1) + "/" + (availableQuestions.length))
 
-
-
-
-
-        //fisher-yates shuffle to randomise answer postition from https://bost.ocks.org/mike/shuffle/
-        function shuffle(array) {
-            var m = array.length,
-                t, i;
-
-            // While there remain elements to shuffle…
-            while (m) {
-
-                // Pick a remaining element…
-                i = Math.floor(Math.random() * m--);
-
-                // And swap it with the current element.
-                t = array[m];
-                array[m] = array[i];
-                array[i] = t;
-            }
-
-            return array;
-        }
+        
+        
         shuffle(availableQuestions[questionIndex].answers);
         questionRef.innerHTML = availableQuestions[questionIndex].question;
         answer1Ref.innerHTML = availableQuestions[questionIndex].answers[0];
