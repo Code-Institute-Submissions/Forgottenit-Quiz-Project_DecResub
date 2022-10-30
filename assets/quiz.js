@@ -48,6 +48,7 @@ function displayCategories() {
         categories.value = [i + 9];
         categories.type = "checkbox";
         categories.id = [i + 9];
+        categories.checked = false;
         categoriesLabel.htmlFor = `${i+9}`;
         categoriesLabel.classList = "select flex"
         categoriesLabel.innerHTML = (`${gameChoices[i].name}`);
@@ -135,6 +136,7 @@ function getURL() {
             .then(data => {
                 let questions = (data.results.map(q => {
                     return {
+                        category: q.category,
                         question: q.question,
                         correctAnswer: q.correct_answer,
                         answers: [...q.incorrect_answers, q.correct_answer]
