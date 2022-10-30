@@ -6,17 +6,17 @@ const answer3Ref = document.querySelector("#answer3");
 const answer4Ref = document.querySelector("#answer4");
 const availableQuestions = [];
 const gameChoices = [];
-
+var regex=/^[a-zA-Z]+$/;
 function getUserName() {
 
     let playButton = document.querySelector("#play");
     playButton.addEventListener("click", e => {
-        if (10 > document.querySelector("#username").value.length && document.querySelector("#username").value.length > 2) {
+        if (10 > document.querySelector("#username").value.length && document.querySelector("#username").value.length > 2  && document.querySelector("#username").value.match(regex)) {
             localStorage.setItem("username", document.querySelector("#username").value);
             window.location.href = "/quizChoice.html";
 
         } else {
-            alert("Not a Valid Username, please enter a name between 3 and 9 characters")
+            alert("Not a Valid Username, please enter a name between 3 and 9 letters")
         }
 
     })
