@@ -49,7 +49,7 @@
 }
 
 .flex-box {
-    margin-top: 10rem;
+    margin-top: 3rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -59,20 +59,24 @@
     text-align: center;
 }
 
-
-
 .progressDisplay {
     justify-content: space-around;
     display: flex;
+    align-content: center;
     padding: 1rem;
     border: 1rem solid black;
     width: 100vw;
-    margin-top: 5rem;
+    
     align-items: center;
     font-size: 2rem;
+    height: 10rem;
 }
 
-
+#progress-bar {
+    width: 100%;
+    height: 3rem;
+}
+ 
 .btn {
     font-size: 3rem;
     margin-top: 2rem;
@@ -117,7 +121,6 @@
     align-content: center;
     justify-content: space-around;
     height: 10vh;
-    padding: 2rem 5rem;
     border-radius: 10px;
     margin: 0 2px;
 }
