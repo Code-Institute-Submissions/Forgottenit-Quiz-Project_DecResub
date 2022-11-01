@@ -7,6 +7,7 @@ const answer4Ref = document.querySelector("#answer4");
 const availableQuestions = [];
 const gameChoices = [];
 var regex = /^[a-zA-Z]+$/;
+let qBody = document.getElementById("quiz-body");
 
 function getUserName() {
 
@@ -30,11 +31,18 @@ let questionNumber = document.querySelector("#qNumber");
 let chosenQuestions = document.getElementsByClassName(".selection");
 const allUrl = [];
 let fetchArray = [];
-const newAllUrl = [];
+
 
 let fetchCatch = function (response) {
     if (!response.ok) {
+        confirm("Sorry, there was an problem getting your questions")
+        if (confirm) {
+            qBody.onload = null;
+            window.location.href = "/quiz2.html"
+
+        }
         throw new Error('There was a problem with the Network response');
+
     }
     return response;
 }
@@ -60,7 +68,7 @@ function shuffle(array) {
 }
 
 function getCategories() {
-   
+
     fetch("https://opentdb.com/api_category.php")
         .then(fetchCatch)
         .then(res => res.json())
@@ -113,14 +121,14 @@ function changeURL() {
             console.log("Quiz Number =" + quizNumber);
 
             //open Trivia database limits to 50 questions, so there's a limit of 5 x 10 options
-            if (e.target.checked == true && fetchArray.length < 5) {
+            if (e.target.checked == true && fetchArray.length < 6) {
                 console.log("Checkbox is checked")
                 fetchArray.push(["https://opentdb.com/api.php?amount=10&category=" + quizNumber + "&type=multiple"])
+            } else {
 
-                console.log("NewAllUrl" + [i] + "= " + newAllUrl[i])
             }
 
-            newAllUrl.push(...fetchArray);
+
             for (j = 0; j < fetchArray.length; j++) {
                 console.log("fetchArray" + [j] + "= " + fetchArray[j])
                 localStorage.setItem(`genUrl${[j]}`, fetchArray[j]);
@@ -141,21 +149,22 @@ function changeURL() {
             if (fetchArray.length !== 5) {
                 console.log("Ok")
             } else {
-                alert("last pick!")
+                confirm("last pick!")
             }
         })
 
     }
 
 }
-
+// getURL();
 //general knowledge questions url = "https://opentdb.com/api.php?amount=10&category=15&type=multiple";
 function getURL() {
     for (i = 0; i < localStorage.getItem("fetchArrayLength"); i++) {
         console.log("fetchArray.length = " + localStorage.getItem("fetchArrayLength"))
         console.log("getURL" + localStorage.getItem("genUrl" + [i]))
         // localStorage.getItem("genUrl" + [i])
-        fetch("questions.json")
+        // "questions.json"
+        fetch("uestions.json")
             .then(fetchCatch)
             .then(res => res.json())
             .then(data => {
@@ -187,60 +196,45 @@ document.getElementById("progress-bar").value = 0;
 
 
 
-function resetTimer(){
+function resetTimer() {
     clearInterval(timeOut);
-    time =15;
+    time = 15;
 }
 let time = 15;
 
-    let timeOut = setInterval(timer, 1000);
-    function timer() {
-        
-        document.getElementById("timer").innerHTML = time;
-        time--;
+let timeOut = setInterval(timer, 1000);
 
-        if (time < 0) {
-            resetTimer();
-            console.log(availableQuestions[questionIndex].correctAnswer)
-            selectedAnswer.forEach(answer => {
-                answer.style.pointerEvents = "none";
-                if (answer.innerHTML== availableQuestions[questionIndex].correctAnswer){
-                    answer.style.color = "green";
-                    setTimeout(() => {
-                        answer.style.color = "black";
-                        answer.style.pointerEvents = "auto";
-                    }, 3000)
-                }else{
-                    answer.style.color = "red";
-                    setTimeout(() => {
-                        answer.style.color = "black";
-                        answer.style.pointerEvents = "auto";
-                    }, 3000)
-                }
-            });
-            setTimeout(() => {
-                nextQuestion();
-                
-            }, 3000)
-            
-         }
+function timer() {
+
+    document.getElementById("timer").innerHTML = time;
+    time--;
+
+    if (time < 0) {
+        resetTimer();
+        console.log(availableQuestions[questionIndex].correctAnswer)
+        selectedAnswer.forEach(answer => {
+            answer.style.pointerEvents = "none";
+            if (answer.innerHTML == availableQuestions[questionIndex].correctAnswer) {
+                answer.style.color = "green";
+                setTimeout(() => {
+                    answer.style.color = "black";
+                    answer.style.pointerEvents = "auto";
+                }, 3000)
+            } else {
+                answer.style.color = "red";
+                setTimeout(() => {
+                    answer.style.color = "black";
+                    answer.style.pointerEvents = "auto";
+                }, 3000)
+            }
+        });
+        setTimeout(() => {
+            nextQuestion();
+
+        }, 3000)
+
     }
-
-
-
-
-// function getNewQuestion() {
-//     startTimer(15)
-//     totalScore.innerHTML = `Score: ${score}`;
-//     questionNumber.innerHTML = ("Question: " + (questionIndex + 1) + "/" + (availableQuestions.length))
-//     shuffle(availableQuestions[questionIndex].answers);
-//     questionRef.innerHTML = availableQuestions[questionIndex].question;
-//     answer1Ref.innerHTML = availableQuestions[questionIndex].answers[0];
-//     answer2Ref.innerHTML = availableQuestions[questionIndex].answers[1];
-//     answer3Ref.innerHTML = availableQuestions[questionIndex].answers[2];
-//     answer4Ref.innerHTML = availableQuestions[questionIndex].answers[3];
-//     console.log("Correct Answer= " + availableQuestions[questionIndex].correctAnswer)
-// }
+}
 
 
 
@@ -257,26 +251,26 @@ function nextQuestion() {
         questionIndex++;
         document.getElementById("progress-bar").value = 1 + questionIndex;
 
-        
-    totalScore.innerHTML = `Score: ${score}`;
-    questionNumber.innerHTML = ("Question: " + (questionIndex) + "/" + (availableQuestions.length))
-    shuffle(availableQuestions[questionIndex].answers);
-    questionRef.innerHTML = availableQuestions[questionIndex].question;
-    answer1Ref.innerHTML = availableQuestions[questionIndex].answers[0];
-    answer2Ref.innerHTML = availableQuestions[questionIndex].answers[1];
-    answer3Ref.innerHTML = availableQuestions[questionIndex].answers[2];
-    answer4Ref.innerHTML = availableQuestions[questionIndex].answers[3];
-    console.log("Correct Answer= " + availableQuestions[questionIndex].correctAnswer)
+
+        totalScore.innerHTML = `Score: ${score}`;
+        questionNumber.innerHTML = ("Question: " + (questionIndex) + "/" + (availableQuestions.length))
+        shuffle(availableQuestions[questionIndex].answers);
+        questionRef.innerHTML = availableQuestions[questionIndex].question;
+        answer1Ref.innerHTML = availableQuestions[questionIndex].answers[0];
+        answer2Ref.innerHTML = availableQuestions[questionIndex].answers[1];
+        answer3Ref.innerHTML = availableQuestions[questionIndex].answers[2];
+        answer4Ref.innerHTML = availableQuestions[questionIndex].answers[3];
+        console.log("Correct Answer= " + availableQuestions[questionIndex].correctAnswer)
 
 
 
 
 
         // getNewQuestion();
-        
+
     } else {
         window.location.href = "/topScore.html"
-        
+
     }
 
 }
@@ -291,8 +285,8 @@ for (i = 0; i < 4; i++) {
     selectedAnswer[i].addEventListener("click", e => {
         console.log(e.target.dataset.id)
         resetTimer();
-        
-        
+
+
         if (e.target.innerHTML == availableQuestions[questionIndex].correctAnswer) {
             console.log("correct");
             score += 100;
@@ -320,4 +314,29 @@ for (i = 0; i < 4; i++) {
 }
 
 
-// // //general knowledge questions url
+// // //general knowledge questions url if fetch unsuccessful
+function getURL2() {
+
+    fetch("questions.json")
+        .then(fetchCatch)
+        .then(res => res.json())
+        .then(data => {
+            let questions = (data.results.map(q => {
+                return {
+                    category: q.category,
+                    question: q.question,
+                    correctAnswer: q.correct_answer,
+                    answers: [...q.incorrect_answers, q.correct_answer]
+                };
+            }))
+
+            console.log(questions);
+            availableQuestions.push(...questions);
+            console.log(availableQuestions);
+            shuffle(availableQuestions);
+            console.log(availableQuestions);
+            nextQuestion(); //was getNewQuestion
+        })
+        .catch(error => console.log(error))
+
+}

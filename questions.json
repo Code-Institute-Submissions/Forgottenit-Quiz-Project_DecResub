@@ -70,5 +70,76 @@
         "question": "What is the profession of Elon Musk&#039;s mom, Maye Musk?",
         "correct_answer": "Model",
         "incorrect_answers": ["Professor", "Biologist", "Musician"]
+    }, {
+        "category": "Entertainment: Film",
+        "type": "multiple",
+        "difficulty": "easy",
+        "question": "Which of the following movies was not based on a novel by Stephen King? ",
+        "correct_answer": "The Thing",
+        "incorrect_answers": ["Carrie", "Misery", "The Green Mile"]
+    }, {
+        "category": "Entertainment: Film",
+        "type": "multiple",
+        "difficulty": "medium",
+        "question": "Which retired American football quarterback played himself in &#039;Ace Ventura: Pet Detective&#039; and &#039;Little Nicky&#039;?",
+        "correct_answer": "Dan Marino",
+        "incorrect_answers": ["John Elway", "Tom Brady", "Joe Montana"]
+    }, {
+        "category": "Entertainment: Film",
+        "type": "multiple",
+        "difficulty": "medium",
+        "question": "Velma Kelly and Roxie Hart are the protagonists of which Oscar winning movie?",
+        "correct_answer": "Chicago",
+        "incorrect_answers": ["Dreamgirls", "Cabaret", "All That Jazz"]
+    }, {
+        "category": "Entertainment: Film",
+        "type": "multiple",
+        "difficulty": "easy",
+        "question": "Who directed the movies &quot;Pulp Fiction&quot;, &quot;Reservoir Dogs&quot; and &quot;Django Unchained&quot;?",
+        "correct_answer": "Quentin Tarantino",
+        "incorrect_answers": ["Martin Scorcese", "Steven Spielberg", "James Cameron"]
+    }, {
+        "category": "Entertainment: Film",
+        "type": "multiple",
+        "difficulty": "easy",
+        "question": "Which of these actors\/actresses is NOT a part of the cast for the 2016 movie &quot;Suicide Squad&quot;?",
+        "correct_answer": "Scarlett Johansson",
+        "incorrect_answers": ["Jared Leto", "Will Smith", "Margot Robbie"]
+    }, {
+        "category": "Entertainment: Film",
+        "type": "multiple",
+        "difficulty": "medium",
+        "question": "Who plays the Nemesis in the Resident Evil movies?",
+        "correct_answer": "Matthew Taylor",
+        "incorrect_answers": ["Jason Dip", "Eric Mabius", "Jimmy Matts"]
+    }, {
+        "category": "Entertainment: Film",
+        "type": "multiple",
+        "difficulty": "hard",
+        "question": "In 2012, which movie won every category in the 32nd &quot;Golden Raspberry Awards&quot;?",
+        "correct_answer": "Jack and Jill",
+        "incorrect_answers": ["The Girl with the Dragon Tattoo", "Thor", "The King&#039;s Speech"]
+    }, {
+        "category": "Entertainment: Film",
+        "type": "multiple",
+        "difficulty": "medium",
+        "question": "Who played Sgt. Gordon Elias in &#039;Platoon&#039; (1986)?",
+        "correct_answer": "Willem Dafoe",
+        "incorrect_answers": ["Charlie Sheen", "Matt Damon", "Johnny Depp"]
+    }, {
+        "category": "Entertainment: Film",
+        "type": "multiple",
+        "difficulty": "medium",
+        "question": "Who provided a majority of the songs and lyrics for &quot;Spirit: Stallion of the Cimarron&quot;?",
+        "correct_answer": "Bryan Adams",
+        "incorrect_answers": ["Smash Mouth", "Oasis", "Air Supply"]
+    }, {
+        "category": "Entertainment: Film",
+        "type": "multiple",
+        "difficulty": "medium",
+        "question": "Ed Koch, the Mayor of New York in 1984, played himself in which Muppets movie?",
+        "correct_answer": "The Muppets Take Manhattan",
+        "incorrect_answers": ["The Great Muppet Caper", "The Muppet Christmas Carol", "The Muppet Movie"]
     }]
+
 }
