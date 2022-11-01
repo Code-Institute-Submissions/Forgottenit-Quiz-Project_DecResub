@@ -120,17 +120,6 @@ function changeURL() {
         fetchArray.push(["https://opentdb.com/api.php?amount=10&category=" + element.value + "&type=multiple"])
         console.log(fetchArray)
     });
-    //limited to 50 question fetch by Opentdb
-    if (fetchArray.length > 5) {
-        if (confirm("Sorry, you can only pick 5 categories!")) {
-            window.location.href = "quizChoice.html"
-        } else {
-            window.location.href = "quizChoice.html"
-        }
-    } else {
-        window.location.href = "quiz.html"
-    }
-
 
     for (i = 0; i < fetchArray.length; i++) {
         console.log("fetchArray" + [i] + "= " + fetchArray[i])
@@ -139,6 +128,26 @@ function changeURL() {
         console.log("fetchArray length = " + fetchArray.length)
         localStorage.setItem("fetchArrayLength", fetchArray.length);
     }
+
+    //limited to 50 question fetch by Opentdb
+    let submitCategories = document.querySelector("#submit-categories")
+    submitCategories.addEventListener("click", e => {
+        if (fetchArray.length > 5 || fetchArray.length == 0) {
+            if (confirm("Sorry, you have to pick between 1 and 5 categories!")) {
+                window.location.href = "quizChoice.html"
+            } else {
+                window.location.href = "quizChoice.html"
+            }
+        } else
+            setTimeout(() => {
+                window.location.href = "quiz.html"
+
+            }, 1000)
+    })
+
+
+
+
 
 
 }
@@ -168,13 +177,14 @@ function getURL() {
                 console.log(availableQuestions);
                 shuffle(availableQuestions);
                 console.log(availableQuestions);
-                nextQuestion(); //was getNewQuestion
+                nextQuestion();
             })
             .catch(error => console.log(error))
 
     }
 
 }
+
 let questionIndex = 0;
 
 document.getElementById("progress-bar").value = 0;
@@ -215,12 +225,14 @@ function timer() {
             }
         });
         setTimeout(() => {
+            // questionIndex++;
             nextQuestion();
 
         }, 3000)
 
     }
 }
+
 
 
 
@@ -232,11 +244,12 @@ function nextQuestion() {
     resetTimer();
     timeOut = setInterval(timer, 1000);
     timer();
-
     if (questionIndex < (availableQuestions.length - 1)) {
         questionIndex++;
         document.getElementById("progress-bar").value = 1 + questionIndex;
 
+        
+    
 
         totalScore.innerHTML = `Score: ${score}`;
         questionNumber.innerHTML = ("Question: " + (questionIndex) + "/" + (availableQuestions.length))
@@ -253,9 +266,11 @@ function nextQuestion() {
 
 
         // getNewQuestion();
+        
 
     } else {
         window.location.href = "/topScore.html"
+        
 
     }
 
@@ -281,6 +296,7 @@ for (i = 0; i < 4; i++) {
             e.target.style.background = "green";
             setTimeout(() => {
                 e.target.style.background = "antiquewhite";
+                questionIndex++;
                 nextQuestion();
             }, 1000)
 
@@ -291,6 +307,7 @@ for (i = 0; i < 4; i++) {
 
             setTimeout(() => {
                 e.target.style.background = "antiquewhite";
+                questionIndex++;
                 nextQuestion();
             }, 1000)
 
