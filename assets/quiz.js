@@ -18,7 +18,7 @@ function getUserName() {
             window.location.href = "/quizChoice.html";
 
         } else {
-            alert("Not a Valid Username, please enter a name between 3 and 9 letters")
+            alert("Not a Valid Username, please enter a name between 3 and 10 letters")
         }
 
     })
@@ -144,13 +144,9 @@ function changeURL() {
 
             }, 1000)
     })
-
-
-
-
-
-
 }
+
+
 // getURL();
 //general knowledge questions url = "https://opentdb.com/api.php?amount=10&category=15&type=multiple";
 function getURL() {
@@ -190,7 +186,7 @@ function getURL() {
 
 
 let questionIndex = 0;
-let progressBar=document.getElementById("progress-bar");
+let progressBar = document.getElementById("progress-bar");
 
 //set timer
 function resetTimer() {
@@ -205,8 +201,14 @@ function timer() {
 
     document.getElementById("timer").innerHTML = time;
     time--;
+    if(time <10)
+{
+    document.getElementById("timer").innerHTML ="0"+time;
+
+}
 
     if (time < 0) {
+        document.getElementById("timer").innerHTML ="Time Up!"
         resetTimer();
         console.log(availableQuestions[questionIndex].correctAnswer)
         selectedAnswer.forEach(answer => {
@@ -234,9 +236,15 @@ function timer() {
     }
 }
 
-function displayQuestions(){
+function displayQuestions() {
+    if (questionIndex == availableQuestions.length) {
+        localStorage.setItem("finalScore", score)
+        localStorage.setItem("totalQuestions", availableQuestions.length)
+
+        window.location.href = "topScore.html";
+    }
     totalScore.innerHTML = `Score: ${score}`;
-    questionNumber.innerHTML = ("Question: " + (questionIndex+1) + "/" + (availableQuestions.length))
+    questionNumber.innerHTML = ("Question: " + (questionIndex + 1) + "/" + (availableQuestions.length))
     // shuffle(availableQuestions[questionIndex].answers);
     questionRef.innerHTML = availableQuestions[questionIndex].question;
     answer1Ref.innerHTML = availableQuestions[questionIndex].answers[0];
@@ -255,25 +263,16 @@ function displayQuestions(){
 
 
 function nextQuestion() {
+    let amountQuestions = availableQuestions.length;
+    progressBar.max = amountQuestions;
+
     resetTimer();
     timeOut = setInterval(timer, 1000);
     timer();
-    let amountQuestions = availableQuestions.length;
+
     console.log(amountQuestions);
-    progressBar.value=questionIndex;
-    progressBar.max=amountQuestions;
-    if (questionIndex < (availableQuestions.length)) {
-        // questionIndex++;
-        
+    progressBar.value = questionIndex + 1;
 
-        
-
-        // getNewQuestion();
-        } else {
-        window.location.href = "/topScore.html"
-        
-
-    }
 
 }
 
@@ -305,16 +304,38 @@ for (i = 0; i < 4; i++) {
         } else {
             console.log("incorrect");
             e.target.style.background = "red";
-            questionIndex++;
+
             setTimeout(() => {
                 e.target.style.background = "antiquewhite";
-                
+                questionIndex++;
                 displayQuestions();
             }, 1000)
 
 
         }
     })
+}
+
+
+function displayTopScore() {
+    let newMsg;
+    let msg = "";
+    let username = localStorage.getItem("username")
+    let finalScore = localStorage.getItem("finalScore")
+    let totalQuestions = localStorage.getItem("totalQuestions")
+    document.querySelector("#score-table").innerHTML = `Hello ${username}, your score was ${finalScore} out of a possible ${totalQuestions*100}, you got ${finalScore/totalQuestions}% right, +${msg}`;
+    if ((finalScore / totalQuestions) == 100) {
+        let newMsg = msg.concat("Wow, great job!!! A perfect Score!")
+    } else if ((finalScore / totalQuestions) > 65 && (finalScore / totalQuestions)<100) {
+        let newMsg = msg.concat("Really well done!")
+    } else if((finalScore / totalQuestions) > 20 && (finalScore / totalQuestions)<65){
+        let newMsg = msg.concat("Better luck next time!")
+    } else{
+        let newMsg = msg.concat("Practice makes perfect...")
+    }
+    document.querySelector("#score-table").innerHTML = `Hello ${username}, your score was ${finalScore} out of a possible ${totalQuestions*100}, you got ${finalScore/totalQuestions}% right, +${msg}`;
+    console.log(newMsg)
+
 }
 
 

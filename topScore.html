@@ -9,25 +9,23 @@
     <title>Document</title>
 </head>
 
-<body>
-    <div>Quit<a href="index.html">HOME</a></div>
-    <div class="progressDisplay">
-        <div id ="qNumber">Question Number</div>
-        <div class ="score">Score</div>
-        <div id="timer">Timer</div>
-    </div>
-    <table>
-        <thead>
-            <tr>TOP</tr>
-            <tr>Score</tr>
-        </thead>
-        <tbody>
-            <td>JOHN</td>
-            <td>Max</td>
-        </tbody>
-        
+<body onload="displayTopScore()">
 
-    </table>
+
+    
+
+    <div id="score-table">
+        <h1>This was your score</h1>
+    </div>
+
+    <div class="nav-btn">
+
+        <button><a href="index.html">Home</a></button>
+        <button id="quit" onclick=""><a href="quizChoice.html">Pick Questions</a></button>
+
+    </div>
+
+
     <script src="assets/quiz.js"></script>
 </body>
 

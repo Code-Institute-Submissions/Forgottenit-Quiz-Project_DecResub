@@ -32,6 +32,7 @@
 
 #username {
     padding: 2rem;
+    text-align: center;
 }
 
 #play,
@@ -136,4 +137,13 @@
     background-color: white;
     color: black;
     box-shadow: 0 5px #666;
+}
+
+#score-table{
+    display: flex;
+    font-size: 5rem;
+    justify-content: center;
+    align-content: center;
+    margin: 10rem 2rem;
+    text-align: center;
 }
