@@ -1,6 +1,8 @@
 :root {
     background: linear-gradient(75deg, rgb(244, 44, 180, 0.25), rgb(252, 252, 9, 0.25));
     font-size: 62.5%;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-style: oblique;
 }
 
 * {
@@ -10,9 +12,11 @@
 }
 
 #title {
-    border: 2rem solid red;
+    border: 2rem solid rgb(252, 179, 191, 0.5);
     text-align: center;
-    color: blue;
+    color: rgb(29, 29, 34);
+    font-size: 4rem;
+    border-radius: 1rem;
 }
 
 .flex-grid {
@@ -35,11 +39,10 @@
     text-align: center;
 }
 
-#play,
-#top-score {
+#play {
     padding: 3rem;
-    margin: 2rem;
-
+    margin: 5rem;
+    font-size: 4rem;
     border: 1rem solid rgb(245, 239, 66);
     background-color: aliceblue;
     width: 75%;
@@ -47,7 +50,11 @@
     justify-content: center;
     text-decoration: none;
     color: black;
+    border-radius: 2rem;
+    font-style: oblique;
 }
+
+
 
 .flex-box {
     margin-top: 3rem;
@@ -56,7 +63,7 @@
     justify-content: center;
     align-content: center;
     align-items: center;
-    font-size: 3rem;
+    
     text-align: center;
 }
 
@@ -113,6 +120,7 @@
     padding: 2rem 5rem;
     border-radius: 10px;
     margin: 0 2px;
+    font-size: 1rem;
 }
 
 .nav-btn {
@@ -128,10 +136,22 @@
 
 .flex:hover {
     background-color: rgb(73, 71, 71);
-    color: red;
+    color: rgb(238, 213, 102);
     box-shadow: 0 2rem 2rem 0 rgba(0, 0, 0, 0.8), 0 2rem 8rem 0 rgba(0, 0, 0, 0.4);
 
+} 
+
+.checkbox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+    
+
 }
+
+
 
 .flex:focus {
     background-color: white;

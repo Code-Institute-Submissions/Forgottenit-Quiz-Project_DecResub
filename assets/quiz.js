@@ -90,7 +90,7 @@ function displayCategories() {
         let categoryChoice = document.querySelector(".selection");
         let categories = document.createElement("input");
         let categoriesLabel = document.createElement("label");
-        categories.classList = "flex checkbox";
+        categories.classList = "checkbox";
         categories.value = [i + 9];
         categories.type = "checkbox";
         categories.id = [i + 9];

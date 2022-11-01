@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,21 +8,24 @@
     <link rel="stylesheet" href="assets/style.css">
     <title>Document</title>
 </head>
+
 <body>
-    
+
     <main>
-        <h1 id="title">Welcome to Quiz</h1>
+        <h1 id="title">Welcome to the Quiz!</h1>
         <div class="flex-box">
-            
-            
-            
-                <label for="username">Please enter a Username between 3 and 9 letters, then hit Play Game</label>
-                <input type="text" id="username" name="username" placeholder="Enter Username" >
-                <input type="submit" id = "play"value="Play Game" onclick="getUserName()">
-                <a id="top-score" href="topScore.html">Top Scores</a>
-              
-    </div>
+
+            <h2>Please Enter Username</h2>
+            <p>(between 3 and 9 letters)</p>
+            <h3>Then hit Play Game</h3>
+        </div>
+        <div class="flex-box">
+            <label for="username"></label>
+            <input type="text" id="username" name="username" placeholder="Enter Username">
+            <input type="submit" id="play" value="Play Game" onclick="getUserName()">
+        </div>
     </main>
     <script src="assets/quiz.js"></script>
 </body>
+
 </html>
