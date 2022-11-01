@@ -207,6 +207,10 @@ function timer() {
 
 }
 
+    document.querySelector("#skip").addEventListener("click",e=>{
+        time=0;
+    })
+
     if (time < 0) {
         document.getElementById("timer").innerHTML ="Time Up!"
         resetTimer();
@@ -221,8 +225,7 @@ function timer() {
                 }, 3000)
             } else {
                 answer.style.color = "rgba(245, 49, 49, 0.9)";
-                answer.setAttribute("class", "choice-hover");
-                // answer.style.classList.add("choice-hover");
+                
                 setTimeout(() => {
                     answer.style.color = "black";
                     answer.style.pointerEvents = "auto";
