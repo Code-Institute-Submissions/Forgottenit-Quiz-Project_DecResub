@@ -171,13 +171,15 @@ function getURL() {
                         answers: [...q.incorrect_answers, q.correct_answer]
                     };
                 }))
-
                 console.log(questions);
                 availableQuestions.push(...questions);
                 console.log(availableQuestions);
                 shuffle(availableQuestions);
-                console.log(availableQuestions);
-                nextQuestion();
+                availableQuestions.forEach(element => {
+                    shuffle(element.answers);
+                });
+                console.log(availableQuestions.answers);
+                displayQuestions();
             })
             .catch(error => console.log(error))
 
@@ -185,13 +187,13 @@ function getURL() {
 
 }
 
+
+
+
 let questionIndex = 0;
 
 document.getElementById("progress-bar").value = 0;
 //set timer
-
-
-
 function resetTimer() {
     clearInterval(timeOut);
     time = 15;
@@ -225,12 +227,25 @@ function timer() {
             }
         });
         setTimeout(() => {
-            // questionIndex++;
-            nextQuestion();
+            questionIndex++;
+            displayQuestions();
 
         }, 3000)
 
     }
+}
+
+function displayQuestions(){
+    totalScore.innerHTML = `Score: ${score}`;
+    questionNumber.innerHTML = ("Question: " + (questionIndex+1) + "/" + (availableQuestions.length))
+    // shuffle(availableQuestions[questionIndex].answers);
+    questionRef.innerHTML = availableQuestions[questionIndex].question;
+    answer1Ref.innerHTML = availableQuestions[questionIndex].answers[0];
+    answer2Ref.innerHTML = availableQuestions[questionIndex].answers[1];
+    answer3Ref.innerHTML = availableQuestions[questionIndex].answers[2];
+    answer4Ref.innerHTML = availableQuestions[questionIndex].answers[3];
+    console.log("Correct Answer= " + availableQuestions[questionIndex].correctAnswer)
+    nextQuestion();
 }
 
 
@@ -244,31 +259,14 @@ function nextQuestion() {
     resetTimer();
     timeOut = setInterval(timer, 1000);
     timer();
-    if (questionIndex < (availableQuestions.length - 1)) {
-        questionIndex++;
-        document.getElementById("progress-bar").value = 1 + questionIndex;
+    if (questionIndex < (availableQuestions.length)) {
+        // questionIndex++;
+        document.getElementById("progress-bar").value = (1 + questionIndex)/(availableQuestions.length);
 
         
-    
-
-        totalScore.innerHTML = `Score: ${score}`;
-        questionNumber.innerHTML = ("Question: " + (questionIndex) + "/" + (availableQuestions.length))
-        shuffle(availableQuestions[questionIndex].answers);
-        questionRef.innerHTML = availableQuestions[questionIndex].question;
-        answer1Ref.innerHTML = availableQuestions[questionIndex].answers[0];
-        answer2Ref.innerHTML = availableQuestions[questionIndex].answers[1];
-        answer3Ref.innerHTML = availableQuestions[questionIndex].answers[2];
-        answer4Ref.innerHTML = availableQuestions[questionIndex].answers[3];
-        console.log("Correct Answer= " + availableQuestions[questionIndex].correctAnswer)
-
-
-
-
 
         // getNewQuestion();
-        
-
-    } else {
+        } else {
         window.location.href = "/topScore.html"
         
 
@@ -297,18 +295,18 @@ for (i = 0; i < 4; i++) {
             setTimeout(() => {
                 e.target.style.background = "antiquewhite";
                 questionIndex++;
-                nextQuestion();
+                displayQuestions();
             }, 1000)
 
 
         } else {
             console.log("incorrect");
             e.target.style.background = "red";
-
+            questionIndex++;
             setTimeout(() => {
                 e.target.style.background = "antiquewhite";
-                questionIndex++;
-                nextQuestion();
+                
+                displayQuestions();
             }, 1000)
 
 
