@@ -189,10 +189,9 @@ function getURL() {
 
 
 
-
 let questionIndex = 0;
+let progressBar=document.getElementById("progress-bar");
 
-document.getElementById("progress-bar").value = 0;
 //set timer
 function resetTimer() {
     clearInterval(timeOut);
@@ -259,9 +258,13 @@ function nextQuestion() {
     resetTimer();
     timeOut = setInterval(timer, 1000);
     timer();
+    let amountQuestions = availableQuestions.length;
+    console.log(amountQuestions);
+    progressBar.value=questionIndex;
+    progressBar.max=amountQuestions;
     if (questionIndex < (availableQuestions.length)) {
         // questionIndex++;
-        document.getElementById("progress-bar").value = (1 + questionIndex)/(availableQuestions.length);
+        
 
         
 
