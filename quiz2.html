@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="assets/style.css">
     <title>Document</title>
 </head>
-<!-- onload="getURL()" -->
-<body onload="getURL2()" id="quiz-body">
+
+<body onload="getURL()" id="quiz-body">
 
     <div class="progressDisplay">
         <div>
@@ -20,7 +20,7 @@
         <div class="score">Score:</div>
         <div id="timer">Timer:</div>
     </div>
-    <div class="flex-box">
+    <div class="quiz-box">
 
         <div id="question">Question</div>
         <div id="answers">
@@ -42,8 +42,8 @@
     </div>
     <script src="assets/quiz.js"></script>
     <div class="nav-btn">
-        <button><a href="index.html">Quit</a></button>
-        <button>SKIP QUESTION</button>
+        <button onclick="localStorage.clear()"><a href="index.html">Quit</a></button>
+        <button id="skip">Reveal Answer</button>
 
     </div>
 </body>
