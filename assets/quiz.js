@@ -32,9 +32,9 @@ const allUrl = [];
 let fetchArray = [];
 const newAllUrl = [];
 
-let fetchCatch = (response) => {
+let fetchCatch = function (response) {
     if (!response.ok) {
-        throw new Error('Network response was not OK');
+        throw new Error('There was a problem with the Network response');
     }
     return response;
 }
@@ -60,8 +60,8 @@ function shuffle(array) {
 }
 
 function getCategories() {
-
-    fetch(`https://opentdb.com/api_category.php`)
+   
+    fetch("https://opentdb.com/api_category.php")
         .then(fetchCatch)
         .then(res => res.json())
         .then(categories => {
@@ -154,8 +154,8 @@ function getURL() {
     for (i = 0; i < localStorage.getItem("fetchArrayLength"); i++) {
         console.log("fetchArray.length = " + localStorage.getItem("fetchArrayLength"))
         console.log("getURL" + localStorage.getItem("genUrl" + [i]))
-
-        fetch(localStorage.getItem("genUrl" + [i]))
+        // localStorage.getItem("genUrl" + [i])
+        fetch("questions.json")
             .then(fetchCatch)
             .then(res => res.json())
             .then(data => {
@@ -203,18 +203,18 @@ let time = 15;
             resetTimer();
             console.log(availableQuestions[questionIndex].correctAnswer)
             selectedAnswer.forEach(answer => {
-                console.log(answer.innerHTML)
+                answer.style.pointerEvents = "none";
                 if (answer.innerHTML== availableQuestions[questionIndex].correctAnswer){
                     answer.style.color = "green";
                     setTimeout(() => {
                         answer.style.color = "black";
-                        
+                        answer.style.pointerEvents = "auto";
                     }, 3000)
                 }else{
                     answer.style.color = "red";
                     setTimeout(() => {
                         answer.style.color = "black";
-                        
+                        answer.style.pointerEvents = "auto";
                     }, 3000)
                 }
             });
