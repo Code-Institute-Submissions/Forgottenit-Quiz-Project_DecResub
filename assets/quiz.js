@@ -330,23 +330,22 @@ for (i = 0; i < 4; i++) {
 
 
 function displayTopScore() {
-    let newMsg;
-    let msg = "";
+    let result = document.querySelector("#result")
     let username = localStorage.getItem("username")
     let finalScore = localStorage.getItem("finalScore")
     let totalQuestions = localStorage.getItem("totalQuestions")
-    document.querySelector("#score-table").innerHTML = `Hello ${username}, your score was ${finalScore} out of a possible ${totalQuestions*100}, you got ${finalScore/totalQuestions}% right, +${msg}`;
+    document.querySelector("#score-box").innerHTML = `Hello ${username}, your score was ${finalScore} out of a possible ${totalQuestions*100}, you got ${finalScore/totalQuestions}% right`;
     if ((finalScore / totalQuestions) == 100) {
-        let newMsg = msg.concat("Wow, great job!!! A perfect Score!")
+        result= ("Wow, great job!!! A perfect Score!")
     } else if ((finalScore / totalQuestions) > 65 && (finalScore / totalQuestions)<100) {
-        let newMsg = msg.concat("Really well done!")
+        result.innerHTML = ("Really well done!")
     } else if((finalScore / totalQuestions) > 20 && (finalScore / totalQuestions)<65){
-        let newMsg = msg.concat("Better luck next time!")
+        result.innerHTML =("Better luck next time!")
     } else{
-        let newMsg = msg.concat("Practice makes perfect...")
+        result.innerHTML = ("Practice makes perfect...")
     }
-    document.querySelector("#score-table").innerHTML = `Hello ${username}, your score was ${finalScore} out of a possible ${totalQuestions*100}, you got ${finalScore/totalQuestions}% right, +${msg}`;
-    console.log(newMsg)
+    document.querySelector("#score-box").innerHTML = `Hello ${username}, your score was ${finalScore} out of a possible ${totalQuestions*100}, you got ${finalScore/totalQuestions}% right`;
+    
 
 }
 
