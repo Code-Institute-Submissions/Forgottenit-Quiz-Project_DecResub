@@ -184,15 +184,16 @@
     align-items: center;
     align-content: center;
     justify-content: center;
-    color: rgb(28, 25, 25);
+    color: rgb(26, 4, 83);
     background-color: rgb(250, 247, 242);
     position: absolute;
     font-size: 1.5rem;
     font-weight: 900;
     height: 70%;
-    margin-top: 10rem;
-    border-radius: 5px;
-    padding: 1rem;
+    margin-top: 12rem;
+    border-radius: 1rem;
+    padding: 2rem;
+    
 }
 
 

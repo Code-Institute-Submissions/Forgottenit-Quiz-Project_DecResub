@@ -8,14 +8,12 @@ const availableQuestions = [];
 const gameChoices = [];
 var regex = /^[a-zA-Z]+$/;
 let qBody = document.getElementById("quiz-body");
-let rules=document.getElementById("rules")
-let rulesBtn = document.getElementById("rules-btn")
-rules.addEventListener("click",e=>{
-    rules.style.display="none";
-})
+let rules = document.getElementById("rules");
+let rulesBtn = document.getElementById("rules-btn");
+
+
 
 function getUserName() {
-
     let playButton = document.querySelector("#play");
     playButton.addEventListener("click", e => {
         if (10 >= document.querySelector("#username").value.length && document.querySelector("#username").value.length > 2 && document.querySelector("#username").value.match(regex)) {
@@ -40,18 +38,21 @@ let fetchArray = [];
 
 let fetchCatch = function (response) {
     if (!response.ok) {
-
         if (confirm("Sorry, there was a problem getting your questions, you can use our 20 stored questions if you want? If not, hit cancel and try again later")) {
-
             window.location.href = "/quiz2.html"
         } else {
             console.log("cancel")
             window.location.href = "index.html"
         }
         throw new Error('There was a problem with the Network response');
-
     }
     return response;
+}
+
+function hideRules() {
+    rules.addEventListener("click", e => {
+        rules.style.display = "none";
+    })
 }
 
 //fisher-yates shuffle to randomise answer postition from https://bost.ocks.org/mike/shuffle/
@@ -204,20 +205,19 @@ let timeOut = setInterval(timer, 1000);
 
 function timer() {
 
-    document.getElementById("timer").innerHTML = time+"s";
+    document.getElementById("timer").innerHTML = time + "s";
     time--;
-    if(time <10)
-{
-    document.getElementById("timer").innerHTML ="0"+time+"s";
+    if (time < 10) {
+        document.getElementById("timer").innerHTML = "0" + time + "s";
 
-}
+    }
 
-    document.querySelector("#skip").addEventListener("click",e=>{
-        time=0;
+    document.querySelector("#skip").addEventListener("click", e => {
+        time = 0;
     })
 
     if (time < 0) {
-        document.getElementById("timer").innerHTML ="Time Up!"
+        document.getElementById("timer").innerHTML = "Time Up!"
         resetTimer();
         console.log(availableQuestions[questionIndex].correctAnswer)
         selectedAnswer.forEach(answer => {
@@ -230,7 +230,7 @@ function timer() {
                 }, 3000)
             } else {
                 answer.style.color = "rgba(245, 49, 49, 0.9)";
-                
+
                 setTimeout(() => {
                     answer.style.color = "black";
                     answer.style.pointerEvents = "auto";
@@ -305,9 +305,9 @@ for (i = 0; i < 4; i++) {
             console.log(score);
             e.target.style.background = "rgba(84, 234, 84, 0.8)";
             e.target.classList.add("choice-hover");
-            
-            
-            
+
+
+
             setTimeout(() => {
                 e.target.style.background = "antiquewhite";
                 e.target.classList.remove("choice-hover");
@@ -341,16 +341,16 @@ function displayTopScore() {
     let totalQuestions = localStorage.getItem("totalQuestions")
     document.querySelector("#score-box").innerHTML = `Hello ${username}, your score was ${finalScore} out of a possible ${totalQuestions*100}, you got ${finalScore/totalQuestions}% right`;
     if ((finalScore / totalQuestions) == 100) {
-        result= ("Wow, great job!!! A perfect Score!")
-    } else if ((finalScore / totalQuestions) > 65 && (finalScore / totalQuestions)<100) {
+        result = ("Wow, great job!!! A perfect Score!")
+    } else if ((finalScore / totalQuestions) > 65 && (finalScore / totalQuestions) < 100) {
         result.innerHTML = ("Really well done!")
-    } else if((finalScore / totalQuestions) > 20 && (finalScore / totalQuestions)<65){
-        result.innerHTML =("Better luck next time!")
-    } else{
+    } else if ((finalScore / totalQuestions) > 20 && (finalScore / totalQuestions) < 65) {
+        result.innerHTML = ("Better luck next time!")
+    } else {
         result.innerHTML = ("Practice makes perfect...")
     }
     document.querySelector("#score-box").innerHTML = `Hello ${username}, your score was ${finalScore} out of a possible ${totalQuestions*100}, you got ${finalScore/totalQuestions}% right`;
-    
+
 
 }
 
