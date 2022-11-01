@@ -35,11 +35,13 @@ let fetchArray = [];
 
 let fetchCatch = function (response) {
     if (!response.ok) {
-        confirm("Sorry, there was an problem getting your questions")
-        if (confirm) {
-            qBody.onload = null;
+        
+        if (confirm ("Sorry, there was a problem getting your questions, you can use our 20 stored questions if you want? If not, hit cancel and try again later")) {
+            
             window.location.href = "/quiz2.html"
-
+        }else{
+            console.log("cancel")
+            window.location.href = "index.html"
         }
         throw new Error('There was a problem with the Network response');
 
