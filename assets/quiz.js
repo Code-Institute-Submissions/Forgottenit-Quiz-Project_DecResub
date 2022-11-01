@@ -106,61 +106,40 @@ function displayCategories() {
         console.log(categories.innerHTML)
         console.log(categories.value)
     }
-    changeURL();
+    changeURL()
 };
 
 // Find out value of clicked choice then change URL
 function changeURL() {
+    var checkedBox = document.querySelectorAll('input[type="checkbox"]:checked');
 
-    let quizContent = document.getElementsByClassName("checkbox");
-    console.log(quizContent)
-    let quizArr = Array.from(quizContent);
-    quizArr.forEach(element => {
-        element.addEventListener("change", e=>{
-            console.log("forEach= "+ e.target.value)
-        })
-    })
-    for (i = 0; i < 15; i++) {
-        quizContent[i].addEventListener("change", e => {
-            console.log("e.target.value =" + e.target.value);
-
-            let quizNumber = e.target.value;
-            console.log("Quiz Number =" + quizNumber);
-
-            //open Trivia database limits to 50 questions, so there's a limit of 5 x 10 options
-            if (e.target.checked == true && fetchArray.length < 6) {
-                console.log("Checkbox is checked")
-                fetchArray.push(["https://opentdb.com/api.php?amount=10&category=" + quizNumber + "&type=multiple"])
-            } else {
-
-            }
-
-
-            for (j = 0; j < fetchArray.length; j++) {
-                console.log("fetchArray" + [j] + "= " + fetchArray[j])
-                localStorage.setItem(`genUrl${[j]}`, fetchArray[j]);
-                console.log("get Item Url " + [j] + "= " + localStorage.getItem(`genUrl${[j]}`));
-                console.log("fetchArray length = " + fetchArray.length)
-                localStorage.setItem("fetchArrayLength", fetchArray.length);
-            }
-
-
-            let newFetchArray = fetchArray;
-            console.log("newFetchArray" + [i] + newFetchArray[i])
-
-            console.log("get Item Url " + [i] + "= " + localStorage.getItem(`genUrl${[i]}`));
-            console.log("fetchArray " + [i] + "= " + fetchArray[i])
-            console.log("fetchArray = " + fetchArray)
-            console.log("fetchArray length = " + fetchArray.length)
-            //alert if too many selected
-            if (fetchArray.length !== 5) {
-                console.log("Ok")
-            } else {
-                confirm("last pick!")
-            }
-        })
-
+    checkedBox.forEach(element => {
+        console.log(element.value)
+        console.log(element.length)
+        //   fetchArray.push(element.value)
+        fetchArray.push(["https://opentdb.com/api.php?amount=10&category=" + element.value + "&type=multiple"])
+        console.log(fetchArray)
+    });
+    //limited to 50 question fetch by Opentdb
+    if (fetchArray.length > 5) {
+        if (confirm("Sorry, you can only pick 5 categories!")) {
+            window.location.href = "quizChoice.html"
+        } else {
+            window.location.href = "quizChoice.html"
+        }
+    } else {
+        window.location.href = "quiz.html"
     }
+
+
+    for (i = 0; i < fetchArray.length; i++) {
+        console.log("fetchArray" + [i] + "= " + fetchArray[i])
+        localStorage.setItem(`genUrl${[i]}`, fetchArray[i]);
+        console.log("get Item Url " + [i] + "= " + localStorage.getItem(`genUrl${[i]}`));
+        console.log("fetchArray length = " + fetchArray.length)
+        localStorage.setItem("fetchArrayLength", fetchArray.length);
+    }
+
 
 }
 // getURL();
