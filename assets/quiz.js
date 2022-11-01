@@ -6,7 +6,7 @@ const answer3Ref = document.querySelector("#answer3");
 const answer4Ref = document.querySelector("#answer4");
 const availableQuestions = [];
 const gameChoices = [];
-var regex = /^[a-zA-Z]+$/;
+const regex = /^[a-zA-Z]+$/;
 let qBody = document.getElementById("quiz-body");
 let rules = document.getElementById("rules");
 let rulesBtn = document.getElementById("rules-btn");
@@ -57,7 +57,7 @@ function hideRules() {
 
 //fisher-yates shuffle to randomise answer postition from https://bost.ocks.org/mike/shuffle/
 function shuffle(array) {
-    var m = array.length,
+    let m = array.length,
         t, i;
 
     // While there remain elements to shuffle…
