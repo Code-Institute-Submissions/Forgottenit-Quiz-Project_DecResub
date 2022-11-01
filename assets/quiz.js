@@ -35,11 +35,11 @@ let fetchArray = [];
 
 let fetchCatch = function (response) {
     if (!response.ok) {
-        
-        if (confirm ("Sorry, there was a problem getting your questions, you can use our 20 stored questions if you want? If not, hit cancel and try again later")) {
-            
+
+        if (confirm("Sorry, there was a problem getting your questions, you can use our 20 stored questions if you want? If not, hit cancel and try again later")) {
+
             window.location.href = "/quiz2.html"
-        }else{
+        } else {
             console.log("cancel")
             window.location.href = "index.html"
         }
@@ -101,8 +101,6 @@ function displayCategories() {
         categoriesLabel.appendChild(categories)
         console.log(categories);
         console.log(categoriesLabel);
-
-
         categories.innerHTML = (`${gameChoices[i].id} ${gameChoices[i].name}`)
         categoryChoice.appendChild(categoriesLabel);
         console.log(categories.innerHTML)
@@ -115,6 +113,13 @@ function displayCategories() {
 function changeURL() {
 
     let quizContent = document.getElementsByClassName("checkbox");
+    console.log(quizContent)
+    let quizArr = Array.from(quizContent);
+    quizArr.forEach(element => {
+        element.addEventListener("change", e=>{
+            console.log("forEach= "+ e.target.value)
+        })
+    })
     for (i = 0; i < 15; i++) {
         quizContent[i].addEventListener("change", e => {
             console.log("e.target.value =" + e.target.value);
@@ -166,7 +171,7 @@ function getURL() {
         console.log("getURL" + localStorage.getItem("genUrl" + [i]))
         // localStorage.getItem("genUrl" + [i])
         // "questions.json"
-        fetch("uestions.json")
+        fetch(localStorage.getItem("genUrl" + [i]))
             .then(fetchCatch)
             .then(res => res.json())
             .then(data => {
