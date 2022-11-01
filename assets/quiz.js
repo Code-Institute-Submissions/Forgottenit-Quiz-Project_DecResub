@@ -8,12 +8,17 @@ const availableQuestions = [];
 const gameChoices = [];
 var regex = /^[a-zA-Z]+$/;
 let qBody = document.getElementById("quiz-body");
+let rules=document.getElementById("rules")
+let rulesBtn = document.getElementById("rules-btn")
+rules.addEventListener("click",e=>{
+    rules.style.display="none";
+})
 
 function getUserName() {
 
     let playButton = document.querySelector("#play");
     playButton.addEventListener("click", e => {
-        if (10 > document.querySelector("#username").value.length && document.querySelector("#username").value.length > 2 && document.querySelector("#username").value.match(regex)) {
+        if (10 >= document.querySelector("#username").value.length && document.querySelector("#username").value.length > 2 && document.querySelector("#username").value.match(regex)) {
             localStorage.setItem("username", document.querySelector("#username").value);
             window.location.href = "/quizChoice.html";
 
