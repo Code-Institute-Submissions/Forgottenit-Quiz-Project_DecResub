@@ -221,6 +221,8 @@ function timer() {
                 }, 3000)
             } else {
                 answer.style.color = "rgba(245, 49, 49, 0.9)";
+                answer.setAttribute("class", "choice-hover");
+                // answer.style.classList.add("choice-hover");
                 setTimeout(() => {
                     answer.style.color = "black";
                     answer.style.pointerEvents = "auto";
@@ -294,8 +296,13 @@ for (i = 0; i < 4; i++) {
 
             console.log(score);
             e.target.style.background = "rgba(84, 234, 84, 0.8)";
+            e.target.classList.add("choice-hover");
+            
+            
+            
             setTimeout(() => {
                 e.target.style.background = "antiquewhite";
+                e.target.classList.remove("choice-hover");
                 questionIndex++;
                 displayQuestions();
             }, 1000)
@@ -304,9 +311,11 @@ for (i = 0; i < 4; i++) {
         } else {
             console.log("incorrect");
             e.target.style.background = "rgba(245, 49, 49, 0.8)";
+            e.target.classList.add("choice-hover");
 
             setTimeout(() => {
                 e.target.style.background = "antiquewhite";
+                e.target.classList.remove("choice-hover");
                 questionIndex++;
                 displayQuestions();
             }, 1000)
