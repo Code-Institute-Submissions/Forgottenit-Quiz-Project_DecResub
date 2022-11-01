@@ -63,18 +63,19 @@
     justify-content: center;
     align-content: center;
     align-items: center;
-    
+    font-size: 3rem;
     text-align: center;
+    
 }
 
 .progressDisplay {
-    justify-content: space-around;
+    justify-content: space-between;
     display: flex;
     align-content: center;
     padding: 1rem;
-    border: 1rem solid black;
+    border: .5rem solid rgba(25, 25, 25);
     width: 100vw;
-    
+    font-size: 2rem;
     align-items: center;
     font-size: 2rem;
     height: 10rem;

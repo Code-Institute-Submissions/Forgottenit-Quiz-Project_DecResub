@@ -199,11 +199,11 @@ let timeOut = setInterval(timer, 1000);
 
 function timer() {
 
-    document.getElementById("timer").innerHTML = time;
+    document.getElementById("timer").innerHTML = time+"s";
     time--;
     if(time <10)
 {
-    document.getElementById("timer").innerHTML ="0"+time;
+    document.getElementById("timer").innerHTML ="0"+time+"s";
 
 }
 
@@ -214,13 +214,13 @@ function timer() {
         selectedAnswer.forEach(answer => {
             answer.style.pointerEvents = "none";
             if (answer.innerHTML == availableQuestions[questionIndex].correctAnswer) {
-                answer.style.color = "green";
+                answer.style.color = "rgba(84, 234, 84, 0.9)";
                 setTimeout(() => {
                     answer.style.color = "black";
                     answer.style.pointerEvents = "auto";
                 }, 3000)
             } else {
-                answer.style.color = "red";
+                answer.style.color = "rgba(245, 49, 49, 0.9)";
                 setTimeout(() => {
                     answer.style.color = "black";
                     answer.style.pointerEvents = "auto";
@@ -293,7 +293,7 @@ for (i = 0; i < 4; i++) {
             score += 100;
 
             console.log(score);
-            e.target.style.background = "green";
+            e.target.style.background = "rgba(84, 234, 84, 0.8)";
             setTimeout(() => {
                 e.target.style.background = "antiquewhite";
                 questionIndex++;
@@ -303,7 +303,7 @@ for (i = 0; i < 4; i++) {
 
         } else {
             console.log("incorrect");
-            e.target.style.background = "red";
+            e.target.style.background = "rgba(245, 49, 49, 0.8)";
 
             setTimeout(() => {
                 e.target.style.background = "antiquewhite";
