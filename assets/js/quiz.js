@@ -7,19 +7,37 @@ const answer4Ref = document.querySelector("#answer4");
 const availableQuestions = [];
 const gameChoices = [];
 const regex = /^[a-zA-Z]+$/;
-
 let rules = document.getElementById("rules");
+let score = 0;
+let totalScore = document.querySelector(".score");
+let questionNumber = document.querySelector("#qNumber");
+let questionIndex = 0;
+let progressBar = document.getElementById("progress-bar");
+let fetchArray = [];
+let time = 15;
+let timeOut = setInterval(timer, 1000);
+let selectedAnswer = Array.from(document.querySelectorAll(".choice"));
 
-function homeClear(){
+let fetchCatch = function (response) {
+    if (!response.ok) {
+        if (confirm("Sorry, there was a problem getting your questions, you can use our 20 stored questions if you want? If not, hit cancel and try again later")) {
+            window.location.href = "/quiz2.html";
+        } else {
+            window.location.href = "index.html";
+        }
+        throw new Error('There was a problem with the Network response');
+    }
+    return response;
+};
+
+function homeClear() {
     localStorage.clear();
     window.location.href = "/index.html";
-
 }
 
-function replay(){
+function replay() {
     window.location.href = "/quizChoice.html";
 }
-
 
 function getUserName() {
     let playButton = document.querySelector("#play");
@@ -27,35 +45,11 @@ function getUserName() {
         if (10 >= document.querySelector("#username").value.length && document.querySelector("#username").value.length > 2 && document.querySelector("#username").value.match(regex)) {
             localStorage.setItem("username", document.querySelector("#username").value);
             window.location.href = "/quizChoice.html";
-
         } else {
             alert("Not a Valid Username, please enter a name between 3 and 10 letters");
         }
-
     });
 }
-
-
-let score = 0;
-let totalScore = document.querySelector(".score");
-let questionNumber = document.querySelector("#qNumber");
-
-
-let fetchArray = [];
-
-
-let fetchCatch = function (response) {
-    if (!response.ok) {
-        if (confirm("Sorry, there was a problem getting your questions, you can use our 20 stored questions if you want? If not, hit cancel and try again later")) {
-            window.location.href = "/quiz2.html";
-        } else {
-            console.log("cancel");
-            window.location.href = "index.html";
-        }
-        throw new Error('There was a problem with the Network response');
-    }
-    return response;
-};
 
 function hideRules() {
     rules.addEventListener("click", e => {
@@ -67,24 +61,19 @@ function hideRules() {
 function shuffle(array) {
     let m = array.length,
         t, i;
-
     // While there remain elements to shuffle…
     while (m) {
-
         // Pick a remaining element…
         i = Math.floor(Math.random() * m--);
-
         // And swap it with the current element.
         t = array[m];
         array[m] = array[i];
         array[i] = t;
     }
-
     return array;
 }
 
 function getCategories() {
-
     fetch("https://opentdb.com/api_category.php")
         .then(fetchCatch)
         .then(res => res.json())
@@ -96,9 +85,7 @@ function getCategories() {
 }
 
 function displayCategories() {
-
     document.querySelector("#quiz-choice").innerHTML = (`Hello ${localStorage.getItem("username")}, please choose your categories (you can pick a maximum of 5)`);
-
     for (i = 0; i < 15; i++) {
         //fill div with 15 categories
         let categoryChoice = document.querySelector(".selection");
@@ -113,12 +100,8 @@ function displayCategories() {
         categoriesLabel.classList = "select flex";
         categoriesLabel.innerHTML = (`${gameChoices[i].name}`);
         categoriesLabel.appendChild(categories);
-        console.log(categories);
-        console.log(categoriesLabel);
         categories.innerHTML = (`${gameChoices[i].id} ${gameChoices[i].name}`);
         categoryChoice.appendChild(categoriesLabel);
-        console.log(categories.innerHTML);
-        console.log(categories.value);
     }
     changeURL();
 }
@@ -126,23 +109,13 @@ function displayCategories() {
 // Find out value of clicked choice then change URL
 function changeURL() {
     var checkedBox = document.querySelectorAll('input[type="checkbox"]:checked');
-
     checkedBox.forEach(element => {
-        console.log(element.value);
-        console.log(element.length);
-        //   fetchArray.push(element.value)
         fetchArray.push(["https://opentdb.com/api.php?amount=10&category=" + element.value + "&type=multiple"]);
-        console.log(fetchArray);
     });
-
     for (i = 0; i < fetchArray.length; i++) {
-        console.log("fetchArray" + [i] + "= " + fetchArray[i]);
         localStorage.setItem(`genUrl${[i]}`, fetchArray[i]);
-        console.log("get Item Url " + [i] + "= " + localStorage.getItem(`genUrl${[i]}`));
-        console.log("fetchArray length = " + fetchArray.length);
         localStorage.setItem("fetchArrayLength", fetchArray.length);
     }
-
     //limited to 50 question fetch by Opentdb
     let submitCategories = document.querySelector("#submit-categories");
     submitCategories.addEventListener("click", e => {
@@ -155,20 +128,12 @@ function changeURL() {
         } else
             setTimeout(() => {
                 window.location.href = "quiz.html";
-
             }, 1000);
     });
 }
 
-
-// getURL();
-//general knowledge questions url = "https://opentdb.com/api.php?amount=10&category=15&type=multiple";
 function getURL() {
     for (i = 0; i < localStorage.getItem("fetchArrayLength"); i++) {
-        console.log("fetchArray.length = " + localStorage.getItem("fetchArrayLength"));
-        console.log("getURL" + localStorage.getItem("genUrl" + [i]));
-        // localStorage.getItem("genUrl" + [i])
-        // "questions.json"
         fetch(localStorage.getItem("genUrl" + [i]))
             .then(fetchCatch)
             .then(res => res.json())
@@ -181,53 +146,35 @@ function getURL() {
                         answers: [...q.incorrect_answers, q.correct_answer]
                     };
                 }));
-                console.log(questions);
                 availableQuestions.push(...questions);
-                console.log(availableQuestions);
                 shuffle(availableQuestions);
                 availableQuestions.forEach(element => {
                     shuffle(element.answers);
                 });
-                console.log(availableQuestions.answers);
                 displayQuestions();
             })
             .catch(error => console.log(error));
-
     }
-
 }
-
-
-
-let questionIndex = 0;
-let progressBar = document.getElementById("progress-bar");
 
 //set timer
 function resetTimer() {
     clearInterval(timeOut);
     time = 15;
 }
-let time = 15;
-
-let timeOut = setInterval(timer, 1000);
 
 function timer() {
-
     document.getElementById("timer").innerHTML = time + "s";
     time--;
     if (time < 10) {
         document.getElementById("timer").innerHTML = "0" + time + "s";
-
     }
-
     document.querySelector("#skip").addEventListener("click", e => {
         time = 0;
     });
-
     if (time < 0) {
         document.getElementById("timer").innerHTML = "Time Up!";
         resetTimer();
-        console.log(availableQuestions[questionIndex].correctAnswer);
         selectedAnswer.forEach(answer => {
             answer.style.pointerEvents = "none";
             if (answer.innerHTML == availableQuestions[questionIndex].correctAnswer) {
@@ -248,9 +195,7 @@ function timer() {
         setTimeout(() => {
             questionIndex++;
             displayQuestions();
-
         }, 3000);
-
     }
 }
 
@@ -263,84 +208,50 @@ function displayQuestions() {
     }
     totalScore.innerHTML = `Score: ${score}`;
     questionNumber.innerHTML = ("Question: " + (questionIndex + 1) + "/" + (availableQuestions.length));
-    // shuffle(availableQuestions[questionIndex].answers);
     questionRef.innerHTML = availableQuestions[questionIndex].question;
     answer1Ref.innerHTML = availableQuestions[questionIndex].answers[0];
     answer2Ref.innerHTML = availableQuestions[questionIndex].answers[1];
     answer3Ref.innerHTML = availableQuestions[questionIndex].answers[2];
     answer4Ref.innerHTML = availableQuestions[questionIndex].answers[3];
-    console.log("Correct Answer= " + availableQuestions[questionIndex].correctAnswer);
     nextQuestion();
 }
 
-
-
-
-
 // Set up a function to call a question from array and set it to the innerHTML of question
-
-
 function nextQuestion() {
     let amountQuestions = availableQuestions.length;
     progressBar.max = amountQuestions;
-
     resetTimer();
     timeOut = setInterval(timer, 1000);
     timer();
-
-    console.log(amountQuestions);
     progressBar.value = questionIndex + 1;
-
-
 }
-
-
-//check answers with Event Listener and see if string matches correct answer string
-let selectedAnswer = Array.from(document.querySelectorAll(".choice"));
-console.log(selectedAnswer);
 
 //record which choice was selected using the data set, then compare this to the answer number
 for (i = 0; i < 4; i++) {
     selectedAnswer[i].addEventListener("click", e => {
-        console.log(e.target.dataset.id);
         resetTimer();
-
-
         if (e.target.innerHTML == availableQuestions[questionIndex].correctAnswer) {
-            console.log("correct");
             score += 100;
-
-            console.log(score);
             e.target.style.background = "rgba(84, 234, 84, 0.8)";
             e.target.classList.add("choice-hover");
-
-
-
             setTimeout(() => {
                 e.target.style.background = "antiquewhite";
                 e.target.classList.remove("choice-hover");
                 questionIndex++;
                 displayQuestions();
             }, 1000);
-
-
         } else {
-            console.log("incorrect");
             e.target.style.background = "rgba(245, 49, 49, 0.8)";
             e.target.classList.add("choice-hover");
-
             setTimeout(() => {
                 e.target.style.background = "antiquewhite";
                 e.target.classList.remove("choice-hover");
                 questionIndex++;
                 displayQuestions();
             }, 1000);
-
-
         }
     });
 }
-
 
 function displayTopScore() {
     let result = document.querySelector("#result");
@@ -358,14 +269,10 @@ function displayTopScore() {
         result.innerHTML = ("Practice makes perfect...");
     }
     document.querySelector("#score-box").innerHTML = `Hello ${username}, your score was ${finalScore} out of a possible ${totalQuestions*100}, you got ${finalScore/totalQuestions}% right`;
-
-
 }
-
 
 // // //general knowledge questions url if fetch unsuccessful
 function getURL2() {
-
     fetch("js/questions.json")
         .then(fetchCatch)
         .then(res => res.json())
@@ -378,14 +285,9 @@ function getURL2() {
                     answers: [...q.incorrect_answers, q.correct_answer]
                 };
             }));
-
-            console.log(questions);
             availableQuestions.push(...questions);
-            console.log(availableQuestions);
             shuffle(availableQuestions);
-            console.log(availableQuestions);
-            nextQuestion(); //was getNewQuestion
+            displayQuestions();
         })
         .catch(error => console.log(error));
-
 }
