@@ -18,6 +18,7 @@ let time = 15;
 let timeOut = setInterval(timer, 1000);
 let selectedAnswer = Array.from(document.querySelectorAll(".choice"));
 
+//Function to respond if Response from Fetch not Ok, otherwise return Ok
 let fetchCatch = function (response) {
     if (!response.ok) {
         if (confirm("Sorry, there was a problem getting your questions, you can use our 20 stored questions if you want? If not, hit cancel and try again later")) {
@@ -30,15 +31,18 @@ let fetchCatch = function (response) {
     return response;
 };
 
+//Function to return to homescreen and clear local Storage
 function homeClear() {
     localStorage.clear();
     window.location.href = "/index.html";
 }
 
+//Function to go back to Quiz choices
 function replay() {
     window.location.href = "/quizChoice.html";
 }
 
+//Function to get and store Player Username
 function getUserName() {
     let playButton = document.querySelector("#play");
     playButton.addEventListener("click", e => {
@@ -51,13 +55,14 @@ function getUserName() {
     });
 }
 
+//Function to Hide game rules
 function hideRules() {
     rules.addEventListener("click", e => {
         rules.style.display = "none";
     });
 }
 
-//fisher-yates shuffle to randomise answer postition from https://bost.ocks.org/mike/shuffle/
+//fisher-yates shuffle to randomise question and answer postitions, taken from https://bost.ocks.org/mike/shuffle/
 function shuffle(array) {
     let m = array.length,
         t, i;
@@ -73,6 +78,7 @@ function shuffle(array) {
     return array;
 }
 
+//Function to Fetch game choice category list
 function getCategories() {
     fetch("https://opentdb.com/api_category.php")
         .then(fetchCatch)
@@ -84,11 +90,11 @@ function getCategories() {
         .catch(error => console.log(error));
 }
 
+//Function to display category lists
 function displayCategories() {
     document.querySelector("#quiz-choice").innerHTML = (`Hello ${localStorage.getItem("username")}, please choose your categories (you can pick a maximum of 5)`);
     for (i = 0; i < 15; i++) {
-        //fill div with 15 categories
-        let categoryChoice = document.querySelector(".selection");
+       let categoryChoice = document.querySelector(".selection");
         let categories = document.createElement("input");
         let categoriesLabel = document.createElement("label");
         categories.classList = "checkbox";
@@ -106,9 +112,9 @@ function displayCategories() {
     changeURL();
 }
 
-// Find out value of clicked choice then change URL
+// Function to find out what checkboxes are checked
 function changeURL() {
-    var checkedBox = document.querySelectorAll('input[type="checkbox"]:checked');
+    let checkedBox = document.querySelectorAll('input[type="checkbox"]:checked');
     checkedBox.forEach(element => {
         fetchArray.push(["https://opentdb.com/api.php?amount=10&category=" + element.value + "&type=multiple"]);
     });
@@ -116,7 +122,7 @@ function changeURL() {
         localStorage.setItem(`genUrl${[i]}`, fetchArray[i]);
         localStorage.setItem("fetchArrayLength", fetchArray.length);
     }
-    //limited to 50 question fetch by Opentdb
+    //N.B limited to a maximum of 50 questions fetch by Opentdb (Fetch source)
     let submitCategories = document.querySelector("#submit-categories");
     submitCategories.addEventListener("click", e => {
         if (fetchArray.length > 5 || fetchArray.length == 0) {
@@ -132,6 +138,7 @@ function changeURL() {
     });
 }
 
+//Function to fetch the selected categories from user input stored in Local storage
 function getURL() {
     for (i = 0; i < localStorage.getItem("fetchArrayLength"); i++) {
         fetch(localStorage.getItem("genUrl" + [i]))
@@ -157,12 +164,13 @@ function getURL() {
     }
 }
 
-//set timer
+// Function to reset timer
 function resetTimer() {
     clearInterval(timeOut);
     time = 15;
 }
 
+//Funtion to Set timer
 function timer() {
     document.getElementById("timer").innerHTML = time + "s";
     time--;
@@ -199,11 +207,11 @@ function timer() {
     }
 }
 
+//Function to display questions if there are Questions left in Array, if not, to go to final score page
 function displayQuestions() {
     if (questionIndex == availableQuestions.length) {
         localStorage.setItem("finalScore", score);
         localStorage.setItem("totalQuestions", availableQuestions.length);
-
         window.location.href = "topScore.html";
     }
     totalScore.innerHTML = `Score: ${score}`;
@@ -216,7 +224,7 @@ function displayQuestions() {
     nextQuestion();
 }
 
-// Set up a function to call a question from array and set it to the innerHTML of question
+// Function to reset timer and update progress
 function nextQuestion() {
     let amountQuestions = availableQuestions.length;
     progressBar.max = amountQuestions;
@@ -226,7 +234,7 @@ function nextQuestion() {
     progressBar.value = questionIndex + 1;
 }
 
-//record which choice was selected using the data set, then compare this to the answer number
+//Function to check answers vs correct answers in Array by comparing HTML
 for (i = 0; i < 4; i++) {
     selectedAnswer[i].addEventListener("click", e => {
         resetTimer();
@@ -253,6 +261,7 @@ for (i = 0; i < 4; i++) {
     });
 }
 
+//Function to display Results on top Score page
 function displayTopScore() {
     let result = document.querySelector("#result");
     let username = localStorage.getItem("username");
@@ -271,7 +280,7 @@ function displayTopScore() {
     document.querySelector("#score-box").innerHTML = `Hello ${username}, your score was ${finalScore} out of a possible ${totalQuestions*100}, you got ${finalScore/totalQuestions}% right`;
 }
 
-// // //general knowledge questions url if fetch unsuccessful
+//Function that fetches JSON file from assets, called if Fetch from URL is unsuccesful
 function getURL2() {
     fetch("js/questions.json")
         .then(fetchCatch)
