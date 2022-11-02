@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/style.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Quiz</title>
 </head>
 
 <body>
@@ -19,11 +19,15 @@
             
             <h3>Then hit Play Game</h3>
             <div id ="rules">
-                <li>First, Enter a Username between 3 and 10 letters</li>
-                <li>Hit Play Game and choose up to 5 categories, Questions are reandomly selected then shuffled. If Questions can't be loaded, a set of hardwired questions can be offered</li>
-                <li>The Questions are timed, you receive 100pts for a correct Answer, if you run out of time, the Answers are not clickable</li>
-                <li>You can hit the reveal Answer if you want to skip a Question</li>
-                <li>Your Score will then be totalled at the end. Hit "Home" to remove your scores and username</li>
+                <ul>
+
+                    <li>First, Enter a Username between 3 and 10 letters</li>
+                    <li>Hit Play Game and choose up to 5 categories, Questions are reandomly selected then shuffled. If Questions can't be loaded, a set of hardwired questions can be offered</li>
+                    <li>The Questions are timed, you receive 100pts for a correct Answer, if you run out of time, the Answers are not clickable</li>
+                    <li>You can hit the reveal Answer if you want to skip a Question</li>
+                    <li>Your Score will then be totalled at the end. Hit "Home" to remove your scores and username</li>
+
+                </ul>
                 <button id="rules-btn" onclick="hideRules()">OK</button>
             </div>
         </div>
@@ -34,7 +38,7 @@
             <input type="submit" id="play" value="Play Game" onclick="getUserName()">
         </div>
     </main>
-    <script src="assets/quiz.js"></script>
+    <script src="assets/js/quiz.js"></script>
 </body>
 
 </html>

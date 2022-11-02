@@ -1,108 +1,148 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Welcome to 
 
-Welcome Forgottenit,
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
+# Goal
+The goal of this is website is to provide an Online Grinds Website for both Junior and Leaving Certificate Irish students. There is also a section for Teachers to sign up to provide grinds. It has an about section on the landing page with testimonials, then 3 sign up forms, one for Junior Cert subjects, one for Leaving Cert subjects and one for Teachers to submit their Cv
 
-## Gitpod Reminders
+# Table of Contents
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+# UX
+## User Goals
+-	Find Grind providers Online
+-	Have an easy method to submit details and options
+-	Be reassured about quality of Tutors
+-	Easy to research company through reviews and social media
+- 	Find site that hires tutors to provide Grinds online that has a resource of students
 
-`python3 -m http.server`
+## User Stories
+-	As a parent/student, I want to be able to access quality Tutors
+-   I want reassurance that all providers are qualified, experienced and vetted
+-   I want options for how the service is provided and flexibility as opposed to "brick and morter" options that may not be easily accessible
+-   I want the service to affordable
+-   I want to receive feedback once my information has been submitted
+-   As a Teacher/Tutor, I want an easy method to apply for a role
+- 	I want access to more options to provide grinds as opposed to visiting or having people call to my home
 
-A blue button should appear to click: _Make Public_,
+## Site owners Goals
+-	Instil confidence in users to maximise sign-up
+-	Have easy to follow links for users and portray a positive experience
+-   Have a variety of options to maximise customers around the country
+-	Have a way to collect submitted data
+-	Increase Brand awareness through use of Title and Social Media links
+## Requirements
+-	Easy to navigate on different devices
+-	Multiple ways to contact Site, through different social media and form submissions
+-	Easy and clear method to submit information and choices
+-	Follow a clear layout
+-	Make the site visually appealing
+## Expectations
+-	All links to be active and open in a new tab to not send users away from the site
+-	Form submission to be able to collect multiple pieces of data at once (i.e. New forms not needed if more than one option picked)
+-	Visually appealing on all devices
+-	All images and forms to load and run at a high performance level
 
-Another blue button should appear to click: _Open Browser_.
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+# Design Choices
+## Fonts
+On this site I used the Google Font Slabo 13px after experimenting with different styles.  I felt this had a “Code” like appearance which alluded to the fact that the service is provided online. This was coupled with the standard GitHub font Courier New, as the Slabo font was mainly to signify the “branding” and may have complicated the standard font for form submissions and would have appeared over-styled. As the Heading of each page includes the name of the site, I felt this gave a striking style and although I debated inserting a “Logo” instead, I preferred this look due to the nature of the website, I thought brand awareness outweighed the visual appeal of a Logo. Although, this could be changed in the future.
+## Icons
+I used FontAwesome for logos for Social Media sites as these are industry standards and easily recognisable.
+<img src="Docs/footer.png">
+## Colours
+The colours I chose for the fonts #f4a162;(orange) and #3f6c51 (green) for the website were, along with the white background, to be representative of the nature of the company being an Irish company, so to have a green white and gold colouring. The colours for the testimonials were bright to indicate positivity. The form submission backgrounds were a linear mix of the orange and green, with a transparency to not block out the background images matching the images from the landing page, to give a level of visual consistency. 
 
-A blue button should appear to click: _Make Public_,
+<img src="Docs/2022-09-22 (2).png" style=height:100px;>
+<img src="Docs/2022-09-22 (3).png" style=height:100px;>
 
-Another blue button should appear to click: _Open Browser_.
+## Structure
+The website was built with a Breakpoint of 450px, below this point the Nav menu is made smaller and the border box removed to fit neater on the page, also, the form lengths are increased as to have a neater content.
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+ 
+# Wireframes
+<img src="Docs/2022-09-23 (9).png" style=height:200px;>
+<img src="Docs/2022-09-23 (10).png" style=height:200px;>
+<img src="Docs/2022-09-23 (11).png" style=height:200px;>
 
-To log into the Heroku toolbelt CLI:
+ 
+# Features
+## Existing Features
+### Navigation Bar
+-	The Nav Bar includes links to form submissions, the style is changed below 450px width as to give a neater view on smaller screens. It contains a Home link, links to Junior Cert and Leaving Cert option submission forms and a link for Teachers to sign up to a apply to be Tutors for the Website.
+### Landing page
+### Ethos Section
+This contains information about the Site and the services provided
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+### Testimonials
+This area contains reviews of the service, as this is for demonstrative purposes, the reviews are created for that purpose.
+### Sign-up Section
+This contains three different options for sign up, one for Junior Cert Cycle students, one for Leaving Cert and one for Teachers, each link leads to a different form submission
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+<img src="Docs/sign up and footer.png">
 
-------
+### Footer
+This contains links to Social Media sites that open in a new page, namely, Twitter, Facebook, YouTube and Instagram. This links all open on a new page.
 
-## Release History
+## Submission Forms
+Junior Cert, Leaving Cert and Teacher Submission forms. Each has a background, covered by the form in a transparent view. The Junior and Leaving Cert forms contain Checkboxes to select classes from the relevant cycles, the Teacher Submission form contains a text area box to submit a Cv. All three contain inputs for First Name, Last Name and Email, these are all set to required.
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+<img src="Docs/2022-09-23 (5).png" style = height:150px;>
+<img src="Docs/2022-09-23 (7).png" style = height:150px;>
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+# Future Features 
+-	Forms to submit to an accessible database that could be collected
+-	Examined the option of having a "Burger" menu on the Nav Bar, but I felt I would be more comfortable implementing this with JavaScript
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+ 
+# Technologies used
+## Languages
+- HTML for structuring website
+- CSS for styling website
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+## Tools
+- GitPod and GitHub for Coding and Hosting the Website
+- CodeInstitute for Mentors and Tutors
+- LightHouse
+- https://validator.w3.org/ for validating site
+ 
+# Testing
+-	HTML
+No errors were returned when passing through the official W3C validator
+- CSS
+No errors were found when passing through the official (Jigsaw) validator
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+## Lighthouse
+<img src= "Docs/Lighthouse.png">
+ 
+# General Testing
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+- After site was ran through w3 validators, the site was tested for functionality.
+- Functionality testing involved ensuring all links were active, that all form submission sections that were set to "required" actually required input and that once forms were submitted that a confirmation message was shown
+- Testing also involved general lay-out testing of alternate design choices and images before the ones used were settled upon.
+- Finally, testing also involved demonstration of the active site to mt CodeInstitute Mentor 
+# Deployment
+Following writing the code then commiting and pushing to GitHub, this project was deployed using GitHub by the following steps.
+-	Navigate to the repository on github and click 'Settings'.
+-	Then select 'Pages' on the side navigation.
+-	Select the 'None' dropdown, and then click 'master'.
+-	Click on the 'Save' button.
+-	Now the website is now live on  https://forgottenit.github.io/Online-Grinds/
+-	If any changes are required, they can be done, commited and pushed to GitHub and the changes will be updated.
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
-
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
-
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
-
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
-
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
-
-------
-
-## FAQ about the uptime script
-
-**Why have you added this script?**
-
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
-
-**How will this affect me?**
-
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
-
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
-
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
-
-**So….?**
-
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
-
-**Can I opt out?**
-
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
-
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
-
-**Anything more?**
-
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
-
----
-
-Happy coding!
+ 
+# Credits
+## For coding help and advice
+-	Simen Daehlin
+-	Rohit Sharma
+-	CodeInstitiute
+ 
+## For content and style 
+-	Wikipedia
+-	CodeInstitute
+-	FontAwesome
+-	W3Schools.com
+-	IStockPhoto.com and Pixabay.com for Images

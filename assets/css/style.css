@@ -47,7 +47,7 @@
     margin: 5rem;
     font-size: 4rem;
     border: 1rem solid rgb(250, 233, 104);
-    background-color: linear-gradient(75deg, rgba(250, 26, 48, 0.1), rgba(32, 159, 58, 0.1));
+    background: linear-gradient(225deg, rgba(252, 216, 219, 0.4), rgba(215, 251, 223, 0.4));
     width: 85%;
     display: flex;
     justify-content: center;
@@ -58,7 +58,10 @@
     font-weight: 900;
     box-shadow: 0 2rem 2rem 0 rgba(0, 0, 0, 0.8), 0 2rem 8rem 0 rgba(0, 0, 0, 0.4);
 }
+#play:focus{
+    box-shadow: 0rem 0rem 1rem 0rem rgba(0, 0, 0, 0.8), 0 1rem 3rem 0 rgba(0, 0, 0, 0.4);
 
+}
 
 
 .flex-box {
@@ -91,6 +94,11 @@
 
 }
 
+#quiz-choice{
+
+    text-align: center;
+    font-size: 3vh;
+}
 
 .progressDisplay {
     justify-content: space-between;
@@ -124,16 +132,16 @@
 }
 
 .choice {
-    border: 0.5rem solid black;
+    border: 0.5rem solid rgb(27, 26, 26);
     text-align: center;
-    background-color: antiquewhite;
+    background-color: rgb(254, 241, 225);
     min-width: 30rem;
 
 }
 
 .select {
-    background-color: black;
-    color: aliceblue;
+    background-color: rgb(15, 15, 15);
+    color: rgb(228, 241, 253);
 }
 
 .flex {
@@ -142,7 +150,7 @@
     align-content: center;
     justify-content: center;
     height: 10vh;
-    padding: 2rem 5rem;
+    padding: 2rem 5.1rem;
     border-radius: 10px;
     margin: 0 2px;
     font-size: 2vh;
@@ -200,9 +208,9 @@
 
 
 .flex:focus {
-    background-color: white;
-    color: black;
-    box-shadow: 0 5px #666;
+    background-color: rgb(255, 255, 255);
+    color: rgb(27, 27, 27);
+    box-shadow: 0 5px rgb(102, 102, 102);
 }
 
 #score-box{
