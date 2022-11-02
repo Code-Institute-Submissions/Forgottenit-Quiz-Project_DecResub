@@ -1,7 +1,7 @@
 :root {
     background: linear-gradient(75deg, rgba(250, 26, 48, 0.1), rgba(32, 159, 58, 0.1));
     font-size: 62.5%;
-    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-style: oblique;
 }
 
@@ -18,9 +18,11 @@
     font-size: 2rem;
     border-radius: 0.5rem;
 }
-#rules-btn{
+
+#rules-btn {
     font-size: 2rem;
 }
+
 .flex-grid {
     display: grid;
     flex-basis: 50%;
@@ -58,11 +60,11 @@
     font-weight: 900;
     box-shadow: 0 2rem 2rem 0 rgba(0, 0, 0, 0.8), 0 2rem 8rem 0 rgba(0, 0, 0, 0.4);
 }
-#play:focus{
+
+#play:focus {
     box-shadow: 0rem 0rem 1rem 0rem rgba(0, 0, 0, 0.8), 0 1rem 3rem 0 rgba(0, 0, 0, 0.4);
 
 }
-
 
 .flex-box {
     margin-top: 3rem;
@@ -73,29 +75,26 @@
     align-items: center;
     font-size: 3rem;
     text-align: center;
-    
+
 }
 
-.quiz-box{
-    
-        margin-top: 3rem;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-content: center;
-        align-items: center;
-        font-size: 2rem;
-        text-align: center;
-        
-    }
-.choice-hover:hover{
+.quiz-box {
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    font-size: 2rem;
+    text-align: center;
+
+}
+
+.choice-hover:hover {
     box-shadow: 0 2rem 2rem 0 rgba(0, 0, 0, 0.8), 0 2rem 8rem 0 rgba(0, 0, 0, 0.4);
-
-
 }
 
-#quiz-choice{
-
+#quiz-choice {
     text-align: center;
     font-size: 3vh;
 }
@@ -117,7 +116,7 @@
     width: 100%;
     height: 3rem;
 }
- 
+
 .btn {
     font-size: 3rem;
     margin-top: 2rem;
@@ -136,7 +135,6 @@
     text-align: center;
     background-color: rgb(254, 241, 225);
     min-width: 30rem;
-
 }
 
 .select {
@@ -171,25 +169,22 @@
     background-color: rgb(73, 71, 71);
     color: rgb(238, 213, 102);
     box-shadow: 0 2rem 2rem 0 rgba(0, 0, 0, 0.8), 0 2rem 8rem 0 rgba(0, 0, 0, 0.4);
+}
 
-} 
-
-.checkbox{
+.checkbox {
     display: flex;
     justify-content: center;
     align-items: center;
     align-content: center;
     text-align: center;
     margin: 0.5vh;
-    
-
 }
 
-#rules{
+#rules {
     z-index: 999;
     display: flex;
     flex-direction: column;
-    gap:1rem;
+    gap: 1rem;
     align-items: center;
     align-content: center;
     justify-content: center;
@@ -202,10 +197,7 @@
     margin-top: 12rem;
     border-radius: 1rem;
     padding: 2rem;
-    
 }
-
-
 
 .flex:focus {
     background-color: rgb(255, 255, 255);
@@ -213,7 +205,7 @@
     box-shadow: 0 5px rgb(102, 102, 102);
 }
 
-#score-box{
+#score-box {
     display: flex;
     font-size: 2rem;
     justify-content: center;
