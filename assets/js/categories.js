@@ -29,7 +29,7 @@ function getCategories() {
 function displayCategories() {
     document.querySelector("#quiz-choice").innerHTML = (`Hello ${localStorage.getItem("username")}, please choose your categories (you can pick a maximum of 5)`);
     for (i = 0; i < 15; i++) {
-       let categoryChoice = document.querySelector(".selection");
+        let categoryChoice = document.querySelector(".selection");
         let categories = document.createElement("input");
         let categoriesLabel = document.createElement("label");
         categories.classList = "checkbox";
