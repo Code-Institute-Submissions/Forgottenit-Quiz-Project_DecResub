@@ -22,9 +22,9 @@ let selectedAnswer = Array.from(document.querySelectorAll(".choice"));
 let fetchCatch = function (response) {
     if (!response.ok) {
         if (confirm("Sorry, there was a problem getting your questions, you can use our 20 stored questions if you want? If not, hit cancel and try again later")) {
-            window.location.href = "../quiz2.html";
+            window.location.href = "../../quiz2.html";
         } else {
-            window.location.href = "../index.html";
+            window.location.href = "../../index.html";
         }
         throw new Error('There was a problem with the Network response');
     }
@@ -34,12 +34,12 @@ let fetchCatch = function (response) {
 //Function to return to homescreen and clear local Storage
 function homeClear() {
     localStorage.clear();
-    window.location.href = "../index.html";
+    window.location.href = "../../index.html";
 }
 
 //Function to go back to Quiz choices
 function replay() {
-    window.location.href = "../quizChoice.html";
+    window.location.href = "../../quizChoice.html";
 }
 
 //Function to get and store Player Username
@@ -48,7 +48,7 @@ function getUserName() {
     playButton.addEventListener("click", e => {
         if (10 >= document.querySelector("#username").value.length && document.querySelector("#username").value.length > 2 && document.querySelector("#username").value.match(regex)) {
             localStorage.setItem("username", document.querySelector("#username").value);
-            window.location.href = "../quizChoice.html";
+            window.location.href = "../../quizChoice.html";
         } else {
             alert("Not a Valid Username, please enter a name between 3 and 10 letters");
         }
@@ -127,13 +127,13 @@ function changeURL() {
     submitCategories.addEventListener("click", e => {
         if (fetchArray.length > 5 || fetchArray.length == 0) {
             if (confirm("Sorry, you have to pick between 1 and 5 categories!")) {
-                window.location.href = "quizChoice.html";
+                window.location.href = "../../quizChoice.html";
             } else {
-                window.location.href = "quizChoice.html";
+                window.location.href = "../../quizChoice.html";
             }
         } else
             setTimeout(() => {
-                window.location.href = "quiz.html";
+                window.location.href = "../../quiz.html";
             }, 1000);
     });
 }
