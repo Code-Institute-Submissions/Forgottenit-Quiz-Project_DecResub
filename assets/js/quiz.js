@@ -50,7 +50,7 @@ function getUserName() {
             localStorage.setItem("username", document.querySelector("#username").value);
             window.location.href = "../../quizChoice.html";
         } else {
-            alert("Not a Valid Username, please enter a name between 3 and 10 letters");
+            alert("Not a Valid Username, please enter a NAME between 3 and 10 letters");
         }
     });
 }
