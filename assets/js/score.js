@@ -19,10 +19,10 @@ function displayTopScore() {
 //Clear storage and go to home page
 function homeClear() {
     localStorage.clear();
-    window.location.href = "../index.html";
+    window.location.href = "../../index.html";
 }
 
 //Function to go back to Quiz choices
 function replay() {
-    window.location.href = "../quizChoice.html";
+    window.location.href = "../../quizChoice.html";
 }
