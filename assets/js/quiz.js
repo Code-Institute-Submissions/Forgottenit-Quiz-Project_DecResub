@@ -282,7 +282,7 @@ function displayTopScore() {
 
 //Function that fetches JSON file from assets, called if Fetch from URL is unsuccesful
 function getURL2() {
-    fetch("js/questions.json")
+    fetch("assets/js/questions.json")
         .then(fetchCatch)
         .then(res => res.json())
         .then(data => {
