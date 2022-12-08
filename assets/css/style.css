@@ -61,7 +61,7 @@
     box-shadow: 0 2rem 2rem 0 rgba(0, 0, 0, 0.8), 0 2rem 8rem 0 rgba(0, 0, 0, 0.4);
 }
 
-#play:focus {
+#play:hover {
     box-shadow: 0rem 0rem 1rem 0rem rgba(0, 0, 0, 0.8), 0 1rem 3rem 0 rgba(0, 0, 0, 0.4);
 
 }

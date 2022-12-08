@@ -1,6 +1,10 @@
 let gameChoices = [];
 let fetchArray = [];
 
+function homeClear() {
+    localStorage.clear();
+    window.location.href = "index.html";
+}
 //Function to respond if Response from Fetch not Ok, otherwise return Ok
 let fetchCatch = function (response) {
     if (!response.ok) {
