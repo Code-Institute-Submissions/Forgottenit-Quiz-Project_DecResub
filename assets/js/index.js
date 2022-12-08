@@ -9,7 +9,7 @@ function getUserName() {
             localStorage.setItem("username", document.querySelector("#username").value);
             window.location.href = "../quizChoice.html";
         } else {
-            alert("Not a Valid Username, please enter a Name between 3 and 10 letters");
+            alert("Not a Valid Username, Please enter a Name between 3 and 10 letters");
         }
     });
 }
