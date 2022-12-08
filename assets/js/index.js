@@ -7,9 +7,9 @@ function getUserName() {
     playButton.addEventListener("click", e => {
         if (10 >= document.querySelector("#username").value.length && document.querySelector("#username").value.length > 2 && document.querySelector("#username").value.match(regex)) {
             localStorage.setItem("username", document.querySelector("#username").value);
-            window.location.href = "../quizChoice.html";
+            window.location.href = "quizchoice.html";
         } else {
-            alert("Not a Valid Username, Please enter a Name between 3 and 10 letters");
+            alert("Not a Valid Username, PLEASE enter a Name between 3 and 10 letters");
         }
     });
 }
