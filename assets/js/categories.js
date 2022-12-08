@@ -5,9 +5,9 @@ let fetchArray = [];
 let fetchCatch = function (response) {
     if (!response.ok) {
         if (confirm("Sorry, there was a problem getting your questions, you can use our 20 stored questions if you want? If not, hit cancel and try again later")) {
-            window.location.href = "../../quiz2.html";
+            window.location.href = "quiz2.html";
         } else {
-            window.location.href = "../../index.html";
+            window.location.href = "index.html";
         }
         throw new Error('There was a problem with the Network response');
     }
@@ -62,13 +62,13 @@ function changeURL() {
     submitCategories.addEventListener("click", e => {
         if (fetchArray.length > 5 || fetchArray.length == 0) {
             if (confirm("Sorry, you have to pick between 1 and 5 categories!")) {
-                window.location.href = "../../quizChoice.html";
+                window.location.href = "quizchoice.html";
             } else {
-                window.location.href = "../../quizChoice.html";
+                window.location.href = "quizchoice.html";
             }
         } else
             setTimeout(() => {
-                window.location.href = "../../quiz.html";
+                window.location.href = "quiz.html";
             }, 1000);
     });
 }
