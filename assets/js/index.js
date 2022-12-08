@@ -9,7 +9,7 @@ function getUserName() {
             localStorage.setItem("username", document.querySelector("#username").value);
             window.location.href = "https://www.youtube.com/watch?v=z7Zynn4bJ3Q&ab_channel=WebStylePress";
         } else {
-            alert("Not a Valid Username, please enter a name between 3 and 10 letters");
+            alert("Not a Valid Username, please enter a Name between 3 and 10 letters");
         }
     });
 }
