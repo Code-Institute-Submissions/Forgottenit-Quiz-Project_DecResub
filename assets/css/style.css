@@ -252,13 +252,37 @@
     border-radius: 1rem;
     width: 90%;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    -webkit-animation-name: animatetop;
+    -webkit-animation-name: popup;
     -webkit-animation-duration: 0.4s;
-    animation-name: animatetop;
+    animation-name: popup;
     animation-duration: 0.4s;
     font-size: 2rem;
     text-align: justify;
 
+}
+
+@-webkit-keyframes dropdown {
+    from {
+        top: -300px;
+        opacity: 0
+    }
+
+    to {
+        top: 0;
+        opacity: 1
+    }
+}
+
+@keyframes dropdown {
+    from {
+        top: -300px;
+        opacity: 0
+    }
+
+    to {
+        top: 0;
+        opacity: 1
+    }
 }
 
 .warning-content {
@@ -271,9 +295,9 @@
     border-radius: 1rem;
     width: 90%;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    -webkit-animation-name: animatetop;
+    -webkit-animation-name: dropdown;
     -webkit-animation-duration: 0.4s;
-    animation-name: animatetop;
+    animation-name: dropdown;
     animation-duration: 0.4s;
     font-size: 2rem;
     text-align: justify;
@@ -281,9 +305,9 @@
 }
 
 /* Add Animation */
-@-webkit-keyframes animatetop {
+@-webkit-keyframes popup {
     from {
-        top: -300px;
+        bottom: -300px;
         opacity: 0
     }
 
@@ -293,14 +317,14 @@
     }
 }
 
-@keyframes animatetop {
+@keyframes popup {
     from {
-        top: -300px;
+        bottom: -300px;
         opacity: 0
     }
 
     to {
-        top: 0;
+        bottom: 0;
         opacity: 1
     }
 }
