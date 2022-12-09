@@ -15,20 +15,18 @@
     <main>
         <h1 id="title">Welcome to the Quiz!</h1>
         <div class="flex-box">
-            <h2>Please Enter Username</h2>
+            <h3>Please Enter Username</h3>
             <h3>Then hit Play Game</h3>
-
         </div>
         <!-- Trigger/Open The Modal -->
         <!-- <button id="myBtn">Open Modal</button> -->
 
         <!-- The Modal -->
-        <div id="rules" class="rules">
-
+        <div id="rules" class="rules-box">
             <!-- Modal content -->
             <div class="rules-content">
                 <div class="rules-header">
-                    <span class="close">&times;</span>
+                    <span class="close-rules">&times;</span>
                     <h2>RULES</h2>
                 </div>
                 <div class="rules-body">
@@ -44,15 +42,30 @@
                         </li>
                     </ul>
                 </div>
-
             </div>
-
         </div>
+        <div id="warning" class="warning-box">
+            <!-- Modal content -->
+            <div class="warning-content">
+                <div class="warning-header">
+                    <span class="close-warning">&times;</span>
+                    <h2>WARNING</h2>
+                </div>
+                <div class="warning-body">
+                    <ul>
+                        <li>First, Enter a Username between 3 and 10 letters</li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
         <div class="flex-box">
             <label for="username"></label>
             <input type="text" id="username" name="username" placeholder="Enter Username">
             <input type="submit" id="play" value="Play Game" onclick="getUserName()">
-            <button id="myBtn" onclick="displayModal()">RULES</button>
+            <button id="rulesBtn" onclick="displayRules()">RULES</button>
         </div>
     </main>
     <script src="assets/js/index.js"></script>

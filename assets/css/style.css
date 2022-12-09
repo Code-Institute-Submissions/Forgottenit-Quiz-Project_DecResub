@@ -15,8 +15,10 @@
     border: 1rem solid rgb(252, 179, 191, 0.5);
     text-align: center;
     color: rgb(29, 29, 34);
-    font-size: 2rem;
+    font-size: 4rem;
     border-radius: 0.5rem;
+    font-weight: 900;
+    font-style: oblique;
 }
 
 #rules-btn {
@@ -42,6 +44,9 @@
     padding: 2rem;
     text-align: center;
     border-radius: 1rem;
+    box-shadow: 0 2rem 2rem 0 rgba(0, 0, 0, 0.8), 0 2rem 8rem 0 rgba(0, 0, 0, 0.4);
+    font-style: oblique;
+    font-weight: 900;
 }
 
 #play {
@@ -61,7 +66,9 @@
     box-shadow: 0 2rem 2rem 0 rgba(0, 0, 0, 0.8), 0 2rem 8rem 0 rgba(0, 0, 0, 0.4);
 }
 
-#play:hover {
+#rulesBtn:hover,
+#play:hover,
+#username:hover {
     box-shadow: 0rem 0rem 1rem 0rem rgba(0, 0, 0, 0.8), 0 1rem 3rem 0 rgba(0, 0, 0, 0.4);
 
 }
@@ -180,24 +187,7 @@
     margin: 0.5vh;
 }
 
-/* #rules {
-    z-index: 999;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    align-items: center;
-    align-content: center;
-    justify-content: center;
-    color: rgb(26, 4, 83);
-    background-color: rgb(250, 247, 242);
-    position: absolute;
-    font-size: 1.5rem;
-    font-weight: 900;
-    height: 70%;
-    margin-top: 12rem;
-    border-radius: 1rem;
-    padding: 2rem;
-} */
+
 
 .flex:focus {
     background-color: rgb(255, 255, 255);
@@ -214,7 +204,20 @@
     text-align: center;
 }
 
-.rules {
+#rulesBtn {
+
+    font-size: 4rem;
+    border-radius: 1rem;
+    padding: 1rem;
+    background: linear-gradient(225deg, rgba(151, 126, 243, 0.4), rgba(237, 73, 70, 0.4));
+    border: #888;
+    box-shadow: 0 2rem 2rem 0 rgba(0, 0, 0, 0.8), 0 2rem 8rem 0 rgba(0, 0, 0, 0.4);
+    font-style: oblique;
+    font-weight: 900;
+}
+
+.rules-box,
+.warning-box {
     display: none;
     /* Hidden by default */
     position: fixed;
@@ -240,6 +243,25 @@
 
 /* Modal Content */
 .rules-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    /* padding-left: 1rem;
+    padding-right: 1rem; */
+    border: 1px solid #888;
+    border-radius: 1rem;
+    width: 90%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+    font-size: 2rem;
+    text-align: justify;
+
+}
+
+.warning-content {
     position: relative;
     background-color: #fefefe;
     margin: auto;
@@ -284,28 +306,34 @@
 }
 
 /* The Close Button */
-.close {
+.close-warning,
+.close-rules {
     color: rgb(12, 12, 12);
     float: right;
     font-size: 28px;
     font-weight: bold;
 }
 
-.close:hover,
-.close:focus {
+.close-warning:hover,
+.close-warning:focus,
+.close-rules:hover,
+.close-rules:focus {
     color: #000;
     text-decoration: none;
     cursor: pointer;
 }
 
+.warning-header,
 .rules-header {
     /* padding: 2px 16px; */
-    background-color: #4153f6;
+    background: linear-gradient(225deg, rgba(250, 49, 45, 0.4), rgba(15, 23, 250, 0.4));
     color: white;
     border-radius: 1rem;
+    text-align: center;
 }
 
-.rules-body {
+.rules-body,
+.warning-body {
     padding: 1rem 1rem;
     list-style-position: inside;
 }

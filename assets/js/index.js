@@ -9,7 +9,7 @@ function getUserName() {
         window.location.href = "quizchoice.html";
     } else {
         // alert("Not a Valid Username, PLEASE enter a Name between 3 and 10 letters");
-        displayModal()
+        displayWarning();
     }
 }
 
@@ -21,25 +21,48 @@ function hideRules() {
     });
 }
 
-function displayModal() {
+function displayRules() {
     // Get the modal
     var rules = document.getElementById("rules");
     rules.style.display = "block";
     // Get the button that opens the modal
-    var btn = document.getElementById("myBtn");
+
 
     // Get the <span> element that closes the modal
-    var span = document.getElementsByClassName("close")[0];
+    var rulesSpan = document.getElementsByClassName("close-rules")[0];
 
 
-    rules.style.display = "block";
+    // rules.style.display = "block";
 
-    span.onclick = function () {
+    rulesSpan.onclick = function () {
         rules.style.display = "none";
     }
     window.onclick = function (event) {
         if (event.target == rules) {
             rules.style.display = "none";
+        }
+    }
+}
+
+function displayWarning() {
+    // Get the modal
+    var warning = document.getElementById("warning");
+    warning.style.display = "block";
+    // Get the button that opens the modal
+
+
+    // Get the <span> element that closes the modal
+    var warningSpan = document.getElementsByClassName("close-warning")[0];
+
+
+    // warningSpan.style.display = "block";
+
+    warningSpan.onclick = function () {
+        warning.style.display = "none";
+    }
+    window.onclick = function (event) {
+        if (event.target == warning) {
+            warning.style.display = "none";
         }
     }
 }
