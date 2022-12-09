@@ -217,7 +217,8 @@
 }
 
 .rules-box,
-.warning-box {
+.warning-box,
+.fetchwarning-box {
     display: none;
     /* Hidden by default */
     position: fixed;
@@ -285,7 +286,8 @@
     }
 }
 
-.warning-content {
+.warning-content,
+.fetchwarning-content {
     position: relative;
     background: linear-gradient(225deg, rgba(234, 230, 248, 1), rgba(246, 221, 220, 1));
     margin: auto;
@@ -331,7 +333,8 @@
 
 /* The Close Button */
 .close-warning,
-.close-rules {
+.close-rules,
+.close-fetchwarning {
     color: rgb(12, 12, 12);
     float: right;
     font-size: 28px;
@@ -340,6 +343,8 @@
 
 .close-warning:hover,
 .close-warning:focus,
+.close-fetchwarning:hover,
+.close-fetchwarning:focus,
 .close-rules:hover,
 .close-rules:focus {
     color: #000;
@@ -347,7 +352,8 @@
     cursor: pointer;
 }
 
-.warning-header {
+.warning-header,
+.fetchwarning-header {
     /* padding: 2px 16px; */
     background: linear-gradient(225deg, rgba(248, 75, 75, 0.68), rgba(242, 3, 3, 0.9));
     color: white;
@@ -364,7 +370,8 @@
 }
 
 .rules-body,
-.warning-body {
+.warning-body,
+.fetchwarning-body {
     padding: 1rem 1rem;
     list-style-position: inside;
 }

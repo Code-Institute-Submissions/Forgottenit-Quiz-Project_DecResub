@@ -7,12 +7,7 @@ function homeClear() {
 }
 //Function to respond if Response from Fetch not Ok, otherwise return Ok
 let fetchCatch = function () {
-    if (confirm("Sorry, there was a problem getting your questions, you can use our 20 stored questions if you want? If not, hit cancel and try again later")) {
-        window.location.href = "quiz2.html";
-    } else {
-        window.location.href = "index.html";
-    }
-    throw new Error('There was a problem with the Network response');
+    fetchWarning()
 
 };
 //Function to Fetch game choice category list
@@ -91,6 +86,31 @@ function displayWarning() {
         if (event.target == warning) {
             // warning.style.display = "none";
             window.location.href = "quizchoice.html";
+        }
+    }
+}
+
+function fetchWarning() {
+    // Get the modal
+    var fetchwarning = document.getElementById("fetchwarning");
+    fetchwarning.style.display = "block";
+    // Get the button that opens the modal
+
+
+    // Get the <span> element that closes the modal
+    var fetchwarningSpan = document.getElementsByClassName("close-fetchwarning")[0];
+
+
+    // warningSpan.style.display = "block";
+
+    fetchwarningSpan.onclick = function () {
+        // warning.style.display = "none";
+        window.location.href = "quiz2.html";
+    }
+    window.onclick = function (event) {
+        if (event.target == fetchwarning) {
+            // warning.style.display = "none";
+            window.location.href = "quiz2.html";
         }
     }
 }
