@@ -83,7 +83,17 @@
     align-items: center;
     font-size: 3rem;
     text-align: center;
+}
 
+.scoreflex-box {
+    margin: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    font-size: 4rem;
+    text-align: center;
 }
 
 .quiz-box {
@@ -225,6 +235,7 @@
     font-size: 2rem;
     justify-content: center;
     align-content: center;
+    font-weight: 800;
     margin: 5rem 2rem;
     text-align: center;
 }

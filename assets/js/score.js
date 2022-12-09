@@ -4,9 +4,10 @@ function displayTopScore() {
     let username = localStorage.getItem("username");
     let finalScore = localStorage.getItem("finalScore");
     let totalQuestions = localStorage.getItem("totalQuestions");
-    document.querySelector("#score-box").innerHTML = `Hello ${username}, your score was ${finalScore} out of a possible ${totalQuestions*100}, you got ${finalScore/totalQuestions}% right`;
+    let roundedScore = Math.round(finalScore / totalQuestions);
+    document.querySelector("#score-box").innerHTML = `Hello ${username}, your score was ${finalScore} out of a possible ${totalQuestions*100}, you got ${roundedScore}% right`;
     if ((finalScore / totalQuestions) == 100) {
-        result = ("Wow, great job!!! A perfect Score!");
+        result.innerHTML = ("Wow, great job!!! A perfect Score!");
     } else if ((finalScore / totalQuestions) > 65 && (finalScore / totalQuestions) < 100) {
         result.innerHTML = ("Really well done!");
     } else if ((finalScore / totalQuestions) > 20 && (finalScore / totalQuestions) < 65) {
