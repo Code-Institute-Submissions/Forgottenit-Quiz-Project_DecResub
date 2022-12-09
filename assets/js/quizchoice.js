@@ -5,11 +5,7 @@ function homeClear() {
     localStorage.clear();
     window.location.href = "index.html";
 }
-//Function to respond if Response from Fetch not Ok, otherwise return Ok
-let fetchCatch = function () {
-    fetchWarning()
 
-};
 //Function to Fetch game choice category list
 function getCategories() {
     fetch("https://opentdb.com/api_category.php")
@@ -18,7 +14,7 @@ function getCategories() {
             gameChoices.push(...categories.trivia_categories);
             displayCategories();
         })
-        .catch(err => fetchCatch());
+        .catch(err => fetchWarning());
 }
 
 //Function to display category lists

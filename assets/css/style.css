@@ -352,10 +352,18 @@
     cursor: pointer;
 }
 
-.warning-header,
-.fetchwarning-header {
+.warning-header {
     /* padding: 2px 16px; */
     background: linear-gradient(225deg, rgba(248, 75, 75, 0.68), rgba(242, 3, 3, 0.9));
+    color: white;
+    border-radius: 1rem;
+    text-align: center;
+}
+
+
+.fetchwarning-header {
+    /* padding: 2px 16px; */
+    background: linear-gradient(225deg, rgba(21, 151, 52, 0.68), rgba(243, 41, 41, 0.7));
     color: white;
     border-radius: 1rem;
     text-align: center;
