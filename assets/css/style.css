@@ -202,6 +202,10 @@
     background: linear-gradient(225deg, rgba(246, 3, 24, 0.8), rgba(252, 39, 1, 0.4));
 }
 
+#instructions {
+    background: linear-gradient(225deg, rgba(67, 82, 240, 0.8), rgba(161, 148, 245, 0.4));
+}
+
 #submit-categories,
 #skip {
     background: linear-gradient(225deg, rgba(3, 158, 21, 0.8), rgba(17, 201, 69, 0.4));

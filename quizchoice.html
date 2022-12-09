@@ -43,9 +43,28 @@
                 </div>
             </div>
         </div>
+        <div id="rules" class="rules-box">
+            <!-- Modal content -->
+            <div class="rules-content">
+                <div class="rules-header">
+                    <span class="close-rules">&times;</span>
+                    <h2>Instructions</h2>
+                </div>
+                <div class="rules-body">
+                    <ul>
+                        <li>You have to select at least One Category</li>
+                        <li>You can pick up to Five Categories</li>
+                        <li>Each Category has Ten Questions</li>
+                        <li>The Questions will then be Shuffled when the Quiz begins</li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
         <div class="selection flex-grid" onchange=""></div>
         <div class="nav-btns">
             <button class="nav-btn" id="home-btn" onclick="homeClear()">Home</button>
+            <button class="nav-btn" id="instructions" onclick="displayRules()">Instructions</button>
             <button class="nav-btn" id="submit-categories" onclick="changeURL()">Quiz</button>
         </div>
     </main>

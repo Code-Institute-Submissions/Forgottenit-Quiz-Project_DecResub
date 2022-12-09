@@ -110,3 +110,26 @@ function fetchWarning() {
         }
     }
 }
+
+function displayRules() {
+    // Get the modal
+    var rules = document.getElementById("rules");
+    rules.style.display = "block";
+    // Get the button that opens the modal
+
+
+    // Get the <span> element that closes the modal
+    var rulesSpan = document.getElementsByClassName("close-rules")[0];
+
+
+    // rules.style.display = "block";
+
+    rulesSpan.onclick = function () {
+        rules.style.display = "none";
+    }
+    window.onclick = function (event) {
+        if (event.target == rules) {
+            rules.style.display = "none";
+        }
+    }
+}
