@@ -65,14 +65,35 @@ function changeURL() {
     let submitCategories = document.querySelector("#submit-categories");
     submitCategories.addEventListener("click", e => {
         if (fetchArray.length > 5 || fetchArray.length == 0) {
-            if (confirm("Sorry, you have to pick between 1 and 5 categories!")) {
-                window.location.href = "quizchoice.html";
-            } else {
-                window.location.href = "quizchoice.html";
-            }
+            displayWarning();
         } else
             setTimeout(() => {
                 window.location.href = "quiz.html";
             }, 1000);
     });
+}
+
+function displayWarning() {
+    // Get the modal
+    var warning = document.getElementById("warning");
+    warning.style.display = "block";
+    // Get the button that opens the modal
+
+
+    // Get the <span> element that closes the modal
+    var warningSpan = document.getElementsByClassName("close-warning")[0];
+
+
+    // warningSpan.style.display = "block";
+
+    warningSpan.onclick = function () {
+        // warning.style.display = "none";
+        window.location.href = "quizchoice.html";
+    }
+    window.onclick = function (event) {
+        if (event.target == warning) {
+            // warning.style.display = "none";
+            window.location.href = "quizchoice.html";
+        }
+    }
 }
