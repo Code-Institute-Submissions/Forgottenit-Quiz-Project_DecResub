@@ -6,27 +6,24 @@ function homeClear() {
     window.location.href = "index.html";
 }
 //Function to respond if Response from Fetch not Ok, otherwise return Ok
-let fetchCatch = function (response) {
-    if (!response.ok) {
-        if (confirm("Sorry, there was a problem getting your questions, you can use our 20 stored questions if you want? If not, hit cancel and try again later")) {
-            window.location.href = "quiz2.html";
-        } else {
-            window.location.href = "index.html";
-        }
-        throw new Error('There was a problem with the Network response');
+let fetchCatch = function () {
+    if (confirm("Sorry, there was a problem getting your questions, you can use our 20 stored questions if you want? If not, hit cancel and try again later")) {
+        window.location.href = "quiz2.html";
+    } else {
+        window.location.href = "index.html";
     }
-    return response;
+    throw new Error('There was a problem with the Network response');
+
 };
 //Function to Fetch game choice category list
 function getCategories() {
     fetch("https://opentdb.com/api_category.php")
-        .then(fetchCatch)
         .then(res => res.json())
         .then(categories => {
             gameChoices.push(...categories.trivia_categories);
             displayCategories();
         })
-        .catch(error => console.log(error));
+        .catch(err => fetchCatch());
 }
 
 //Function to display category lists
