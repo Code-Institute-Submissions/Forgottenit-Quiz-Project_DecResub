@@ -5,7 +5,6 @@ function displayTopScore() {
     let finalScore = localStorage.getItem("finalScore");
     let totalQuestions = localStorage.getItem("totalQuestions");
     let roundedScore = Math.round(finalScore / totalQuestions);
-    document.querySelector("#score-box").innerHTML = `Hello ${username}, your score was ${finalScore} out of a possible ${totalQuestions*100}, you got ${roundedScore}% right`;
     if ((finalScore / totalQuestions) == 100) {
         result.innerHTML = ("Wow, great job!!! A perfect Score!");
     } else if ((finalScore / totalQuestions) > 65 && (finalScore / totalQuestions) < 100) {
@@ -15,7 +14,7 @@ function displayTopScore() {
     } else {
         result.innerHTML = ("Practice makes perfect...");
     }
-    document.querySelector("#score-box").innerHTML = `Hello ${username}, your score was ${finalScore} out of a possible ${totalQuestions*100}, you got ${finalScore/totalQuestions}% right`;
+    document.querySelector("#score-box").innerHTML = `Hello ${username}, your score was ${finalScore} out of a possible ${totalQuestions*100}, you got ${roundedScore}% right`;
 }
 //Clear storage and go to home page
 function homeClear() {
