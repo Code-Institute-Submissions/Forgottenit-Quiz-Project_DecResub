@@ -48,7 +48,7 @@ function getUserName() {
     playButton.addEventListener("click", e => {
         if (10 >= document.querySelector("#username").value.length && document.querySelector("#username").value.length > 2 && document.querySelector("#username").value.match(regex)) {
             localStorage.setItem("username", document.querySelector("#username").value);
-            window.location.href = "quizhoice.html";
+            window.location.href = "quizchoice.html";
         } else {
             alert("Not a Valid Username, please enter a NAME between 3 and 10 letters");
         }
@@ -212,7 +212,7 @@ function displayQuestions() {
     if (questionIndex == availableQuestions.length) {
         localStorage.setItem("finalScore", score);
         localStorage.setItem("totalQuestions", availableQuestions.length);
-        window.location.href = "topScore.html";
+        window.location.href = "score.html";
     }
     totalScore.innerHTML = `Score: ${score}`;
     questionNumber.innerHTML = ("Question: " + (questionIndex + 1) + "/" + (availableQuestions.length));

@@ -150,7 +150,8 @@
     color: rgb(228, 241, 253);
 }
 
-.flex {
+.flex,
+.scoreflex {
     display: flex;
     align-items: center;
     align-content: center;
