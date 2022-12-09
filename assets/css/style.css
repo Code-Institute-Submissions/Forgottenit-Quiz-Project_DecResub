@@ -251,11 +251,11 @@
     border: 1px solid #888;
     border-radius: 1rem;
     width: 90%;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0 1rem 2rem 0 rgba(0, 0, 0, 0.2), 0 1rem 2rem 0 rgba(0, 0, 0, 0.4);
     -webkit-animation-name: popup;
-    -webkit-animation-duration: 0.4s;
+    -webkit-animation-duration: 1s;
     animation-name: popup;
-    animation-duration: 0.4s;
+    animation-duration: 1s;
     font-size: 2rem;
     text-align: justify;
 
@@ -263,7 +263,7 @@
 
 @-webkit-keyframes dropdown {
     from {
-        top: -300px;
+        top: -30rem;
         opacity: 0
     }
 
@@ -275,7 +275,7 @@
 
 @keyframes dropdown {
     from {
-        top: -300px;
+        top: -30rem;
         opacity: 0
     }
 
@@ -287,18 +287,18 @@
 
 .warning-content {
     position: relative;
-    background-color: #fefefe;
+    background: linear-gradient(225deg, rgba(234, 230, 248, 1), rgba(246, 221, 220, 1));
     margin: auto;
     /* padding-left: 1rem;
     padding-right: 1rem; */
     border: 1px solid #888;
     border-radius: 1rem;
     width: 90%;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0 1rem 2rem 0 rgba(0, 0, 0, 0.2), 0 1rem 2rem 0 rgba(0, 0, 0, 0.4);
     -webkit-animation-name: dropdown;
-    -webkit-animation-duration: 0.4s;
+    -webkit-animation-duration: 1s;
     animation-name: dropdown;
-    animation-duration: 0.4s;
+    animation-duration: 1s;
     font-size: 2rem;
     text-align: justify;
 
@@ -307,7 +307,7 @@
 /* Add Animation */
 @-webkit-keyframes popup {
     from {
-        bottom: -300px;
+        bottom: -30rem;
         opacity: 0
     }
 
@@ -319,7 +319,7 @@
 
 @keyframes popup {
     from {
-        bottom: -300px;
+        bottom: -30rem;
         opacity: 0
     }
 
@@ -347,10 +347,17 @@
     cursor: pointer;
 }
 
-.warning-header,
+.warning-header {
+    /* padding: 2px 16px; */
+    background: linear-gradient(225deg, rgba(248, 75, 75, 0.68), rgba(242, 3, 3, 0.9));
+    color: white;
+    border-radius: 1rem;
+    text-align: center;
+}
+
 .rules-header {
     /* padding: 2px 16px; */
-    background: linear-gradient(225deg, rgba(250, 49, 45, 0.4), rgba(15, 23, 250, 0.4));
+    background: linear-gradient(225deg, rgba(250, 49, 45, 0.8), rgba(15, 23, 250, 0.7));
     color: white;
     border-radius: 1rem;
     text-align: center;
