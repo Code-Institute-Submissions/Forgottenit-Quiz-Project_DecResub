@@ -68,7 +68,8 @@
 
 #rulesBtn:hover,
 #play:hover,
-#username:hover {
+#username:hover,
+.nav-btn:hover {
     box-shadow: 0rem 0rem 1rem 0rem rgba(0, 0, 0, 0.8), 0 1rem 3rem 0 rgba(0, 0, 0, 0.4);
 
 }
@@ -161,7 +162,7 @@
     font-size: 2vh;
 }
 
-.nav-btn {
+.nav-btns {
     background-color: rgb(230, 230, 206);
     display: flex;
     align-items: center;
@@ -170,6 +171,29 @@
     height: 10vh;
     border-radius: 10px;
     margin: 0 2px;
+}
+
+.nav-btn {
+    font-size: 2rem;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    box-shadow: 0 2rem 2rem 0 rgba(0, 0, 0, 0.8), 0 2rem 8rem 0 rgba(0, 0, 0, 0.4);
+}
+
+.quiz-btn {
+    font-size: 1.2rem;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    box-shadow: 0 2rem 2rem 0 rgba(0, 0, 0, 0.8), 0 2rem 8rem 0 rgba(0, 0, 0, 0.4);
+}
+
+#home-btn {
+    background: linear-gradient(225deg, rgba(246, 3, 24, 0.8), rgba(252, 39, 1, 0.4));
+}
+
+#submit-categories,
+#skip {
+    background: linear-gradient(225deg, rgba(3, 158, 21, 0.8), rgba(17, 201, 69, 0.4));
 }
 
 .flex:hover {
