@@ -15,19 +15,11 @@ let time = 15;
 let timeOut = setInterval(timer, 1000);
 let selectedAnswer = Array.from(document.querySelectorAll(".choice"));
 
-
-
-
 //Function to return to homescreen and clear local Storage
 function homeClear() {
     localStorage.clear();
     window.location.href = "index.html";
 }
-
-
-
-
-
 
 //fisher-yates shuffle to randomise question and answer postitions, taken from https://bost.ocks.org/mike/shuffle/
 function shuffle(array) {
@@ -46,8 +38,10 @@ function shuffle(array) {
 }
 
 
+/*Function to fetch the selected categories from user input stored in Local storage
+  and catch error in Fetch by calling fetchWarning
+*/
 
-//Function to fetch the selected categories from user input stored in Local storage
 function getURL() {
     for (i = 0; i < localStorage.getItem("fetchArrayLength"); i++) {
         fetch(localStorage.getItem("genUrl" + [i]))
@@ -78,7 +72,7 @@ function resetTimer() {
     time = 15;
 }
 
-//Funtion to Set timer
+//Funtion to Set timer and call displayCorrect function if timer runs out
 function timer() {
     document.getElementById("timer").innerHTML = time + "s";
     time--;
@@ -126,7 +120,9 @@ function nextQuestion() {
     progressBar.value = questionIndex + 1;
 }
 
-//Function to check answers vs correct answers in Array by comparing HTML
+/*Function to check answers vs correct answers in Array by comparing HTML and display to user
+   and call displayIncorrect if the aswer is wrong and display to user 
+*/
 for (i = 0; i < 4; i++) {
     selectedAnswer[i].addEventListener("click", e => {
         resetTimer();
@@ -142,20 +138,15 @@ for (i = 0; i < 4; i++) {
                 displayQuestions();
             }, 1000);
         } else {
-            // correct.innerHTML.style.color = "rgba(84, 234, 84, 0.8)";
+            //Function to display correct and incorrect answers
             displayIncorrect();
-            // e.target.style.background = "rgba(245, 49, 49, 0.8)";
-            // e.target.classList.add("choice-hover");
+
+            // increase question counter and call next question after delay
             setTimeout(() => {
                 questionIndex++;
                 displayQuestions();
             }, 2000);
-            // setTimeout(() => {
-            //     // e.target.style.background = "antiquewhite";
-            //     // e.target.classList.remove("choice-hover");
-            //     questionIndex++;
-            //     displayQuestions();
-            // }, 1000);
+
         }
     });
 }
@@ -182,23 +173,23 @@ function getURL2() {
         .catch(err => fetchWarning());
 }
 
+// Function that display a Warning if Fetch fails and calls back up quiz
 function fetchWarning() {
-    // Get the modal
+
     let fetchwarning = document.getElementById("fetchwarning");
+
+    //Display warning 
     fetchwarning.style.display = "block";
-    // Get the button that opens the modal
 
-
-    // Get the <span> element that closes the modal
     let fetchwarningSpan = document.getElementsByClassName("close-fetchwarning")[0];
 
-
-    // warningSpan.style.display = "block";
-
+    // Load back up quiz on user clicking span/"x" as Fetch has failed
     fetchwarningSpan.onclick = function () {
         // warning.style.display = "none";
         window.location.href = "quiz2.html";
     }
+
+    // Load back up quiz on user clicking window as Fetch has failed
     window.onclick = function (event) {
         if (event.target == fetchwarning) {
             // warning.style.display = "none";
@@ -206,6 +197,7 @@ function fetchWarning() {
         }
     }
 }
+
 //Function to display correct Answer when timer runs out
 function displayCorrect() {
     selectedAnswer.forEach(answer => {
@@ -231,6 +223,7 @@ function displayCorrect() {
     })
 }
 
+//Function to display correct answers if user guesses incorrectly
 function displayIncorrect() {
     selectedAnswer.forEach(answer => {
         answer.style.pointerEvents = "none";
