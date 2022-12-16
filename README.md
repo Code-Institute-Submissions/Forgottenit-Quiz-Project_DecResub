@@ -3,16 +3,16 @@
 <img src = "DOCS/amIresponsive.png">
 
 # Goal
-The Goal of this site is to have a quiz from which the user may pick their own categories from a wide variety of options and play a multiple choice quiz. 
+The goal of this site is to have a quiz from which the user may pick their categories from a wide variety of options and play a multiple-choice quiz. 
 
 # UX
 ## User Goals
 -	Play a quiz that has a large variety of options
 -	Be easy to use
 -	Display when the answer is correct
--	Give an option to reveal the answers
+-   Give the option to reveal the answers
 - 	Keep a track of your score
--   Display Correct Answers if User gives incorrect answer
+-   Display Correct Answers if the User gives an incorrect answer
 -   Have Easy to Read instructions and Rules
 
 ## User Stories
@@ -33,7 +33,7 @@ The Goal of this site is to have a quiz from which the user may pick their own c
 
 ## Requirements
 -	Easy to navigate on different devices
--	Display categories and questions in an easy to understand manner
+-	Display categories and questions in an easy-to-understand manner
 -	Track user entry and respond accordingly
 -	Follow a clear layout
 -	Keep score
@@ -44,7 +44,7 @@ The Goal of this site is to have a quiz from which the user may pick their own c
 -	All answers and options to display correctly
 -	Multiple options for the user
 -	Visually appealing on all devices
--	All images and forms to load and run at a high performance level
+-	All images and forms expected to load and run at a high-performance level
 
 
 # Design Choices
@@ -100,10 +100,10 @@ Warnings have Red Headers to signify they are important to the user.
 
 ### Other Design Choices
 
-- Timer is displayed as two digits (10s, 09s etc.) as the jump from 10 to 9 was a bit distracting
+- The timer is displayed as two digits (10s, 09s etc.) as the jump from 10 to 9 was a bit distracting
 - Different Font-Weights for Correct Answers, different Colours for Correct/ Incorrect/ Revealed Answers
-- Buttons Given Box Shading to give 3D aspect to make them appealing to click
-- Simple pastel Colours for background to Draw Focus to Questions and Answers
+- Buttons were given Box Shading to give "3D" aspect to make them appealing to click
+- Simple pastel Colours were used for the background to Draw Focus to Questions and Answers
 
 
 
@@ -116,9 +116,9 @@ Warnings have Red Headers to signify they are important to the user.
 
 <br>
 
-* Once the user lands on the page they are shown an option to enter username, play and rules. These Buttons are designed to have a 3D effect with box shadowing to make them stand out and also to draw attention from the User.
+* Once the user lands on the page they are shown an option to enter "Username", play and rules. These Buttons are designed to have a 3D effect with box shadowing to make them stand out and also to draw attention from the User.
 
-* The Username requires an input of letters only, a minimum of 3 letters, a maximum of 10. If the user enters an invalid username a warning is displayed.
+* The Username requires an input of letters only, a minimum of 3 letters and a maximum of 10. If the user enters an invalid username a warning is displayed.
 
 <br>
 
@@ -126,7 +126,7 @@ Warnings have Red Headers to signify they are important to the user.
 
 <br>
 
-* The User can also click on the "Rules" Button to get a brief summary of what to do.
+* The User can also click on the "Rules" Button to get a summary of what to do.
 
 <br>
 
@@ -142,7 +142,7 @@ Warnings have Red Headers to signify they are important to the user.
 
 <br>
 
-* The Site displays a greeting message, using the Username stored in local storage, and offers Users the chance to choose up to five different Categories from a possible 15 options. This allows them to select a total of 50 questions (This number was due to a maximum request of 50 questions per Fetch from Opentdb.com on their user guidelines). 
+* The Site displays a greeting message, using the Username stored in local storage, and offers Users the chance to choose up to five different categories from a possible 15 options. This allows them to select a total of 50 questions (This number was due to a maximum request of 50 questions per Fetch from Opentdb.com on their user guidelines). 
 
 <br>
 
@@ -170,7 +170,7 @@ Warnings have Red Headers to signify they are important to the user.
 
 <br>
 
-* If the User picks no Categories, or more than 5 categories, a warning is shown.
+* If the User picks no categories or more than 5 categories, a warning is shown.
 
 <br>
 
@@ -186,7 +186,7 @@ Warnings have Red Headers to signify they are important to the user.
 
 <br>
 
-* The display for the Questions is then shown, with a menu on the top showing a progess bar, the amount of Questions, the users Score and a Timer. The Timer is set for 15 seconds per question. The progress bar fills as the player goes through each question, as does the question count. The timer counts down to Zero, then the answer is displayed. (Once the timer goes below 10s, it is displayed as 09, 08 etc. by adding a Zero to the front of it)
+* The display for the Questions is then shown, with a menu on the top showing a progress bar, the number of Questions, the Users Score and a Timer. The Timer is set for 15 seconds per question. The progress bar fills as the player goes through each question, as does the question count. The timer counts down to Zero, then the answer is displayed. (Once the timer goes below 10s, it is displayed as 09, 08 etc. by adding a Zero to the front of it)
 
 <br>
 
@@ -194,7 +194,7 @@ Warnings have Red Headers to signify they are important to the user.
 
 <br>
 
-* The User selects one of Four possible answers, if it is correct theire Selection turns Green for a Couple seconds before the next Question is displayed.
+* The User selects one of Four possible answers, if it is correct their Selection turns Green for a few seconds before the next question is displayed.
 
 <br>
 
@@ -202,7 +202,7 @@ Warnings have Red Headers to signify they are important to the user.
 
 <br>
 
-* If the User gets a Question incorrect, they are Shown the correct Answer
+* If the User gets a Question incorrect, they are shown the correct Answer
 
 <br>
 
@@ -226,7 +226,7 @@ Warnings have Red Headers to signify they are important to the user.
 
 <br>
 
-* This displays the users final score and gives a different message depending on how they did. The Message at the top gives a Rounded Percentage Score while the Message varies depending on how well they did. The Background Colour and the Font Colours change also, depending on how succesful the player was.
+* This displays the "Users" final score and gives a different message depending on how well they did. The Message at the top gives a Rounded Percentage Score while the Message varies depending on how well they did. The Background Colour and the Font Colours change also, depending on how successful the player was.
 
 <br>
 
@@ -234,7 +234,7 @@ Warnings have Red Headers to signify they are important to the user.
 
 <br>
 
-* The Player then has the option to go back to the Home Page, Clearing their information, or Going back to Categories to Play Again.
+* The Player then has the option to go back to the Home Page, Clearing their information, or go to Categories to Play Again.
 
 <br>
 
@@ -259,7 +259,7 @@ Warnings have Red Headers to signify they are important to the user.
 - GitPod and GitHub for Coding and Hosting the Website
 - CodeInstitute for Mentors and Tutors
 - LightHouse
-- https://validator.w3.org/ for validating site for HTML and CSS
+- https://validator.w3.org/ for validating the site for HTML and CSS
 - https://jshint.com/ for validating JS
 - Balsamiq for WireFrames
  
@@ -274,7 +274,7 @@ No errors were found when passing through the official (Jigsaw) validator
 
 <img src = "DOCS/validatorCSS.png">
 
-- JS:
+- JavaScript:
 No errors when passed through JS hint
 
 
@@ -290,26 +290,26 @@ No errors when passed through JS hint
 
 # General Testing
 
-- After site was ran through w3 validators, the site was tested for functionality.
-- Functionality testing involved ensuring all links were active, that all user submission worked, displays worked correctly
-- Testing also involved general lay-out testing of alternate design choices before the ones used were settled upon
+- After the site was put through w3 validators, the site was tested for functionality.
+- Functionality testing involved ensuring all links were active, that all user submissions worked and displays worked correctly
+- Testing also involved general layout testing of alternate design choices before the ones used were settled upon
 - The Site was Manually tested to ensure all Warning signs, Rules, Instructions etc. displayed correctly (see Images Above for Displays)
 - The Site was tested to ensure User Input had the desired effect in Usernames (Correct Warning), Answers Correct and Incorrect were displayed correctly and Reveal Answers/Time out displayed the Answers (See Images above for Displays)
-- The Site was tested using numbers, symbols, spaces, less than 3 letters and more than 10 letters in the Username input field to ensure the correct warninig was given
-- The site was tested by selecting Zero Categories and more than Five Categories to ensure correct warning was displayed.
+- The Site was tested using numbers, symbols, spaces, less than 3 letters and more than 10 letters in the Username input field to ensure the correct warning was given
+- The site was tested by selecting Zero Categories and more than Five Categories to ensure the correct warning was displayed.
 - The site was tested to ensure that the Categories gave the correct corresponding questions of that category
-- The site was tested to ensure the score was measured correctly and that once an answer was revealed the answer was no longet "Clickable"
-- The Site was tested by putting in a false Fetch URL to ensure that the warning and the fall back questions were loaded
-#### The Site was tested both through GitHub and on the deployed site [Online Quiz](https://forgottenit.github.io/Quiz-Project/index.html) on different screen sizes to ensure Media Queries and Animations worked correctly
+- The site was tested to ensure the score was measured correctly and that once an answer was revealed the answer was no longer "Clickable"
+- The Site was tested by putting in a false Fetch URL to ensure that the warning and the fallback questions were loaded
+#### The Site was tested both through GitHub and on the deployed site [Online Quiz](https://forgottenit.github.io/Quiz-Project/index.html) with different screen sizes to ensure Media Queries and Animations worked correctly
 
 # Deployment
-Following writing the code then commiting and pushing to GitHub, this project was deployed using GitHub by the following steps.
--	Navigate to the repository on github and click 'Settings'.
+Following writing the code, then committing and pushing to GitHub, this project was deployed using GitHub by the following steps.
+-	Navigate to the repository on GitHub and click 'Settings'.
 -	Then select 'Pages' on the side navigation.
 -	Select the 'None' dropdown, and then click 'master'.
 -	Click on the 'Save' button.
 #### Now the website is now live on  [Online Quiz](https://forgottenit.github.io/Quiz-Project/index.html)
--	If any changes are required, they can be done, commited and pushed to GitHub and the changes will be updated.
+-	If any changes are required, they can be done, committed and pushed to GitHub and the changes will be updated.
 #### The GitHub Link is [GitHub Quiz](https://github.com/Forgottenit/Quiz-Project)
 
 
@@ -319,7 +319,7 @@ Following writing the code then commiting and pushing to GitHub, this project wa
 -	Simen Daehlin
 -	Rohit Sharma
 -	CodeInstitiute
--   Stack OverFlow
+-   Stack Overflow
 -   https://bost.ocks.org/mike/shuffle/ for fisher-yates shuffle 
  
 ## For content and style 
