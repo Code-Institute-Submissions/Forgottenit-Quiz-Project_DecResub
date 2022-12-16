@@ -1,5 +1,6 @@
 let gameChoices = [];
 let fetchArray = [];
+let newCategory;
 
 //Function to Clear local storage and return to Home Page
 function homeClear() {
@@ -31,11 +32,10 @@ function displayCategories() {
         categories.id = [i + 9];
         categories.checked = false;
         categoriesLabel.classList = "select flex";
-
         //If title contain a ":" it is split to remove first word/words before the ":"
         if (gameChoices[i].name.includes(":")) {
-            splitCategory = gameChoices[i].name.split(":");
-            newCategory = splitCategory[1]
+            let splitCategory = gameChoices[i].name.split(":");
+            newCategory = splitCategory[1];
         } else newCategory = gameChoices[i].name;
 
         categoriesLabel.innerHTML = (newCategory);
@@ -83,13 +83,13 @@ function displayWarning() {
     // reset page if span/ "x" is clicked
     warningSpan.onclick = function () {
         window.location.href = "quizchoice.html";
-    }
+    };
     // reset page if window is clicked
     window.onclick = function (event) {
         if (event.target == warning) {
             window.location.href = "quizchoice.html";
         }
-    }
+    };
 }
 
 //Function that displays the Fetch warning modal if Fetch fails and hides it if user clicks span or window
@@ -104,13 +104,13 @@ function fetchWarning() {
     // Load the back up quiz if user clicks span/"x"
     fetchwarningSpan.onclick = function () {
         window.location.href = "quiz2.html";
-    }
+    };
     // Load the back up quiz if user clicks outside window
     window.onclick = function (event) {
         if (event.target == fetchwarning) {
             window.location.href = "quiz2.html";
         }
-    }
+    };
 }
 
 //Function that displays the Rules modal and hides it if user clicks span or window
@@ -126,11 +126,11 @@ function displayRules() {
     //Hide Rules if user clicks span/"x"
     rulesSpan.onclick = function () {
         rules.style.display = "none";
-    }
+    };
     //Hide Rules if user clicks window
     window.onclick = function (event) {
         if (event.target == rules) {
             rules.style.display = "none";
         }
-    }
+    };
 }
