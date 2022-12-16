@@ -32,9 +32,9 @@
     grid-template-columns: repeat(3, minmax(2vw, 1fr));
     height: 70vh;
     background-color: rgb(250, 122, 250, 0.25);
-    margin: 2rem auto;
+    margin: .5rem auto;
     padding: 5px;
-    gap: 1rem;
+    gap: 0.5rem;
     justify-content: center;
     align-content: center;
     align-items: center;
@@ -160,7 +160,7 @@
     color: rgb(228, 241, 253);
 }
 
-.flex,
+
 .scoreflex {
     display: flex;
     align-items: center;
@@ -172,6 +172,19 @@
     margin: 0 2px;
     font-size: 2vh;
 }
+
+.flex {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    height: 10vh;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    margin: 0 2px;
+    font-size: 1.7vh;
+}
+
 
 .nav-btns {
     background-color: rgb(230, 230, 206);
