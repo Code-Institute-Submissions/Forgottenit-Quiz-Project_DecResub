@@ -5,9 +5,6 @@ const answer2Ref = document.querySelector("#answer2");
 const answer3Ref = document.querySelector("#answer3");
 const answer4Ref = document.querySelector("#answer4");
 const availableQuestions = [];
-let gameChoices = [];
-const regex = /^[a-zA-Z]+$/;
-let rules = document.getElementById("rules");
 let score = 0;
 let totalScore = document.querySelector(".score");
 let questionNumber = document.querySelector("#qNumber");
@@ -18,18 +15,7 @@ let time = 15;
 let timeOut = setInterval(timer, 1000);
 let selectedAnswer = Array.from(document.querySelectorAll(".choice"));
 
-//Function to respond if Response from Fetch not Ok, otherwise return Ok
-let fetchCatch = function (response) {
-    if (!response.ok) {
-        if (confirm("Sorry, there was a problem getting your questions, you can use our 20 stored questions if you want? If not, hit cancel and try again later")) {
-            window.location.href = "quiz2.html";
-        } else {
-            window.location.href = "index.html";
-        }
-        throw new Error('There was a problem with the Network response');
-    }
-    return response;
-};
+
 
 //Function to return to homescreen and clear local Storage
 function homeClear() {
@@ -64,7 +50,6 @@ function shuffle(array) {
 function getURL() {
     for (i = 0; i < localStorage.getItem("fetchArrayLength"); i++) {
         fetch(localStorage.getItem("genUrl" + [i]))
-            .then(fetchCatch)
             .then(res => res.json())
             .then(data => {
                 let questions = (data.results.map(q => {
@@ -82,7 +67,7 @@ function getURL() {
                 });
                 displayQuestions();
             })
-            .catch(error => console.log(error));
+            .catch(err => fetchWarning());
     }
 }
 
@@ -188,7 +173,6 @@ for (i = 0; i < 4; i++) {
 //Function that fetches JSON file from assets, called if Fetch from URL is unsuccesful
 function getURL2() {
     fetch("assets/js/questions.json")
-        .then(fetchCatch)
         .then(res => res.json())
         .then(data => {
             let questions = (data.results.map(q => {
@@ -203,5 +187,30 @@ function getURL2() {
             shuffle(availableQuestions);
             displayQuestions();
         })
-        .catch(error => console.log(error));
+        .catch(err => fetchWarning());
+}
+
+function fetchWarning() {
+    // Get the modal
+    let fetchwarning = document.getElementById("fetchwarning");
+    fetchwarning.style.display = "block";
+    // Get the button that opens the modal
+
+
+    // Get the <span> element that closes the modal
+    let fetchwarningSpan = document.getElementsByClassName("close-fetchwarning")[0];
+
+
+    // warningSpan.style.display = "block";
+
+    fetchwarningSpan.onclick = function () {
+        // warning.style.display = "none";
+        window.location.href = "quiz2.html";
+    }
+    window.onclick = function (event) {
+        if (event.target == fetchwarning) {
+            // warning.style.display = "none";
+            window.location.href = "quiz2.html";
+        }
+    }
 }
