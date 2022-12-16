@@ -29,7 +29,7 @@ function displayCategories() {
         categories.type = "checkbox";
         categories.id = [i + 9];
         categories.checked = false;
-        categoriesLabel.htmlFor = `${i+9}`;
+        // categoriesLabel.htmlFor = `${i+9}`;
         categoriesLabel.classList = "select flex";
         categoriesLabel.innerHTML = (`${gameChoices[i].name}`);
         categoriesLabel.appendChild(categories);
