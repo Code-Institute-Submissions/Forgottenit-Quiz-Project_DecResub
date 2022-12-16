@@ -153,6 +153,7 @@
     text-align: center;
     background-color: rgb(254, 241, 225);
     min-width: 30rem;
+    font-weight: 600;
 }
 
 .select {

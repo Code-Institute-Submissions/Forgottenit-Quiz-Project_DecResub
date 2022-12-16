@@ -87,22 +87,25 @@ function timer() {
     document.querySelector("#skip").addEventListener("click", e => {
         time = 0;
     });
-    if (time < 0) {
+    if (time <= 0) {
         document.getElementById("timer").innerHTML = "Time Up!";
         resetTimer();
         selectedAnswer.forEach(answer => {
             answer.style.pointerEvents = "none";
             if (answer.innerHTML == availableQuestions[questionIndex].correctAnswer) {
-                answer.style.color = "rgba(84, 234, 84, 0.9)";
+                answer.style.color = "rgba(24, 164, 24, 0.9)";
+                answer.style.fontWeight = 900;
                 setTimeout(() => {
                     answer.style.color = "black";
+                    answer.style.fontWeight = 600;
                     answer.style.pointerEvents = "auto";
                 }, 3000);
             } else {
                 answer.style.color = "rgba(245, 49, 49, 0.9)";
-
+                answer.style.fontWeight = 500;
                 setTimeout(() => {
                     answer.style.color = "black";
+                    answer.style.fontWeight = 600;
                     answer.style.pointerEvents = "auto";
                 }, 3000);
             }
