@@ -7,9 +7,11 @@ function displayTopScore() {
     let roundedScore = Math.round(finalScore / totalQuestions);
     if ((finalScore / totalQuestions) == 100) {
         result.innerHTML = ("Wow, great job!!! A perfect Score!");
-    } else if ((finalScore / totalQuestions) > 65 && (finalScore / totalQuestions) < 100) {
+    } else if ((finalScore / totalQuestions) >= 65 && (finalScore / totalQuestions) < 100) {
         result.innerHTML = ("Really well done!");
-    } else if ((finalScore / totalQuestions) > 20 && (finalScore / totalQuestions) < 65) {
+    } else if ((finalScore / totalQuestions) >= 50 && (finalScore / totalQuestions) < 65) {
+        result.innerHTML = ("You got at least half right!");
+    } else if ((finalScore / totalQuestions) >= 20 && (finalScore / totalQuestions) < 50) {
         result.innerHTML = ("Better luck next time!");
     } else {
         result.innerHTML = ("Practice makes perfect...");
