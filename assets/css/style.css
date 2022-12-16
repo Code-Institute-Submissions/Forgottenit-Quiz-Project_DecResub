@@ -252,8 +252,6 @@
 
 }
 
-
-
 .flex:focus {
     background-color: rgb(255, 255, 255);
     color: rgb(27, 27, 27);
@@ -280,43 +278,29 @@
     box-shadow: 0 2rem 2rem 0 rgba(0, 0, 0, 0.8), 0 2rem 8rem 0 rgba(0, 0, 0, 0.4);
     font-style: oblique;
     font-weight: 900;
-
-
 }
 
 .rules-box,
 .warning-box,
 .fetchwarning-box {
     display: none;
-    /* Hidden by default */
     position: fixed;
-    /* Stay in place */
     z-index: 1;
-    /* Sit on top */
     padding-top: 10rem;
-
-    /* Location of the box */
     left: 0;
     top: 0;
     width: 100%;
-    /* Full width */
     height: 100%;
-    /* Full height */
     overflow: auto;
-    /* Enable scroll if needed */
     background-color: rgb(0, 0, 0);
-    /* Fallback color */
     background-color: rgba(0, 0, 0, 0.4);
-    /* Black w/ opacity */
 }
 
-/* Modal Content */
+
 .rules-content {
     position: relative;
     background-color: rgb(243, 243, 242);
     margin: 2rem;
-    /* padding-left: 1rem;
-    padding-right: 1rem; */
     border: 1px solid rgb(150, 149, 149);
     border-radius: 1rem;
     width: 90%;
@@ -327,10 +311,11 @@
     animation-duration: 1s;
     font-size: 2rem;
     font-weight: 600;
-    /* text-align: */
-
 }
 
+/*
+  Animation for warning to drop down on screen
+*/
 @-webkit-keyframes dropdown {
     from {
         top: -30rem;
@@ -360,8 +345,6 @@
     position: relative;
     background: linear-gradient(225deg, rgba(234, 230, 248, 1), rgba(246, 221, 220, 1));
     margin: auto;
-    /* padding-left: 1rem;
-    padding-right: 1rem; */
     border: 1px solid #888;
     border-radius: 1rem;
     width: 90%;
@@ -376,7 +359,9 @@
 
 }
 
-/* Add Animation */
+/*
+  Animation for warning to pop up on screen
+*/
 @-webkit-keyframes popup {
     from {
         bottom: -30rem;
@@ -401,7 +386,6 @@
     }
 }
 
-/* The Close Button */
 .close-warning,
 .close-rules,
 .close-fetchwarning {
@@ -423,7 +407,6 @@
 }
 
 .warning-header {
-
     background: linear-gradient(225deg, rgba(248, 75, 75, 0.68), rgba(242, 3, 3, 0.9));
     color: white;
     border-radius: 1rem;
@@ -432,7 +415,6 @@
 
 
 .fetchwarning-header {
-
     background: linear-gradient(225deg, rgba(21, 151, 52, 0.68), rgba(243, 41, 41, 0.7));
     color: white;
     border-radius: 1rem;
@@ -440,12 +422,10 @@
 }
 
 .rules-header {
-
     background: linear-gradient(225deg, rgba(250, 49, 45, 0.8), rgba(15, 23, 250, 0.7));
     color: white;
     border-radius: 1rem;
     text-align: center;
-
 }
 
 
@@ -460,6 +440,7 @@
     list-style-position: inside;
 }
 
+/* Display Category font in larger screens */
 @media screen and (min-width: 375px) {
     .flex {
 
