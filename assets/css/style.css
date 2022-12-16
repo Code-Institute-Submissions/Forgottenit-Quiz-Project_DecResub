@@ -265,10 +265,11 @@
     border-radius: 1rem;
     padding: 1rem;
     background: linear-gradient(225deg, rgba(151, 126, 243, 0.4), rgba(237, 73, 70, 0.4));
-    border: #888;
+    border: #888888;
     box-shadow: 0 2rem 2rem 0 rgba(0, 0, 0, 0.8), 0 2rem 8rem 0 rgba(0, 0, 0, 0.4);
     font-style: oblique;
     font-weight: 900;
+
 
 }
 
