@@ -131,7 +131,7 @@ The colour chosen was a gradient of Red and Green, with Greens and Reds picked f
 
 <br>
 
-* The display for the Questions is then shown, with a menu on the top showing a progess bar, the amount of Questions, the users Score and a Timer. The Timer is set for 15 seconds per question. The progress bar fills as the player goes through each question, as does the question count. The timer counts down to Zero, then the answer is displayed.
+* The display for the Questions is then shown, with a menu on the top showing a progess bar, the amount of Questions, the users Score and a Timer. The Timer is set for 15 seconds per question. The progress bar fills as the player goes through each question, as does the question count. The timer counts down to Zero, then the answer is displayed. (Once the timer goes below 10s, it is displayed as 09, 08 etc. by adding a Zero to the front of it)
 
 <br>
 
@@ -139,17 +139,41 @@ The colour chosen was a gradient of Red and Green, with Greens and Reds picked f
 
 <br>
 
-* 
+* The User selects one of Four possible answers, if it is correct theire Selection turns Green for a Couple seconds before the next Question is displayed.
 
-### Landing page
-The landing page displays the rules of the game and the game options, that the questions are multiple choice and that the user must ente a name (using letters) etc. There is then input for the user to enter a username and hit play
-### Category Section
-This displays 15 categories from which the user can pick up to 5, to selecy up to a maximium of 50 questions
+<br>
 
-### Quiz Section
-This area contains the quiz, it displays the question number with a progress bar, the users current score and a 15second timer at the yop, followed underneath by the current question, with 4 possible answers, answers are displayed once selected as Green if the user is correct and Red if they are not. There is a reveal answer down the bottom and a quit button. If the timer runs out or the user chooses to reveal the correct answer the font changes color to green to signify correct and red for incorrect. The input buttons also display shadowing once selected.
+<img src = "DOCS/correct.png">
+
+<br>
+
+* If the User gets a Question incorrect, they are Shown the correct Answer
+
+<br>
+
+<img src = "DOCS/incorrect.png">
+
+<br>
+
+* If the User clicks Reveal Answer, or the Timer runs out, they are shown the Correct Answer with a different display
+
+<br>
+
+<img src = "DOCS/revealAnswerTimeUp.png">
+
+<br>
+
+* For Each Scenario (Correct, Incorrect, TimeOut/Reveal) the background Colour and Font-Weight changes to Show the User the correct Answer. Also, if the user Clicks Reveal Answer or the Timer runs out, the Answer becomes "Unclickable" so they can't choose the option after being shown the correct answer.
+
+<br>
+
 ### Score Page
-This displays the users final score and gives a different message depending on how they did.
+
+<br>
+
+* This displays the users final score and gives a different message depending on how they did. The Message at the top gives a Rounded Percentage Score while the Message varies depending on how well they did. The Background Colour and the Font Colours change also, depending on how succesful the player was.
+
+<img src = "DOCS/finalScore.png">
 
 <
 
