@@ -63,13 +63,13 @@ function changeURL() {
 
 function displayWarning() {
     // Get the modal
-    var warning = document.getElementById("warning");
+    let warning = document.getElementById("warning");
     warning.style.display = "block";
     // Get the button that opens the modal
 
 
     // Get the <span> element that closes the modal
-    var warningSpan = document.getElementsByClassName("close-warning")[0];
+    let warningSpan = document.getElementsByClassName("close-warning")[0];
 
 
     // warningSpan.style.display = "block";
@@ -88,13 +88,13 @@ function displayWarning() {
 
 function fetchWarning() {
     // Get the modal
-    var fetchwarning = document.getElementById("fetchwarning");
+    let fetchwarning = document.getElementById("fetchwarning");
     fetchwarning.style.display = "block";
     // Get the button that opens the modal
 
 
     // Get the <span> element that closes the modal
-    var fetchwarningSpan = document.getElementsByClassName("close-fetchwarning")[0];
+    let fetchwarningSpan = document.getElementsByClassName("close-fetchwarning")[0];
 
 
     // warningSpan.style.display = "block";
@@ -113,13 +113,13 @@ function fetchWarning() {
 
 function displayRules() {
     // Get the modal
-    var rules = document.getElementById("rules");
+    let rules = document.getElementById("rules");
     rules.style.display = "block";
     // Get the button that opens the modal
 
 
     // Get the <span> element that closes the modal
-    var rulesSpan = document.getElementsByClassName("close-rules")[0];
+    let rulesSpan = document.getElementsByClassName("close-rules")[0];
 
 
     // rules.style.display = "block";
