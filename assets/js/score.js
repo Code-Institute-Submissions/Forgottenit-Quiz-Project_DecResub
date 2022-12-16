@@ -1,4 +1,4 @@
-//Function to display Results on top Score page
+//Function to display Results on top Score page and display msg depending on score
 function displayTopScore() {
     let result = document.querySelector("#result");
     let username = localStorage.getItem("username");
@@ -16,7 +16,8 @@ function displayTopScore() {
     }
     document.querySelector("#score-box").innerHTML = `Hello ${username}, your score was ${finalScore} out of a possible ${totalQuestions*100}, you got ${roundedScore}% right`;
 }
-//Clear storage and go to home page
+
+//Function to Clear storage and go to home page
 function homeClear() {
     localStorage.clear();
     window.location.href = "index.html";
