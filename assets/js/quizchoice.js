@@ -18,7 +18,7 @@ function getCategories() {
         .catch(err => fetchWarning());
 }
 
-//Function to display category lists and split title if it contains ":"
+//Function to display category lists and split title if it contains ":" then display titles to user 
 function displayCategories() {
     document.querySelector("#quiz-choice").innerHTML = (`Hello ${localStorage.getItem("username")}, please choose your categories (you can pick a maximum of 5)`);
     for (i = 0; i < 15; i++) {
@@ -31,13 +31,13 @@ function displayCategories() {
         categories.id = [i + 9];
         categories.checked = false;
         categoriesLabel.classList = "select flex";
-        //If title contain a ":" it is split to remove first word/words before ":"
+
+        //If title contain a ":" it is split to remove first word/words before the ":"
         if (gameChoices[i].name.includes(":")) {
             splitCategory = gameChoices[i].name.split(":");
             newCategory = splitCategory[1]
-
         } else newCategory = gameChoices[i].name;
-        console.log(newCategory);
+
         categoriesLabel.innerHTML = (newCategory);
         categoriesLabel.appendChild(categories);
         categories.innerHTML = (`${gameChoices[i].id} ${gameChoices[i].name}`);
@@ -56,7 +56,10 @@ function changeURL() {
         localStorage.setItem(`genUrl${[i]}`, fetchArray[i]);
         localStorage.setItem("fetchArrayLength", fetchArray.length);
     }
-    //N.B limited to a maximum of 50 questions fetch by Opentdb (Fetch source)
+    /*N.B. limited to a maximum of 50 questions fetch by Opentdb (Fetch source)
+        So a warning displayed if the user selects none or more than 5 categories
+        or loads quiz if selection is ok
+    */
     let submitCategories = document.querySelector("#submit-categories");
     submitCategories.addEventListener("click", e => {
         if (fetchArray.length > 5 || fetchArray.length == 0) {
