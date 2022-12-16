@@ -143,14 +143,19 @@ for (i = 0; i < 4; i++) {
             }, 1000);
         } else {
             // correct.innerHTML.style.color = "rgba(84, 234, 84, 0.8)";
-            e.target.style.background = "rgba(245, 49, 49, 0.8)";
-            e.target.classList.add("choice-hover");
+            displayIncorrect();
+            // e.target.style.background = "rgba(245, 49, 49, 0.8)";
+            // e.target.classList.add("choice-hover");
             setTimeout(() => {
-                e.target.style.background = "antiquewhite";
-                e.target.classList.remove("choice-hover");
                 questionIndex++;
                 displayQuestions();
-            }, 1000);
+            }, 3000);
+            // setTimeout(() => {
+            //     // e.target.style.background = "antiquewhite";
+            //     // e.target.classList.remove("choice-hover");
+            //     questionIndex++;
+            //     displayQuestions();
+            // }, 1000);
         }
     });
 }
@@ -205,7 +210,6 @@ function fetchWarning() {
 function displayCorrect() {
     selectedAnswer.forEach(answer => {
         answer.style.pointerEvents = "none";
-
         let correct = availableQuestions[questionIndex].correctAnswer;
         if (answer.innerHTML == correct) {
             answer.style.color = "rgba(24, 164, 24, 0.9)";
@@ -220,6 +224,30 @@ function displayCorrect() {
             answer.style.fontWeight = 500;
             setTimeout(() => {
                 answer.style.color = "black";
+                answer.style.fontWeight = 600;
+                answer.style.pointerEvents = "auto";
+            }, 3000);
+        }
+    })
+}
+
+function displayIncorrect() {
+    selectedAnswer.forEach(answer => {
+        answer.style.pointerEvents = "none";
+        let correct = availableQuestions[questionIndex].correctAnswer;
+        if (answer.innerHTML == correct) {
+            answer.style.background = "rgba(24, 164, 24, 0.9)";
+            answer.style.fontWeight = 900;
+            setTimeout(() => {
+                answer.style.background = "antiquewhite";
+                answer.style.fontWeight = 600;
+                answer.style.pointerEvents = "auto";
+            }, 3000);
+        } else {
+            answer.style.background = "rgba(245, 49, 49, 0.8)";
+            answer.style.fontWeight = 500;
+            setTimeout(() => {
+                answer.style.background = "antiquewhite";
                 answer.style.fontWeight = 600;
                 answer.style.pointerEvents = "auto";
             }, 3000);
