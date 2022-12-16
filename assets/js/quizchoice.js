@@ -1,6 +1,7 @@
 let gameChoices = [];
 let fetchArray = [];
 
+//Function to Clear local storage and return to Home Page
 function homeClear() {
     localStorage.clear();
     window.location.href = "index.html";
@@ -17,7 +18,7 @@ function getCategories() {
         .catch(err => fetchWarning());
 }
 
-//Function to display category lists
+//Function to display category lists and split title if it contains ":"
 function displayCategories() {
     document.querySelector("#quiz-choice").innerHTML = (`Hello ${localStorage.getItem("username")}, please choose your categories (you can pick a maximum of 5)`);
     for (i = 0; i < 15; i++) {
@@ -29,10 +30,8 @@ function displayCategories() {
         categories.type = "checkbox";
         categories.id = [i + 9];
         categories.checked = false;
-        // categoriesLabel.htmlFor = `${i+9}`;
         categoriesLabel.classList = "select flex";
-        // categoriesLabel.innerHTML = (`${gameChoices[i].name}`);
-        // console.log(`${gameChoices[i].name}`)
+        //If title contain a ":" it is split to remove first word/words before ":"
         if (gameChoices[i].name.includes(":")) {
             splitCategory = gameChoices[i].name.split(":");
             newCategory = splitCategory[1]
@@ -42,7 +41,6 @@ function displayCategories() {
         categoriesLabel.innerHTML = (newCategory);
         categoriesLabel.appendChild(categories);
         categories.innerHTML = (`${gameChoices[i].id} ${gameChoices[i].name}`);
-        // categories.innerHTML = ("Hello")
         categoryChoice.appendChild(categoriesLabel);
     }
     changeURL();
@@ -70,72 +68,63 @@ function changeURL() {
     });
 }
 
+//Function that displays the warning modal and hides it if user clicks span or window
 function displayWarning() {
-    // Get the modal
     let warning = document.getElementById("warning");
+    //display warning
     warning.style.display = "block";
-    // Get the button that opens the modal
 
 
-    // Get the <span> element that closes the modal
     let warningSpan = document.getElementsByClassName("close-warning")[0];
 
-
-    // warningSpan.style.display = "block";
-
+    // reset page if span/ "x" is clicked
     warningSpan.onclick = function () {
-        // warning.style.display = "none";
         window.location.href = "quizchoice.html";
     }
+    // reset page if window is clicked
     window.onclick = function (event) {
         if (event.target == warning) {
-            // warning.style.display = "none";
             window.location.href = "quizchoice.html";
         }
     }
 }
 
+//Function that displays the Fetch warning modal if Fetch fails and hides it if user clicks span or window
 function fetchWarning() {
-    // Get the modal
     let fetchwarning = document.getElementById("fetchwarning");
+
+    //Display the Fetch Warning
     fetchwarning.style.display = "block";
-    // Get the button that opens the modal
 
-
-    // Get the <span> element that closes the modal
     let fetchwarningSpan = document.getElementsByClassName("close-fetchwarning")[0];
 
-
-    // warningSpan.style.display = "block";
-
+    // Load the back up quiz if user clicks span/"x"
     fetchwarningSpan.onclick = function () {
-        // warning.style.display = "none";
         window.location.href = "quiz2.html";
     }
+    // Load the back up quiz if user clicks outside window
     window.onclick = function (event) {
         if (event.target == fetchwarning) {
-            // warning.style.display = "none";
             window.location.href = "quiz2.html";
         }
     }
 }
 
+//Function that displays the Rules modal and hides it if user clicks span or window
 function displayRules() {
-    // Get the modal
+
     let rules = document.getElementById("rules");
+
+    //Display the rules
     rules.style.display = "block";
-    // Get the button that opens the modal
 
-
-    // Get the <span> element that closes the modal
     let rulesSpan = document.getElementsByClassName("close-rules")[0];
 
-
-    // rules.style.display = "block";
-
+    //Hide Rules if user clicks span/"x"
     rulesSpan.onclick = function () {
         rules.style.display = "none";
     }
+    //Hide Rules if user clicks window
     window.onclick = function (event) {
         if (event.target == rules) {
             rules.style.display = "none";
