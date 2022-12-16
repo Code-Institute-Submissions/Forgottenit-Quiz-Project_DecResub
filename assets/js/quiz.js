@@ -37,30 +37,10 @@ function homeClear() {
     window.location.href = "index.html";
 }
 
-//Function to go back to Quiz choices
-function replay() {
-    window.location.href = "quizchoice.html";
-}
 
-//Function to get and store Player Username
-function getUserName() {
-    let playButton = document.querySelector("#play");
-    playButton.addEventListener("click", e => {
-        if (10 >= document.querySelector("#username").value.length && document.querySelector("#username").value.length > 2 && document.querySelector("#username").value.match(regex)) {
-            localStorage.setItem("username", document.querySelector("#username").value);
-            window.location.href = "quizchoice.html";
-        } else {
-            alert("Not a Valid Username, please enter a NAME between 3 and 10 letters");
-        }
-    });
-}
 
-//Function to Hide game rules
-function hideRules() {
-    rules.addEventListener("click", e => {
-        rules.style.display = "none";
-    });
-}
+
+
 
 //fisher-yates shuffle to randomise question and answer postitions, taken from https://bost.ocks.org/mike/shuffle/
 function shuffle(array) {
@@ -78,65 +58,7 @@ function shuffle(array) {
     return array;
 }
 
-//Function to Fetch game choice category list
-function getCategories() {
-    fetch("https://opentdb.com/api_category.php")
-        .then(fetchCatch)
-        .then(res => res.json())
-        .then(categories => {
-            gameChoices.push(...categories.trivia_categories);
-            displayCategories();
-        })
-        .catch(error => console.log(error));
-}
 
-//Function to display category lists
-function displayCategories() {
-    document.querySelector("#quiz-choice").innerHTML = (`Hello ${localStorage.getItem("username")}, please choose your categories (you can pick a maximum of 5)`);
-    for (i = 0; i < 15; i++) {
-        let categoryChoice = document.querySelector(".selection");
-        let categories = document.createElement("input");
-        let categoriesLabel = document.createElement("label");
-        categories.classList = "checkbox";
-        categories.value = [i + 9];
-        categories.type = "checkbox";
-        categories.id = [i + 9];
-        categories.checked = false;
-        categoriesLabel.htmlFor = `${i+9}`;
-        categoriesLabel.classList = "select flex";
-        categoriesLabel.innerHTML = (`${gameChoices[i].name}`);
-        categoriesLabel.appendChild(categories);
-        categories.innerHTML = (`${gameChoices[i].id} ${gameChoices[i].name}`);
-        categoryChoice.appendChild(categoriesLabel);
-    }
-    changeURL();
-}
-
-// Function to find out what checkboxes are checked
-function changeURL() {
-    let checkedBox = document.querySelectorAll('input[type="checkbox"]:checked');
-    checkedBox.forEach(element => {
-        fetchArray.push(["https://opentdb.com/api.php?amount=10&category=" + element.value + "&type=multiple"]);
-    });
-    for (i = 0; i < fetchArray.length; i++) {
-        localStorage.setItem(`genUrl${[i]}`, fetchArray[i]);
-        localStorage.setItem("fetchArrayLength", fetchArray.length);
-    }
-    //N.B limited to a maximum of 50 questions fetch by Opentdb (Fetch source)
-    let submitCategories = document.querySelector("#submit-categories");
-    submitCategories.addEventListener("click", e => {
-        if (fetchArray.length > 5 || fetchArray.length == 0) {
-            if (confirm("Sorry, you have to pick between 1 and 5 categories!")) {
-                window.location.href = "quizchoice.html";
-            } else {
-                window.location.href = "quizchoice.html";
-            }
-        } else
-            setTimeout(() => {
-                window.location.href = "quiz.html";
-            }, 1000);
-    });
-}
 
 //Function to fetch the selected categories from user input stored in Local storage
 function getURL() {
@@ -261,24 +183,7 @@ for (i = 0; i < 4; i++) {
     });
 }
 
-//Function to display Results on top Score page
-function displayTopScore() {
-    let result = document.querySelector("#result");
-    let username = localStorage.getItem("username");
-    let finalScore = localStorage.getItem("finalScore");
-    let totalQuestions = localStorage.getItem("totalQuestions");
-    document.querySelector("#score-box").innerHTML = `Hello ${username}, your score was ${finalScore} out of a possible ${totalQuestions*100}, you got ${finalScore/totalQuestions}% right`;
-    if ((finalScore / totalQuestions) == 100) {
-        result = ("Wow, great job!!! A perfect Score!");
-    } else if ((finalScore / totalQuestions) > 65 && (finalScore / totalQuestions) < 100) {
-        result.innerHTML = ("Really well done!");
-    } else if ((finalScore / totalQuestions) > 20 && (finalScore / totalQuestions) < 65) {
-        result.innerHTML = ("Better luck next time!");
-    } else {
-        result.innerHTML = ("Practice makes perfect...");
-    }
-    document.querySelector("#score-box").innerHTML = `Hello ${username}, your score was ${finalScore} out of a possible ${totalQuestions*100}, you got ${finalScore/totalQuestions}% right`;
-}
+
 
 //Function that fetches JSON file from assets, called if Fetch from URL is unsuccesful
 function getURL2() {
