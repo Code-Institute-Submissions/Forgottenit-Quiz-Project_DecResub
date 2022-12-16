@@ -10,7 +10,6 @@ let totalScore = document.querySelector(".score");
 let questionNumber = document.querySelector("#qNumber");
 let questionIndex = 0;
 let progressBar = document.getElementById("progress-bar");
-let fetchArray = [];
 let time = 15;
 let timeOut = setInterval(timer, 1000);
 let selectedAnswer = Array.from(document.querySelectorAll(".choice"));
@@ -91,10 +90,12 @@ function timer() {
             displayQuestions();
         }, 2000);
     }
+
 }
 
 //Function to display questions if there are Questions left in Array, if not, to go to final score page
 function displayQuestions() {
+
     if (questionIndex == AVAILABLEQUESTIONS.length) {
         localStorage.setItem("finalScore", score);
         localStorage.setItem("totalQuestions", AVAILABLEQUESTIONS.length);
@@ -108,6 +109,8 @@ function displayQuestions() {
     ANSWER3REF.innerHTML = AVAILABLEQUESTIONS[questionIndex].answers[2];
     ANSWER4REF.innerHTML = AVAILABLEQUESTIONS[questionIndex].answers[3];
     nextQuestion();
+
+
 }
 
 // Function to reset timer and update progress
@@ -118,37 +121,40 @@ function nextQuestion() {
     timeOut = setInterval(timer, 1000);
     timer();
     progressBar.value = questionIndex + 1;
-}
 
+}
+checkAnswer();
 /*Function to check answers vs correct answers in Array by comparing HTML and display to user
    and call displayIncorrect if the aswer is wrong and display to user 
 */
-for (i = 0; i < 4; i++) {
-    selectedAnswer[i].addEventListener("click", e => {
-        resetTimer();
-        let correct = AVAILABLEQUESTIONS[questionIndex].correctAnswer;
-        if (e.target.innerHTML == correct) {
-            score += 100;
-            e.target.style.background = "rgba(84, 234, 84, 0.8)";
-            e.target.classList.add("choice-hover");
-            setTimeout(() => {
-                e.target.style.background = "rgb(254, 241, 225)";
-                e.target.classList.remove("choice-hover");
-                questionIndex++;
-                displayQuestions();
-            }, 1000);
-        } else {
-            //Function to display correct and incorrect answers
-            displayIncorrect();
+function checkAnswer() {
+    for (i = 0; i < 4; i++) {
+        selectedAnswer[i].addEventListener("click", e => {
+            resetTimer();
+            let correct = AVAILABLEQUESTIONS[questionIndex].correctAnswer;
+            if (e.target.innerHTML == correct) {
+                score += 100;
+                e.target.style.background = "rgba(84, 234, 84, 0.8)";
+                e.target.classList.add("choice-hover");
+                setTimeout(() => {
+                    e.target.style.background = "rgb(254, 241, 225)";
+                    e.target.classList.remove("choice-hover");
+                    questionIndex++;
+                    displayQuestions();
+                }, 1000);
+            } else {
+                //Function to display correct and incorrect answers
+                displayIncorrect();
 
-            // increase question counter and call next question after delay
-            setTimeout(() => {
-                questionIndex++;
-                displayQuestions();
-            }, 2000);
+                // increase question counter and call next question after delay
+                setTimeout(() => {
+                    questionIndex++;
+                    displayQuestions();
+                }, 2000);
 
-        }
-    });
+            }
+        });
+    }
 }
 
 
@@ -187,7 +193,7 @@ function fetchWarning() {
     fetchwarningSpan.onclick = function () {
         // warning.style.display = "none";
         window.location.href = "quiz2.html";
-    }
+    };
 
     // Load back up quiz on user clicking window as Fetch has failed
     window.onclick = function (event) {
@@ -195,7 +201,7 @@ function fetchWarning() {
             // warning.style.display = "none";
             window.location.href = "quiz2.html";
         }
-    }
+    };
 }
 
 //Function to display correct Answer when timer runs out
@@ -220,7 +226,7 @@ function displayCorrect() {
                 answer.style.pointerEvents = "auto";
             }, 2000);
         }
-    })
+    });
 }
 
 //Function to display correct answers if user guesses incorrectly
@@ -245,5 +251,5 @@ function displayIncorrect() {
                 answer.style.pointerEvents = "auto";
             }, 2000);
         }
-    })
+    });
 }
