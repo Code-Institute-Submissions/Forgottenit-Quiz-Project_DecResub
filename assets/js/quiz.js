@@ -17,6 +17,7 @@ let selectedAnswer = Array.from(document.querySelectorAll(".choice"));
 
 
 
+
 //Function to return to homescreen and clear local Storage
 function homeClear() {
     localStorage.clear();
@@ -90,26 +91,7 @@ function timer() {
     if (time <= 0) {
         document.getElementById("timer").innerHTML = "Time Up!";
         resetTimer();
-        selectedAnswer.forEach(answer => {
-            answer.style.pointerEvents = "none";
-            if (answer.innerHTML == availableQuestions[questionIndex].correctAnswer) {
-                answer.style.color = "rgba(24, 164, 24, 0.9)";
-                answer.style.fontWeight = 900;
-                setTimeout(() => {
-                    answer.style.color = "black";
-                    answer.style.fontWeight = 600;
-                    answer.style.pointerEvents = "auto";
-                }, 3000);
-            } else {
-                answer.style.color = "rgba(245, 49, 49, 0.9)";
-                answer.style.fontWeight = 500;
-                setTimeout(() => {
-                    answer.style.color = "black";
-                    answer.style.fontWeight = 600;
-                    answer.style.pointerEvents = "auto";
-                }, 3000);
-            }
-        });
+        displayCorrect();
         setTimeout(() => {
             questionIndex++;
             displayQuestions();
@@ -148,7 +130,8 @@ function nextQuestion() {
 for (i = 0; i < 4; i++) {
     selectedAnswer[i].addEventListener("click", e => {
         resetTimer();
-        if (e.target.innerHTML == availableQuestions[questionIndex].correctAnswer) {
+        let correct = availableQuestions[questionIndex].correctAnswer;
+        if (e.target.innerHTML == correct) {
             score += 100;
             e.target.style.background = "rgba(84, 234, 84, 0.8)";
             e.target.classList.add("choice-hover");
@@ -159,6 +142,7 @@ for (i = 0; i < 4; i++) {
                 displayQuestions();
             }, 1000);
         } else {
+            // correct.innerHTML.style.color = "rgba(84, 234, 84, 0.8)";
             e.target.style.background = "rgba(245, 49, 49, 0.8)";
             e.target.classList.add("choice-hover");
             setTimeout(() => {
@@ -216,4 +200,29 @@ function fetchWarning() {
             window.location.href = "quiz2.html";
         }
     }
+}
+//Function to display correct Answer when timer runs out
+function displayCorrect() {
+    selectedAnswer.forEach(answer => {
+        answer.style.pointerEvents = "none";
+
+        let correct = availableQuestions[questionIndex].correctAnswer;
+        if (answer.innerHTML == correct) {
+            answer.style.color = "rgba(24, 164, 24, 0.9)";
+            answer.style.fontWeight = 900;
+            setTimeout(() => {
+                answer.style.color = "black";
+                answer.style.fontWeight = 600;
+                answer.style.pointerEvents = "auto";
+            }, 3000);
+        } else {
+            answer.style.color = "rgba(245, 49, 49, 0.9)";
+            answer.style.fontWeight = 500;
+            setTimeout(() => {
+                answer.style.color = "black";
+                answer.style.fontWeight = 600;
+                answer.style.pointerEvents = "auto";
+            }, 3000);
+        }
+    })
 }
