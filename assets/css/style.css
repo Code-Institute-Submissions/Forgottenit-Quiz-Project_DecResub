@@ -446,4 +446,10 @@
 
         font-size: 2vh;
     }
+
+    #quiz-choice {
+        text-align: center;
+        font-size: 4vh;
+        margin: 1rem;
+    }
 }
