@@ -177,25 +177,11 @@
     justify-content: space-between;
     align-items: center;
     align-content: center;
-    height: 10vh;
+    height: 11vh;
     border-radius: 8px;
     margin: 0 2px;
     font-size: 1.7vh;
 }
-
-
-
-/* .flex {
-    display: flex;
-    align-items: center;
-    align-content: center;
-    justify-content: center;
-    height: 10vh;
-    padding: 1rem 2rem;
-    border-radius: 8px;
-    margin: 0 2px;
-    font-size: 1.7vh;
-} */
 
 .nav-btns {
     background-color: rgb(230, 230, 206);
