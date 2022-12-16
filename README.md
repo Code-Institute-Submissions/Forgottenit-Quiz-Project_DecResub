@@ -173,25 +173,32 @@ The colour chosen was a gradient of Red and Green, with Greens and Reds picked f
 
 * This displays the users final score and gives a different message depending on how they did. The Message at the top gives a Rounded Percentage Score while the Message varies depending on how well they did. The Background Colour and the Font Colours change also, depending on how succesful the player was.
 
+<br>
+
 <img src = "DOCS/finalScore.png">
 
-<
+<br>
 
+* The Player then has the option to go back to the Home Page, Clearing their information, or Going back to Categories to Play Again.
 
-# Future Features 
--	Scores to be stored so a leadership board could be implemented
--	Multiple player options
+<br>
 
+## Future Features 
 
+<br>
 
+-	Scores to be stored so a leadership board could be implemented.
+-	Multiple player options (i.e. Have a Two Player Game, or Multiplayer).
+-   Have Different Options, such as two or false, or different difficulty levels.
+-   Have a hint option.
 
+<br>
 
- 
 # Technologies used
 ## Languages
-- HTML for structuring website
-- CSS for styling website
-- Java Script for functions
+- HTML for structuring the website
+- CSS for styling the website
+- Java Script for the functions
 
 ## Tools
 - GitPod and GitHub for Coding and Hosting the Website
@@ -201,31 +208,53 @@ The colour chosen was a gradient of Red and Green, with Greens and Reds picked f
 - https://jshint.com/ for validating JS
  
 # Testing
--	HTML
+-	HTML:
 No errors were returned when passing through the official W3C validator
-- CSS
+
+<img src = "DOCS/validatorHTML.png">
+
+- CSS:
 No errors were found when passing through the official (Jigsaw) validator
-- JS 
+
+<img src = "DOCS/validatorCSS.png">
+
+- JS:
 No errors when passed through JS hint
-- Manually tested to ensure all links worked, that scores displayed, timer worked, backup JSON file worked on "Fetch" failure, alerts worked if user tried to fetch too many categories, didn't enter a valid username.
+
 
 ## Lighthouse
 
- 
+- LightHouse Scores:
+
+<br>
+
+<img src = "DOCS/lighthouse.png">
+
+<br>
+
 # General Testing
 
 - After site was ran through w3 validators, the site was tested for functionality.
 - Functionality testing involved ensuring all links were active, that all user submission worked, displays worked correctly
-- Testing also involved general lay-out testing of alternate design choices before the ones used were settled upon.
-- Finally, testing also involved demonstration of the active site to mt CodeInstitute Mentor 
+- Testing also involved general lay-out testing of alternate design choices before the ones used were settled upon
+- The Site was Manually tested to ensure all Warning signs, Rules, Instructions etc. displayed correctly (see Images Above for Displays)
+- The Site was tested to ensure User Input had the desired effect in Usernames (Correct Warning), Answers Correct and Incorrect were displayed correctly and Reveal Answers/Time out displayed the Answers (See Images above for Displays)
+- The Site was tested using numbers, symbols, spaces, less than 3 letters and more than 10 letters in the Username input field to ensure the correct warninig was given
+- The site was tested by selecting Zero Categories and more than Five Categories to ensure correct warning was displayed.
+- The site was tested to ensure that the Categories gave the correct corresponding questions of that category
+- The site was tested to ensure the score was measured correctly and that once an answer was revealed the answer was no longet "Clickable"
+- The Site was tested by putting in a false Fetch URL to ensure that the warning and the fall back questions were loaded
+#### The Site was tested both through GitHub and on the deployed site [Online Quiz](https://forgottenit.github.io/Quiz-Project/index.html) on different screen sizes to ensure Media Queries and Animations worked correctly
+
 # Deployment
 Following writing the code then commiting and pushing to GitHub, this project was deployed using GitHub by the following steps.
 -	Navigate to the repository on github and click 'Settings'.
 -	Then select 'Pages' on the side navigation.
 -	Select the 'None' dropdown, and then click 'master'.
 -	Click on the 'Save' button.
--	Now the website is now live on  https://forgottenit.github.io/Online-Grinds/
+#### Now the website is now live on  [Online Quiz](https://forgottenit.github.io/Quiz-Project/index.html)
 -	If any changes are required, they can be done, commited and pushed to GitHub and the changes will be updated.
+#### The GitHub Link is [GitHub Quiz](https://github.com/Forgottenit/Quiz-Project)
 
 
  
@@ -241,4 +270,6 @@ Following writing the code then commiting and pushing to GitHub, this project wa
 -   https://ui.dev/amiresponsive? for README image 
 -	CodeInstitute
 -	W3Schools.com
+-   https://stackoverflow.com/
+-   https://bost.ocks.org/mike/shuffle/ for fisher-yates shuffle
 
