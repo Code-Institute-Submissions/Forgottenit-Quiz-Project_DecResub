@@ -47,6 +47,41 @@ The Goal of this site is to have a quiz from which the user may pick their own c
 
 
 # Design Choices
+
+## WireFrames
+
+- Home Page 
+
+<br>
+
+<img src = "DOCS/homeWireFrame.png">
+
+<br>
+
+- Categories 
+
+<br>
+
+<img src = "DOCS/categoriesWireFrame.png">
+
+<br>
+
+- Quiz 
+
+<br>
+
+<img src = "DOCS/quizWireFrame.png">
+
+<br>
+
+- Final Score
+
+<br>
+
+<img src = "DOCS/finalscoreWireFrame.png">
+
+<br>
+
 ## Fonts
 font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -206,6 +241,7 @@ The colour chosen was a gradient of Red and Green, with Greens and Reds picked f
 - LightHouse
 - https://validator.w3.org/ for validating site for HTML and CSS
 - https://jshint.com/ for validating JS
+- Balsamiq for WireFrames
  
 # Testing
 -	HTML:
