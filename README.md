@@ -1,6 +1,6 @@
-# Welcome to Online Quiz
+# Welcome to [Online Quiz](https://forgottenit.github.io/Quiz-Project/index.html)
 
-
+<img src = "DOCS/amIresponsive.png">
 
 # Goal
 The Goal of this site is to have a quiz from which the user may pick their own categories and play a multiple choice quiz. 
@@ -130,7 +130,7 @@ Following writing the code then commiting and pushing to GitHub, this project wa
 -   https://bost.ocks.org/mike/shuffle/ for fisher-yates shuffle 
  
 ## For content and style 
-t 
+-   https://ui.dev/amiresponsive? for README image 
 -	CodeInstitute
 -	W3Schools.com
 
