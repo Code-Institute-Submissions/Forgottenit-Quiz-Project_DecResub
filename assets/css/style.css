@@ -298,11 +298,11 @@
 /* Modal Content */
 .rules-content {
     position: relative;
-    background-color: #fefefe;
-    margin: auto;
+    background-color: rgb(243, 243, 242);
+    margin: 2rem;
     /* padding-left: 1rem;
     padding-right: 1rem; */
-    border: 1px solid #888;
+    border: 1px solid rgb(150, 149, 149);
     border-radius: 1rem;
     width: 90%;
     box-shadow: 0 1rem 2rem 0 rgba(0, 0, 0, 0.2), 0 1rem 2rem 0 rgba(0, 0, 0, 0.4);
@@ -311,7 +311,8 @@
     animation-name: popup;
     animation-duration: 1s;
     font-size: 2rem;
-    text-align: justify;
+    font-weight: 600;
+    /* text-align: */
 
 }
 
@@ -334,7 +335,7 @@
     }
 
     to {
-        top: 0;
+        top: 0rem;
         opacity: 1
     }
 }
@@ -355,7 +356,8 @@
     animation-name: dropdown;
     animation-duration: 1s;
     font-size: 2rem;
-    text-align: justify;
+    text-align: left;
+    font-weight: 600;
 
 }
 
@@ -367,7 +369,7 @@
     }
 
     to {
-        top: 0;
+        top: 0rem;
         opacity: 1
     }
 }
@@ -379,7 +381,7 @@
     }
 
     to {
-        bottom: 0;
+        bottom: 0rem;
         opacity: 1
     }
 }
@@ -390,8 +392,8 @@
 .close-fetchwarning {
     color: rgb(12, 12, 12);
     float: right;
-    font-size: 28px;
-    font-weight: bold;
+    font-size: 3rem;
+    font-weight: 900;
 }
 
 .close-warning:hover,
@@ -406,7 +408,7 @@
 }
 
 .warning-header {
-    /* padding: 2px 16px; */
+
     background: linear-gradient(225deg, rgba(248, 75, 75, 0.68), rgba(242, 3, 3, 0.9));
     color: white;
     border-radius: 1rem;
@@ -415,7 +417,7 @@
 
 
 .fetchwarning-header {
-    /* padding: 2px 16px; */
+
     background: linear-gradient(225deg, rgba(21, 151, 52, 0.68), rgba(243, 41, 41, 0.7));
     color: white;
     border-radius: 1rem;
@@ -423,16 +425,22 @@
 }
 
 .rules-header {
-    /* padding: 2px 16px; */
+
     background: linear-gradient(225deg, rgba(250, 49, 45, 0.8), rgba(15, 23, 250, 0.7));
     color: white;
     border-radius: 1rem;
     text-align: center;
+
 }
 
-.rules-body,
+
 .warning-body,
 .fetchwarning-body {
-    padding: 1rem 1rem;
+    padding: 1rem;
+    list-style-position: inside;
+}
+
+.rules-body {
+    padding: 1rem;
     list-style-position: inside;
 }
