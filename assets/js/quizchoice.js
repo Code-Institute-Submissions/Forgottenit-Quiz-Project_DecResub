@@ -20,7 +20,7 @@ function getCategories() {
 
 //Function to display category lists and split title if it contains ":" then display titles to user 
 function displayCategories() {
-    document.querySelector("#quiz-choice").innerHTML = (`Hello ${localStorage.getItem("username")}, please choose your categories (maximum of 5)`);
+    document.querySelector("#quiz-choice").innerHTML = (`Hello ${localStorage.getItem("username")}, Please choose your categories (maximum of 5)`);
     for (i = 0; i < 15; i++) {
         let categoryChoice = document.querySelector(".selection");
         let categories = document.createElement("input");
