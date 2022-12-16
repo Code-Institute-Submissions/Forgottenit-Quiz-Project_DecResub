@@ -3,16 +3,17 @@
 <img src = "DOCS/amIresponsive.png">
 
 # Goal
-The Goal of this site is to have a quiz from which the user may pick their own categories and play a multiple choice quiz. 
+The Goal of this site is to have a quiz from which the user may pick their own categories from a wide variety of options and play a multiple choice quiz. 
 
 # UX
 ## User Goals
--	Play a quiz that has a large varietu of options
+-	Play a quiz that has a large variety of options
 -	Be easy to use
 -	Display when the answer is correct
 -	Give an option to reveal the answers
 - 	Keep a track of your score
-
+-   Display Correct Answers if User gives incorrect answer
+-   Have Easy to Read instructions and Rules
 
 ## User Stories
 -	I want the site to have "replayability"
@@ -20,14 +21,15 @@ The Goal of this site is to have a quiz from which the user may pick their own c
 -   I want to have options of which categories I want to be asked about in the quiz
 -   I want variety
 -   I want to receive feedback once my answer has been submitted
--   Have a timer to make the game more competitive
+-   Have a timer to make the game more challenging
 
 
 ## Site owners Goals
 -	Offer a variety of questions
 -	Have a dynamically updated option of questions so players may replay it
--   Display in an appealing manner
--	Have backup questions if database is down
+-   Display questions and answers in an appealing manner
+-	Have backup questions if the database that questions are taken from is down
+-   Make the Game clear and Easy to play
 
 ## Requirements
 -	Easy to navigate on different devices
@@ -35,6 +37,8 @@ The Goal of this site is to have a quiz from which the user may pick their own c
 -	Track user entry and respond accordingly
 -	Follow a clear layout
 -	Keep score
+-   Time Each Question and respond if Timer Runs out
+-   Give the User the option to Reveal Answers
 ## Expectations
 -	All answers and options to display correctly
 -	Multiple options for the user
@@ -45,18 +49,72 @@ The Goal of this site is to have a quiz from which the user may pick their own c
 # Design Choices
 ## Fonts
 font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 font-style: oblique;
 
 I found these fonts to be neat and legible on different screens and are widely available
 ## Colours
 background: linear-gradient(75deg, rgba(250, 26, 48, 0.1), rgba(32, 159, 58, 0.1));
 
-The colour chosen was a gradient of Red and Green, with Greens and Reds picked for correct and incorrect answers as these would be standards expecting from the user. The background for answers is cream with black text to display text as it stands out.
+<img src = "DOCS/Home.png">
+
+The colour chosen was a gradient of Red and Green, with Greens and Reds picked for correct and incorrect answers as these would be standards expecting from the user. The background for answers is cream with black text to display text as it stands out. The Rules and Instructions are Blueish to Stand out from the Green and Red.
 
 
 
 # Features
 ## Existing Features
+
+<br>
+
+### Landing Page
+
+<br>
+
+* Once the user lands on the page they are shown an option to enter username, play and rules. These Buttons are designed to have a 3D effect with box shadowing to make them stand out and also to draw attention from the User.
+
+* The Username requires an input of letters only, a minimum of 3 letters, a maximum of 10. If the user enters an invalid username a warning is displayed.
+
+<br>
+
+<img src = "DOCS/usernameError.png">
+
+<br>
+
+* The User can also click on the "Rules" Button to get a brief summary of what to do.
+
+<br>
+
+<img src= "DOCS/rules.png">
+
+<br>
+
+* Once the User has Entered a Valid Username and they hit "Play", they are taken to the Category page.
+
+<br>
+
+### Categories
+
+<br>
+
+* The Site offers Users the change to choose up to five different Categories to select a total of 50 questions (This number was due to a maximum request of 50 questions per Fetch from Opentdb.com on their user guidelines). The site also offers a Backup set of 20 General Knowledge questions that load if the Fetch attempt fails. The user is shown a warning message beforehand. 
+
+<br>
+
+<img src = "DOCS/fetchError.png">
+
+<br>
+
+* The display of the Questions is then shown, with a menu on the top showing a progess bar, the users score and a timer. The Timer is set for 15 seconds per question.
+
+<br>
+
+<img src = "DOCS/questionDisplay.png">
+
+<br>
+
+* 
+
 ### Landing page
 The landing page displays the rules of the game and the game options, that the questions are multiple choice and that the user must ente a name (using letters) etc. There is then input for the user to enter a username and hit play
 ### Category Section
