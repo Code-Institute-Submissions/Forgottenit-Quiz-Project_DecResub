@@ -21,7 +21,7 @@ The Goal of this site is to have a quiz from which the user may pick their own c
 -   I want to have options of which categories I want to be asked about in the quiz
 -   I want variety
 -   I want to receive feedback once my answer has been submitted
--   Have a timer to make the game more challenging
+-   I want to have a timer to make the game more challenging
 
 
 ## Site owners Goals
@@ -39,6 +39,7 @@ The Goal of this site is to have a quiz from which the user may pick their own c
 -	Keep score
 -   Time Each Question and respond if Timer Runs out
 -   Give the User the option to Reveal Answers
+-   Ensure all links work, if not that the failsafe link works
 ## Expectations
 -	All answers and options to display correctly
 -	Multiple options for the user
@@ -93,7 +94,9 @@ background: linear-gradient(75deg, rgba(250, 26, 48, 0.1), rgba(32, 159, 58, 0.1
 
 <img src = "DOCS/Home.png">
 
-The colour chosen was a gradient of Red and Green, with Greens and Reds picked for correct and incorrect answers as these would be standards expecting from the user. The background for answers is cream with black text to display text as it stands out. The Rules and Instructions are Blueish to Stand out from the Green and Red.
+The colour scheme chosen was a gradient of Red and Green, with Greens and Reds picked for correct and incorrect answers as these would be standards, expected by the user (Green for Correct, Red for Incorrect). The background for answers is cream with black text to display text as it stands out. The Rules and Instructions are Blueish to Stand out from the Green and Red Options. 
+
+Warnings have Red Headers to signify they are important to the user.
 
 
 
@@ -132,13 +135,23 @@ The colour chosen was a gradient of Red and Green, with Greens and Reds picked f
 
 <br>
 
-* The Site displays a greeting message, using the Username stored in local storage, and offers Users the chance to choose up to five different Categories. This allows them to select a total of 50 questions (This number was due to a maximum request of 50 questions per Fetch from Opentdb.com on their user guidelines). 
-
-* The User also has the option to press the "Home" Button to return to the Home Screen. This clears the Local Storage also.
+* The Site displays a greeting message, using the Username stored in local storage, and offers Users the chance to choose up to five different Categories from a possible 15 options. This allows them to select a total of 50 questions (This number was due to a maximum request of 50 questions per Fetch from Opentdb.com on their user guidelines). 
 
 <br>
 
 <img src = "DOCS/categories.png">
+
+<br>
+
+* The User can Select the "Instructions" Button to give clarity on what to do
+
+<br>
+
+<img src = "DOCS/instructions.png">
+
+<br>
+
+* The User also has the option to press the "Home" Button to return to the Home Screen. This clears the Local Storage also.
 
 <br>
 
@@ -224,7 +237,7 @@ The colour chosen was a gradient of Red and Green, with Greens and Reds picked f
 
 -	Scores to be stored so a leadership board could be implemented.
 -	Multiple player options (i.e. Have a Two Player Game, or Multiplayer).
--   Have Different Options, such as two or false, or different difficulty levels.
+-   Have Different Options, such as true or false, or different difficulty levels.
 -   Have a hint option.
 
 <br>
