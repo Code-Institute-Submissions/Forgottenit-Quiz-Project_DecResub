@@ -14,12 +14,13 @@ function getUserName() {
 }
 
 
-//Function to Hide game rules
-function hideRules() {
-    rules.addEventListener("click", e => {
-        rules.style.display = "none";
-    });
-}
+// Function to Hide game rules
+
+// function hideRules() {
+//     rules.addEventListener("click", e => {
+//         window.location.href = "index.html";
+//     });
+// }
 
 function displayRules() {
     // Get the modal
@@ -34,8 +35,11 @@ function displayRules() {
 
     // rules.style.display = "block";
 
-    rulesSpan.onclick = function () {
-        rules.style.display = "none";
+    rulesSpan.onclick = function (e) {
+        if (e.target == rulesSpan) {
+            rules.style.display = "none";
+        }
+
     }
     window.onclick = function (event) {
         if (event.target == rules) {
@@ -58,11 +62,11 @@ function displayWarning() {
     // warningSpan.style.display = "block";
 
     warningSpan.onclick = function () {
-        warning.style.display = "none";
+        window.location.href = "index.html";
     }
     window.onclick = function (event) {
         if (event.target == warning) {
-            warning.style.display = "none";
+            window.location.href = "index.html";
         }
     }
 }
