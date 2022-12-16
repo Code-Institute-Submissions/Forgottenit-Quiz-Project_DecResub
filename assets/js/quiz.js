@@ -74,10 +74,10 @@ function resetTimer() {
 //Funtion to Set timer and call displayCorrect function if timer runs out
 function timer() {
     document.getElementById("timer").innerHTML = time + "s";
-    time--;
     if (time < 10) {
         document.getElementById("timer").innerHTML = "0" + time + "s";
     }
+    time--;
     document.querySelector("#skip").addEventListener("click", e => {
         time = 0;
     });

@@ -97,7 +97,17 @@ The colour chosen was a gradient of Red and Green, with Greens and Reds picked f
 
 <br>
 
-* The Site offers Users the change to choose up to five different Categories to select a total of 50 questions (This number was due to a maximum request of 50 questions per Fetch from Opentdb.com on their user guidelines). The site also offers a Backup set of 20 General Knowledge questions that load if the Fetch attempt fails. The user is shown a warning message beforehand. 
+* The Site displays a greeting message, using the Username stored in local storage, and offers Users the chance to choose up to five different Categories. This allows them to select a total of 50 questions (This number was due to a maximum request of 50 questions per Fetch from Opentdb.com on their user guidelines). 
+
+* The User also has the option to press the "Home" Button to return to the Home Screen. This clears the Local Storage also.
+
+<br>
+
+<img src = "DOCS/categories.png">
+
+<br>
+
+* The site also offers a Backup set of 20 General Knowledge questions that load if the Fetch attempt fails. The user is shown a warning message beforehand. 
 
 <br>
 
@@ -105,7 +115,23 @@ The colour chosen was a gradient of Red and Green, with Greens and Reds picked f
 
 <br>
 
-* The display of the Questions is then shown, with a menu on the top showing a progess bar, the users score and a timer. The Timer is set for 15 seconds per question.
+* If the User picks no Categories, or more than 5 categories, a warning is shown.
+
+<br>
+
+<img src = "DOCS/categoryWarning.png">
+
+<br>
+
+* Once the User is happy with their Category Choices, they can press "Start".
+
+<br>
+
+### Quiz Section
+
+<br>
+
+* The display for the Questions is then shown, with a menu on the top showing a progess bar, the amount of Questions, the users Score and a Timer. The Timer is set for 15 seconds per question. The progress bar fills as the player goes through each question, as does the question count. The timer counts down to Zero, then the answer is displayed.
 
 <br>
 
