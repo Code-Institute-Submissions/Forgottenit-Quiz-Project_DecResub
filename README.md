@@ -2,6 +2,40 @@
 
 <img src = "DOCS/amIresponsive.png">
 
+## Table Of Contents
+
+- [Goal](#goal)
+- [UX](#ux)
+  * [User Goals](#user-goals)
+  * [User Stories](#user-stories)
+  * [Site owners Goals](#site-owners-goals)
+  * [Requirements](#requirements)
+  * [Expectations](#expectations)
+- [Design Choices](#design-choices)
+  * [WireFrames](#wireframes)
+  * [Fonts](#fonts)
+  * [Colours](#colours)
+  * [Other Design Choices](#other-design-choices)
+- [Features](#features)
+  * [Existing Features](#existing-features)
+    + [Landing Page](#landing-page)
+    + [Categories](#categories)
+    + [Quiz Section](#quiz-section)
+    + [Score Page](#score-page)
+  * [Future Features](#future-features)
+- [Technologies used](#technologies-used)
+  * [Languages](#languages)
+  * [Tools](#tools)
+- [Testing](#testing)
+    + [Lighthouse](#lighthouse)
+    + [General Testing](#general-testing)
+      
+- [Deployment](#deployment)
+      
+- [Credits](#credits)
+  * [For coding help and advice](#for-coding-help-and-advice)
+  * [For content and style](#for-content-and-style)
+
 # Goal
 The goal of this site is to have a quiz from which the user may pick their categories from a wide variety of options and play a multiple-choice quiz. 
 
