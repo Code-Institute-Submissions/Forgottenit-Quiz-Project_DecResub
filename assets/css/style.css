@@ -120,6 +120,7 @@
     padding: 1rem;
     text-align: center;
     display: flex;
+    font-weight: 700;
 }
 
 .progressDisplay {
