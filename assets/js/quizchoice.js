@@ -31,9 +31,18 @@ function displayCategories() {
         categories.checked = false;
         // categoriesLabel.htmlFor = `${i+9}`;
         categoriesLabel.classList = "select flex";
-        categoriesLabel.innerHTML = (`${gameChoices[i].name}`);
+        // categoriesLabel.innerHTML = (`${gameChoices[i].name}`);
+        // console.log(`${gameChoices[i].name}`)
+        if (gameChoices[i].name.includes(":")) {
+            splitCategory = gameChoices[i].name.split(":");
+            newCategory = splitCategory[1]
+
+        } else newCategory = gameChoices[i].name;
+        console.log(newCategory);
+        categoriesLabel.innerHTML = (newCategory);
         categoriesLabel.appendChild(categories);
         categories.innerHTML = (`${gameChoices[i].id} ${gameChoices[i].name}`);
+        // categories.innerHTML = ("Hello")
         categoryChoice.appendChild(categoriesLabel);
     }
     changeURL();
