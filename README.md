@@ -98,6 +98,13 @@ The colour scheme chosen was a gradient of Red and Green, with Greens and Reds p
 
 Warnings have Red Headers to signify they are important to the user.
 
+### Other Design Choices
+
+- Timer is displayed as two digits (10s, 09s etc.) as the jump from 10 to 9 was a bit distracting
+- Different Font-Weights for Correct Answers, different Colours for Correct/ Incorrect/ Revealed Answers
+- Buttons Given Box Shading to give 3D aspect to make them appealing to click
+- Simple pastel Colours for background to Draw Focus to Questions and Answers
+
 
 
 # Features
