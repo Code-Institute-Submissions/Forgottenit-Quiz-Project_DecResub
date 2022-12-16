@@ -1,11 +1,11 @@
 //Value to check if something is a letter
-const regex = /^[a-zA-Z]+$/;
+const REGEX = /^[a-zA-Z]+$/;
 
 
 //Function to get and store Player Username
 function getUserName() {
-    let username = document.querySelector("#username")
-    if (10 >= username.value.length && username.value.length > 2 && username.value.match(regex)) {
+    let username = document.querySelector("#username");
+    if (10 >= username.value.length && username.value.length > 2 && username.value.match(REGEX)) {
         localStorage.setItem("username", username.value);
         window.location.href = "quizchoice.html";
     } else {
@@ -29,14 +29,14 @@ function displayRules() {
         if (e.target == rulesSpan) {
             rules.style.display = "none";
         }
-    }
+    };
 
     // Hide rules if user clicks window
     window.onclick = function (event) {
         if (event.target == rules) {
             rules.style.display = "none";
         }
-    }
+    };
 }
 
 // Function to display warning
@@ -52,12 +52,12 @@ function displayWarning() {
     // Hide warning if span/ "x" is clicked
     warningSpan.onclick = function () {
         window.location.href = "index.html";
-    }
+    };
 
     //Hide warning if window is clicked
     window.onclick = function (event) {
         if (event.target == warning) {
             window.location.href = "index.html";
         }
-    }
+    };
 }

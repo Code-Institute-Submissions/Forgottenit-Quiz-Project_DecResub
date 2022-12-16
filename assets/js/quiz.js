@@ -1,10 +1,10 @@
 //create required variables
-const questionRef = document.querySelector("#question");
-const answer1Ref = document.querySelector("#answer1");
-const answer2Ref = document.querySelector("#answer2");
-const answer3Ref = document.querySelector("#answer3");
-const answer4Ref = document.querySelector("#answer4");
-const availableQuestions = [];
+const QUESTIONREF = document.querySelector("#question");
+const ANSWER1REF = document.querySelector("#answer1");
+const ANSWER2REF = document.querySelector("#answer2");
+const ANSWER3REF = document.querySelector("#answer3");
+const ANSWER4REF = document.querySelector("#answer4");
+const AVAILABLEQUESTIONS = [];
 let score = 0;
 let totalScore = document.querySelector(".score");
 let questionNumber = document.querySelector("#qNumber");
@@ -55,9 +55,9 @@ function getURL() {
                         answers: [...q.incorrect_answers, q.correct_answer]
                     };
                 }));
-                availableQuestions.push(...questions);
-                shuffle(availableQuestions);
-                availableQuestions.forEach(element => {
+                AVAILABLEQUESTIONS.push(...questions);
+                shuffle(AVAILABLEQUESTIONS);
+                AVAILABLEQUESTIONS.forEach(element => {
                     shuffle(element.answers);
                 });
                 displayQuestions();
@@ -95,24 +95,24 @@ function timer() {
 
 //Function to display questions if there are Questions left in Array, if not, to go to final score page
 function displayQuestions() {
-    if (questionIndex == availableQuestions.length) {
+    if (questionIndex == AVAILABLEQUESTIONS.length) {
         localStorage.setItem("finalScore", score);
-        localStorage.setItem("totalQuestions", availableQuestions.length);
+        localStorage.setItem("totalQuestions", AVAILABLEQUESTIONS.length);
         window.location.href = "score.html";
     }
     totalScore.innerHTML = `Score: ${score}`;
-    questionNumber.innerHTML = ("Question: " + (questionIndex + 1) + "/" + (availableQuestions.length));
-    questionRef.innerHTML = availableQuestions[questionIndex].question;
-    answer1Ref.innerHTML = availableQuestions[questionIndex].answers[0];
-    answer2Ref.innerHTML = availableQuestions[questionIndex].answers[1];
-    answer3Ref.innerHTML = availableQuestions[questionIndex].answers[2];
-    answer4Ref.innerHTML = availableQuestions[questionIndex].answers[3];
+    questionNumber.innerHTML = ("Question: " + (questionIndex + 1) + "/" + (AVAILABLEQUESTIONS.length));
+    QUESTIONREF.innerHTML = AVAILABLEQUESTIONS[questionIndex].question;
+    ANSWER1REF.innerHTML = AVAILABLEQUESTIONS[questionIndex].answers[0];
+    ANSWER2REF.innerHTML = AVAILABLEQUESTIONS[questionIndex].answers[1];
+    ANSWER3REF.innerHTML = AVAILABLEQUESTIONS[questionIndex].answers[2];
+    ANSWER4REF.innerHTML = AVAILABLEQUESTIONS[questionIndex].answers[3];
     nextQuestion();
 }
 
 // Function to reset timer and update progress
 function nextQuestion() {
-    let amountQuestions = availableQuestions.length;
+    let amountQuestions = AVAILABLEQUESTIONS.length;
     progressBar.max = amountQuestions;
     resetTimer();
     timeOut = setInterval(timer, 1000);
@@ -126,7 +126,7 @@ function nextQuestion() {
 for (i = 0; i < 4; i++) {
     selectedAnswer[i].addEventListener("click", e => {
         resetTimer();
-        let correct = availableQuestions[questionIndex].correctAnswer;
+        let correct = AVAILABLEQUESTIONS[questionIndex].correctAnswer;
         if (e.target.innerHTML == correct) {
             score += 100;
             e.target.style.background = "rgba(84, 234, 84, 0.8)";
@@ -166,8 +166,8 @@ function getURL2() {
                     answers: [...q.incorrect_answers, q.correct_answer]
                 };
             }));
-            availableQuestions.push(...questions);
-            shuffle(availableQuestions);
+            AVAILABLEQUESTIONS.push(...questions);
+            shuffle(AVAILABLEQUESTIONS);
             displayQuestions();
         })
         .catch(err => fetchWarning());
@@ -202,7 +202,7 @@ function fetchWarning() {
 function displayCorrect() {
     selectedAnswer.forEach(answer => {
         answer.style.pointerEvents = "none";
-        let correct = availableQuestions[questionIndex].correctAnswer;
+        let correct = AVAILABLEQUESTIONS[questionIndex].correctAnswer;
         if (answer.innerHTML == correct) {
             answer.style.color = "rgba(24, 164, 24, 0.9)";
             answer.style.fontWeight = 900;
@@ -227,7 +227,7 @@ function displayCorrect() {
 function displayIncorrect() {
     selectedAnswer.forEach(answer => {
         answer.style.pointerEvents = "none";
-        let correct = availableQuestions[questionIndex].correctAnswer;
+        let correct = AVAILABLEQUESTIONS[questionIndex].correctAnswer;
         if (answer.innerHTML == correct) {
             answer.style.background = "rgba(24, 164, 24, 0.9)";
             answer.style.fontWeight = 900;
