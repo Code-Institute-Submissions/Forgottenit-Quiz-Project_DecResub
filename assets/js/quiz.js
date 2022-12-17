@@ -212,7 +212,7 @@ function displayCorrect() {
             answer.style.color = "rgba(24, 164, 24, 0.9)";
             answer.style.fontWeight = 900;
             setTimeout(() => {
-                answer.style.color = "black";
+                answer.style.color = "rgb(0, 0, 0)";
                 answer.style.fontWeight = 600;
                 answer.style.pointerEvents = "auto";
             }, 2000);
@@ -220,7 +220,7 @@ function displayCorrect() {
             answer.style.color = "rgba(245, 49, 49, 0.9)";
             answer.style.fontWeight = 500;
             setTimeout(() => {
-                answer.style.color = "black";
+                answer.style.color = "rgb(0, 0, 0)";
                 answer.style.fontWeight = 600;
                 answer.style.pointerEvents = "auto";
             }, 2000);
