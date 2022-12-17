@@ -430,12 +430,10 @@
 /* Display Category font in larger screens */
 @media screen and (min-width: 425px) {
     .flex {
-
         font-size: 2.4vh;
     }
 
     #quiz-choice {
-        text-align: center;
         font-size: 4vh;
         margin: 1rem;
     }
