@@ -77,7 +77,6 @@ function timer() {
     if (time < 10) {
         document.getElementById("timer").innerHTML = "0" + time + "s";
     }
-    time--;
     document.querySelector("#skip").addEventListener("click", e => {
         time = 0;
     });
@@ -90,7 +89,7 @@ function timer() {
             displayQuestions();
         }, 2000);
     }
-
+    time--;
 }
 
 //Function to display questions if there are Questions left in Array, if not, to go to final score page
