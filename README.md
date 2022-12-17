@@ -278,8 +278,9 @@ Warnings have Red Headers to signify they are important to the user.
 
 -	Scores to be stored so a leadership board could be implemented.
 -	Multiple player options (i.e. Have a Two Player Game, or Multiplayer).
--   Have Different Options, such as true or false, or different difficulty levels.
--   Have a hint option.
+- Have Different Options, such as true or false, or different difficulty levels.
+- Have a hint option.
+- Give the User more choices in the number of Questions
 
 <br>
 
